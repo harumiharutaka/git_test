@@ -1,0 +1,17 @@
+/* Mixin＆変数 */
+@use '../mixin' as mixin;
+@use '../setting' as setting;
+
+/* ヘッダー */
+.header{
+    display: flex;
+    justify-content: space-between;
+    h1{
+        color: rgb(255, 0, 0);
+    }
+    nav{
+        ul{
+            display: flex;
+        }
+    }
+}

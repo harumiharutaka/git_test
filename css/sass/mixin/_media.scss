@@ -1,0 +1,10 @@
+/* メディアクエリ */
+$breakpoint: (
+  sp: 'screen and (max-width: 900px)',
+  pc: 'screen and (min-width: 901px)'
+);
+@mixin media($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+   @content;
+  }
+}

@@ -1,0 +1,22 @@
+/* Mixin＆変数 */
+@use '../mixin' as mixin;
+@use '../setting' as setting;
+
+/* ベース */
+html{
+    font-size: 100%;
+}
+body{
+    font-family: YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+    line-height: setting.$base_line-height;
+    color: setting.$base_color;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+li{
+    list-style: none;
+}

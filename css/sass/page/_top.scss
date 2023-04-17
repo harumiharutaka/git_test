@@ -1,0 +1,25 @@
+/* Mixin＆変数 */
+@use '../mixin' as mixin;
+@use '../setting' as setting;
+
+/* トップページ */
+.top{
+    a {
+        color: #0000EE;
+        text-decoration: underline;
+    }
+
+    .header{
+        padding: 30px;
+    }
+    
+    .main{}
+
+    .media__inner{}
+
+    .media__body{}
+
+    .media__main{
+        padding: 30px;
+    }
+}
