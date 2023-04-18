@@ -1,23 +1,30 @@
-/* Mixin＆変数 */
-@use '../mixin' as mixin;
-@use '../setting' as setting;
+@use '../global' as g;
 
 /* ベース */
 html{
     font-size: 100%;
-    background-color: #fff1f1;
 }
+
 body{
     font-family: YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-    line-height: setting.$base_line-height;
-    color: setting.$base_color;
+    font-size: g.$font_size_md;
+    line-height: g.$line-height_base;
+    color: g.$color_text_base;
 }
+
 a{
     text-decoration: none;
 }
+
 img{
     max-width: 100%;
 }
+
 li{
     list-style: none;
+}
+
+/* 基本レイアウト */
+.wrapper{
+    min-height: 100vh;
 }

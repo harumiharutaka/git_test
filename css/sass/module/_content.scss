@@ -1,0 +1,15 @@
+@use '../global' as g;
+
+/* コンテンツ */
+.content{
+    margin: 0 0 20px;
+}
+
+.content_inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid g.$color_grey_light;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px 0 #00000016;
+}

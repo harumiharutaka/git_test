@@ -1,1 +1,1 @@
-alert("OK");
+console.log('JS test OK');

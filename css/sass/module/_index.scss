@@ -1,4 +1,8 @@
-/* 基本レイアウト */
-@forward 'wrapper';
+/* ヘッダー */
+@forward 'header';
 
-/* モジュール */
+/* フッター */
+@forward 'footer';
+
+/* コンテンツ */
+@forward 'content';
