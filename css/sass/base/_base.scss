@@ -10,6 +10,7 @@ body{
     font-size: g.$font_size_md;
     line-height: g.$line-height_base;
     color: g.$color_text_base;
+    min-height: 100vh;
 }
 
 a{
@@ -22,9 +23,4 @@ img{
 
 li{
     list-style: none;
-}
-
-/* 基本レイアウト */
-.wrapper{
-    min-height: 100vh;
 }

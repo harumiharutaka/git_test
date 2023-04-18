@@ -14,6 +14,7 @@ body {
   font-size: 1rem;
   line-height: 1.8;
   color: #333333;
+  min-height: 100vh;
 }
 
 a {
@@ -26,11 +27,6 @@ img {
 
 li {
   list-style: none;
-}
-
-/* 基本レイアウト */
-.wrapper {
-  min-height: 100vh;
 }
 
 /* ヘルパー */
@@ -907,22 +903,50 @@ li {
   font-size: 0.8rem;
 }
 
-/* コンテンツ */
-.content {
-  margin: 0 0 20px;
+/* レイアウト */
+/* ラッパー */
+/* コンテナ */
+.container--bg-gray {
+  background-color: #fafafa;
 }
 
-.content_inner {
+.container_inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 0;
+}
+.container:first-child .container_inner {
+  padding: 20px 0 40px;
+}
+
+/* コンテンツ */
+.content_inner {
+  margin-bottom: 40px;
+}
+.content:last-child .content_inner {
+  margin-bottom: 0;
+}
+
+/* ボックス */
+.box {
+  background-color: #ffffff;
   border: 1px solid #eeeeee;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.0862745098);
 }
 
+.box_inner {
+  padding: 20px;
+}
+
+.box_title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 /* ヘッダー */
 /* フッター */
+/* レイアウト */
 /* コンテンツ */
 /* トップページ */
 /* ページ */
