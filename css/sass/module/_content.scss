@@ -2,12 +2,11 @@
 
 /* コンテンツ */
 .content{
-}
-
-.content_inner{
-    margin-bottom: 40px;
-    .content:last-child &{
-        margin-bottom: 0;
+    &__inner{
+        margin-bottom: 40px;
+        .content:last-child &{
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -17,13 +16,13 @@
     border: 1px solid g.$color_grey_light;
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 #00000016;
-}
 
-.box_inner{
-    padding: 20px;
-}
-
-.box_title{
-    font-size:g.$font_size_xl;
-    font-weight: bold;
+    &__inner{
+        padding: 20px;
+    }
+    
+    &__title{
+        font-size:g.$font_size_xl;
+        font-weight: bold;
+    }
 }

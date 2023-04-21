@@ -2,14 +2,13 @@
 
 /* ヘッダー */
 .header{
-}
-
-.header_inner{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 0;
-}
-
-.header_title{
-    font-size: g.$font_size_xxxxl;
+    &__inner{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    
+    &__title{
+        font-size: g.$font_size_xxxxl;
+    }
 }

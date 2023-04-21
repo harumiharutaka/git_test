@@ -875,13 +875,12 @@ li {
 /* ベース */
 /* ヘルパー */
 /* ヘッダー */
-.header_inner {
+.header__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 0;
 }
-
-.header_title {
+.header__title {
   font-size: 2rem;
 }
 
@@ -892,14 +891,12 @@ li {
   width: 100%;
   background-color: #eeeeee;
 }
-
-.footer_inner {
+.footer__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 0;
 }
-
-.footer_text {
+.footer__text {
   font-size: 0.8rem;
 }
 
@@ -909,21 +906,20 @@ li {
 .container--bg-gray {
   background-color: #fafafa;
 }
-
-.container_inner {
+.container__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 0;
 }
-.container:first-child .container_inner {
+.container:first-child .container__inner {
   padding: 20px 0 40px;
 }
 
 /* コンテンツ */
-.content_inner {
+.content__inner {
   margin-bottom: 40px;
 }
-.content:last-child .content_inner {
+.content:last-child .content__inner {
   margin-bottom: 0;
 }
 
@@ -934,12 +930,10 @@ li {
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.0862745098);
 }
-
-.box_inner {
+.box__inner {
   padding: 20px;
 }
-
-.box_title {
+.box__title {
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -948,7 +942,7 @@ li {
 /* フッター */
 /* レイアウト */
 /* コンテンツ */
-/* トップページ */
+/* トップページ */ /* weather */
 /* ページ */
 /* ベース */
 /* モジュール */

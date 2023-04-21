@@ -11,13 +11,14 @@
     &--bg-gray{
         background-color: g.$color_light;
     }
-}   
 
-.container_inner{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
-    .container:first-child &{
+    &__inner{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+
+    &:first-child &__inner{
         padding: 20px 0 40px;
     }
 }
