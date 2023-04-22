@@ -946,10 +946,6 @@ li {
 /* コンテンツ */
 /* トップページ */
 /* weather */
-.weather {
-  color: #333333;
-  line-height: 1.4;
-}
 .weather .box--blue {
   background-color: #F7F9FB;
 }
@@ -957,6 +953,9 @@ li {
   max-width: 1080px;
   margin: 0 auto;
   font-family: noto-sans-cjk-jp, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333333;
 }
 .weather .forecast__title {
   display: flex;
@@ -1062,6 +1061,8 @@ li {
   color: #4A90E2;
 }
 .weather .forecast__precip {
+  max-width: 360px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -1069,7 +1070,7 @@ li {
 }
 .weather .forecast .precip {
   text-align: center;
-  width: 58px;
+  flex: 1;
   font-size: 16px;
 }
 .weather .forecast .precip__volume {

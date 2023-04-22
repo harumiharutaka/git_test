@@ -5,8 +5,6 @@
 
 /* weather */
 .weather{
-    color: #333333;
-    line-height: 1.4;
 
     .box--blue{
         background-color: #F7F9FB;
@@ -16,6 +14,9 @@
         max-width: 1080px;
         margin: 0 auto;
         font-family: noto-sans-cjk-jp, sans-serif;
+        font-size: 16px;
+        line-height: 1.4;
+        color: #333333;
 
         &__title{
             display: flex;
@@ -138,6 +139,8 @@
         }
 
         &__precip{
+            max-width: 360px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
             gap: 8px;
@@ -146,7 +149,7 @@
 
         .precip{
             text-align: center;
-            width: 58px;
+            flex: 1;
             font-size: 16px;
 
             &__date{
