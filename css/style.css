@@ -975,10 +975,10 @@ li {
   margin: 0 20px 0 20px;
 }
 @media screen and (min-width: 901px) {
-  .content__inner {
+  .content__inner--column-left {
     margin: 0 240px 40px 20px;
   }
-  .content:last-child .content__inner {
+  .content:last-child .content__inner--column-left {
     margin: 0 240px 0 20px;
   }
 }
@@ -1053,16 +1053,6 @@ li {
 /*********************************
     トップページ
 *********************************/
-@media screen and (min-width: 901px) {
-  .weather .content__inner {
-    margin: 0 20px 40px 20px;
-  }
-}
-@media screen and (min-width: 901px) {
-  .weather .content:last-child .content__inner {
-    margin: 0 20px 0 20px;
-  }
-}
 .weather .content-box--blue {
   background-color: #F7F9FB;
 }
