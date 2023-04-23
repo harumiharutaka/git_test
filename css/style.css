@@ -918,6 +918,7 @@ li {
 }
 .header__inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   height: 100%;
@@ -933,6 +934,30 @@ li {
 }
 .header__link:hover, .header__link:focus {
   opacity: 0.8;
+}
+/*********************************
+    ヘッダーナビゲーション
+*********************************/
+.header-nav__inner {
+  display: flex;
+  gap: 10px;
+}
+.header-nav__link {
+  display: block;
+  padding: 3px 15px 7px;
+  line-height: 1;
+  color: #333333;
+}
+.header-nav__link:hover, .header-nav__link:focus {
+  opacity: 0.8;
+}
+.header-nav__link--active {
+  background-color: #333333;
+  border-radius: 100px;
+  color: #ffffff;
+}
+.header-nav__link--active:hover, .header-nav__link--active:focus {
+  opacity: 1;
 }
 
 /*********************************
@@ -1044,6 +1069,7 @@ li {
 }
 
 /* ヘッダー */
+/* ヘッダーナビゲーション */
 /* フッター */
 /* コンテナ */
 /* コンテンツ */

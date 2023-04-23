@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>git_test js-test</title>
+  <meta name="description" content="">
+  
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <style>
+    .js-test .js-test__trigger a {
+      display: inline-block;
+      border: 1px solid #3f86b6;
+      border-radius: 3px;
+      padding: 5px 10px;
+      color: #3f86b6;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    }
+    .js-test .js-test__trigger a:hover {
+      background-color: #e5f5ff;
+    }
+    .js-test .js-test__unit {
+      margin-top: 50px;
+    }
+    .js-test .js-test__unit li {
+      margin-top: 5px;
+      max-width: 150px;
+      border: 1px solid #3f86b6;
+      border-radius: 3px;
+      color: #3f86b6;
+      text-align: center;
+    }
+    .js-test .js-test__unit li.red {
+      background-color: #f1bfbf;
+    }
+    .js-test .js-test__unit li.green {
+      background-color: #c5f1bf;
+    }
+    .js-test .js-test__unit li.blue {
+      background-color: #c7bff1;
+    }
+    .js-test .js-test__unit li.yellow {
+      background-color: #f1ecbf;
+    }
+    .js-test .js__unit__second {
+      opacity: 1;
+      line-height: 1.8;
+      overflow: hidden;
+      transition: 0.5s;
+    }
+    .js-test .js__unit__second.close {
+      opacity: 0;
+      line-height: 0;
+    }
+  </style>
+  
+</head>
+
+<body class="js-test">
+
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__title">git_test weather</h1>
+    </div>
+  </header><!-- /.header -->
+
+  <main class="wrapper">
+
+    <article class="container">
+      <div class="container__inner">
+
+        <section class="content">
+          <div class="content__inner">
+            <div class="content-box">
+              <div class="content-box__inner">
+                
+                <div class="js-test__trigger">
+                  <a class="js__trigger__r">リセット</a>
+                  <a class="js__trigger__1">red1をyellowに変える</a>
+                  <a class="js__trigger__2">リスト2を隠す</a>
+                </div>
+                <ul class="js-test__unit js__unit__first">
+                  <p>リスト1</p>
+                  <li class="red js__red">red1</li>
+                  <li class="green js__green">green1</li>
+                  <li class="blue js__blue">blue1</li>
+                </ul>
+                <ul class="js-test__unit js__unit__second">
+                  <p>リスト2</p>
+                  <li class="red js__red">red2</li>
+                  <li class="green js__green">green2</li>
+                  <li class="blue js__blue">blue2</li>
+                </ul>
+                <p style="font-size: 0.8rem; margin-top: 40px;">
+                  クラスの取得法<br>
+                  document.getElementsByClassName('title')[0];<br>
+                  document.querySelector(".title");
+                  document.querySelectorAll(".title");
+                </p>
+                
+              </div>
+            </div>
+          </div>
+        </section><!-- /.content -->
+
+      </div>
+    </article><!-- /.container -->
+
+  </main><!-- /.wrapper -->
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__text">comic-school.jp</p>
+    </div>
+  </footer><!-- /.footer -->
+
+  <script>
+    let triggerR = document.getElementsByClassName("js__trigger__r")[0];
+    let trigger1 = document.getElementsByClassName("js__trigger__1")[0];
+    let trigger2 = document.getElementsByClassName("js__trigger__2")[0];
+    let first = document.getElementsByClassName("js__unit__first")[0];
+    let second = document.getElementsByClassName("js__unit__second")[0];
+    let red1 = first.getElementsByClassName("js__red")[0];
+    let green1 = first.getElementsByClassName("js__green")[0];
+    let blue1 = first.getElementsByClassName("js__blue")[0];
+    let red2 = second.getElementsByClassName("js__red")[0];
+    let green2 = second.getElementsByClassName("js__green")[0];
+    let blue2 = second.getElementsByClassName("js__blue")[0];
+
+    triggerR.onclick = function() {
+      window.location.reload(true);
+    }
+    
+    trigger1.onclick = function() {
+      red1.classList.add("yellow")
+      red1.classList.remove("red")
+      red1.textContent = 'yellow';
+    }
+
+    trigger2.onclick = function() {
+      second.classList.toggle('close')
+    }
+  </script>
+
+</body>
+
+</html>
