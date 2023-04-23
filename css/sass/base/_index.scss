@@ -1,5 +1,8 @@
-/* ベース */
+/* 基本設定 */
 @forward 'base';
 
-/* ヘルパー */
+/* ヘルパークラス */
 @forward 'helper';
+
+/* 外部ファイル */
+@forward 'import';

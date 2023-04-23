@@ -1,26 +1,17 @@
 @use '../global' as g;
 
 /*********************************
-    レイアウト
+    コンテナ
 *********************************/
 
-/* ラッパー */
-.wrapper{
-}
-
-/* コンテナ */
 .container{
     &--bg-gray{
         background-color: g.$color_light;
     }
 
     &__inner{
-        max-width: 1200px;
+        max-width: g.$content_width;
         margin: 0 auto;
         padding: 40px 0;
-    }
-
-    &:first-child &__inner{
-        padding: 20px 0 40px;
     }
 }

@@ -5,13 +5,32 @@
 *********************************/
 
 .header{
+    position: fixed;
+    width: 100%;
+    height: g.$header_height;
+    z-index: g.$z_index_header;
+    background-color: rgba(#ffffff,.95);
+    box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
+
     &__inner{
-        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        max-width: g.$content_width;
+        height: 100%;
         margin: 0 auto;
-        padding: 10px;
+        padding: 0 10px;
     }
     
     &__title{
-        font-size: g.$font_size_xxxxl;
+        font-size: g.$font_size_lg;
+        line-height: 1;
+    }
+
+    &__link{
+        color: g.$color_black_light;
+
+        &:hover,&:focus {
+            opacity: 0.8;
+        }
     }
 }

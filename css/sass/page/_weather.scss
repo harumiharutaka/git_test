@@ -8,7 +8,21 @@
 
 .weather{
 
-    .box--blue{
+    .content__inner{
+        @include g.media(pc){
+            margin: 0 20px 40px 20px;
+        }
+    }
+
+    .content:last-child{
+        .content__inner{
+            @include g.media(pc){
+                margin: 0 20px 0 20px;
+            }
+        }
+    }
+
+    .content-box--blue{
         background-color: #F7F9FB;
     }
 
@@ -18,6 +32,7 @@
         font-family: noto-sans-cjk-jp, sans-serif;
         font-size: 16px;
         line-height: 1.4;
+        letter-spacing: 0;
         color: #333333;
 
         &__title{

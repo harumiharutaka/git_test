@@ -4,8 +4,17 @@
 /* フッター */
 @forward 'footer';
 
-/* レイアウト */
-@forward 'layout';
+/* コンテナ */
+@forward 'container';
 
 /* コンテンツ */
 @forward 'content';
+
+/* コンテンツボックス */
+@forward 'content-box';
+
+/* 見出し */
+@forward 'heading';
+
+/* 右カラム */
+@forward 'column-right';

@@ -11,7 +11,7 @@
     background-color: g.$color_grey_light;
 
     &__inner{
-        max-width: 1200px;
+        max-width: g.$content_width;
         margin: 0 auto;
         padding: 10px;
     }
