@@ -8,10 +8,10 @@
     &--bg-gray{
         background-color: g.$color_light;
     }
+}
 
-    &__inner{
-        max-width: g.$content_width;
-        margin: 0 auto;
-        padding: 40px 0;
-    }
+.container__inner{
+    max-width: g.$content_width;
+    margin: 0 auto;
+    padding: 40px 0;
 }

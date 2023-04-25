@@ -6,30 +6,44 @@
 
 /* CSS基本ルール */
 
-1.CSS設計は「BEM（.Block__Element--modifier）」を採用
-2.Sassは「Dart Sass」を採用
-3.Sassのコンパイルは「gulp」を使用（ターミナルで「npx gulp」と入力すれば起動）
-4.複数の単語はケバブケース（class-name）で表記する
-5.JavaScript用の命名は「js-name」のように接頭辞「js-」をつける
-6.基本的に子孫セレクタを使用しない
-7.font-sizeは「rem」で指定する
-8.z-indexは変数管理する（「$z_index_header」等）
+1.CSS設計は「BEM」を採用
+2.命名規則は「MindBEMding（.Block__Element--Modifier）」を採用
+3.modifierのキーと値はハイフンで繋ぐ（key-val）
+4.複数単語は「ハイフンケース（multi-word）」で記載する
+5.Sassは「Dart Sass」を採用
+6.Sassのコンパイルは「gulp」を使用（ターミナルで「npx gulp」と入力すれば起動）
+7.JavaScriptの命名は接頭辞「js_」をつけ「スネークケース」で記載する（js_multi-word_multi-word）
+8.基本的に子孫セレクタは使用しない
+9.font-sizeは「rem」で指定する
+10.z-indexは変数管理する（「$z_index_header」等）
 
 
 
 /* Sassネスト構成 */
 
-1.「__Element」「--modifier」を「&」でネストする
+1.「__Element」を「&」でネストしない
+2.「__Modifier」は「&」でネストする
+3.疑似クラス,疑似要素は「&」でネストする
 
 .Block {
-    &--modifier {
-        
+    &--Modifier {
     }
-    
-    &__Element {
-        &--modifier {
 
-        }
+    &:hover {
+    }
+
+    &::before {
+    }
+}
+
+.Block__Element {
+    &--Modifier {
+    }
+
+    &:hover {
+    }
+
+    &::before {
     }
 }
 
@@ -37,7 +51,7 @@
 
 /* Sassディレクトリ構成 */
 
-sass
+scss
 　┣━ style.scss
 　┣━ base //基本設定などを格納
 　┃　　┣━ _index.scss

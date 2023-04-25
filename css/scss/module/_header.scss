@@ -1,0 +1,40 @@
+@use '../global' as g;
+
+/*********************************
+    ヘッダー
+*********************************/
+
+.header{
+    position: fixed;
+    width: 100%;
+    height: g.$header_height;
+    z-index: g.$z_index_header;
+    background-color: rgba(#ffffff,.95);
+    box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: g.$content_width;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header__title{
+    font-size: g.$font_size_lg;
+    line-height: 1;
+}
+
+.header__link{
+    color: g.$color_black_light;
+
+    &:hover,&:focus {
+        opacity: 0.8;
+    }
+}
+
+.header__nav{
+}

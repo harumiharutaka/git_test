@@ -1,0 +1,34 @@
+@use '../global' as g;
+
+/*********************************
+    ヘッダーナビゲーション
+*********************************/
+
+.header-nav{
+}
+
+.header-nav__inner{
+    display: flex;
+    gap: 10px;
+}
+
+.header-nav__link{
+    display: block;
+    padding: 3px 15px 7px;
+    line-height: 1;
+    color: g.$color_black_light;
+
+    &:hover,&:focus {
+        opacity: 0.8;
+    }
+
+    &--active{
+        background-color: g.$color_black_light;
+        border-radius: 100px;
+        color: g.$color_white;
+
+        &:hover,&:focus {
+            opacity: 1;
+        }
+    }
+}

@@ -9,15 +9,15 @@
     border: 1px solid g.$color_grey_light;
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
+}
 
-    &__inner{
-        padding: 20px;
-    }
-    
-    &__heading{
-        margin-bottom: 10px;
-    }
+.content-box__inner{
+    padding: 20px;
+}
 
-    &__content{
-    }
+.content-box__heading{
+    margin-bottom: 10px;
+}
+
+.content-box__content{
 }

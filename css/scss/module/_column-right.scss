@@ -15,19 +15,19 @@
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
 
-    &__inner{
-        padding: 20px;
-    }
-
-    &__link{
-        color: g.$color_black_light;
-
-        &:hover,&:focus {
-            opacity: 0.8;
-        }
-    }
-
     @include g.media(pc){
         display: block;
+    }
+}
+
+.column-right__inner{
+    padding: 20px;
+}
+
+.column-right__link{
+    color: g.$color_black_light;
+
+    &:hover,&:focus {
+        opacity: 0.8;
     }
 }

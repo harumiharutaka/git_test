@@ -916,6 +916,7 @@ li {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
+
 .header__inner {
   display: flex;
   justify-content: space-between;
@@ -925,16 +926,19 @@ li {
   margin: 0 auto;
   padding: 0 10px;
 }
+
 .header__title {
   font-size: 1.2rem;
   line-height: 1;
 }
+
 .header__link {
   color: #333333;
 }
 .header__link:hover, .header__link:focus {
   opacity: 0.8;
 }
+
 /*********************************
     ヘッダーナビゲーション
 *********************************/
@@ -942,6 +946,7 @@ li {
   display: flex;
   gap: 10px;
 }
+
 .header-nav__link {
   display: block;
   padding: 3px 15px 7px;
@@ -969,11 +974,13 @@ li {
   width: 100%;
   background-color: #eeeeee;
 }
+
 .footer__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
 }
+
 .footer__text {
   font-size: 0.8rem;
 }
@@ -984,6 +991,7 @@ li {
 .container--bg-gray {
   background-color: #fafafa;
 }
+
 .container__inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -1017,12 +1025,15 @@ li {
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
+
 .content-box__inner {
   padding: 20px;
 }
+
 .content-box__heading {
   margin-bottom: 10px;
 }
+
 /*********************************
     見出し
 *********************************/
@@ -1053,19 +1064,21 @@ li {
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
+@media screen and (min-width: 901px) {
+  .column-right {
+    display: block;
+  }
+}
+
 .column-right__inner {
   padding: 20px;
 }
+
 .column-right__link {
   color: #333333;
 }
 .column-right__link:hover, .column-right__link:focus {
   opacity: 0.8;
-}
-@media screen and (min-width: 901px) {
-  .column-right {
-    display: block;
-  }
 }
 
 /* ヘッダー */
@@ -1177,22 +1190,22 @@ li {
   gap: 16px;
   margin-top: 36px;
 }
-.weather .forecast .temp {
+.weather .temp {
   text-align: center;
 }
-.weather .forecast .temp__celsius {
+.weather .temp--max {
+  color: #FF0000;
+}
+.weather .temp--min {
+  color: #4A90E2;
+}
+.weather .temp__celsius {
   font-size: 20px;
   font-weight: bold;
 }
-.weather .forecast .temp__between {
+.weather .temp__between {
   font-size: 16px;
   margin-top: 4px;
-}
-.weather .forecast .temp--max {
-  color: #FF0000;
-}
-.weather .forecast .temp--min {
-  color: #4A90E2;
 }
 .weather .forecast__precip {
   max-width: 360px;
@@ -1202,12 +1215,12 @@ li {
   gap: 8px;
   margin-top: 23px;
 }
-.weather .forecast .precip {
+.weather .precip {
   text-align: center;
   flex: 1;
   font-size: 16px;
 }
-.weather .forecast .precip__volume {
+.weather .precip__volume {
   margin-top: 2px;
 }
 

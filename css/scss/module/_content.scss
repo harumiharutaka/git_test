@@ -1,0 +1,25 @@
+@use '../global' as g;
+
+/*********************************
+    コンテンツ
+*********************************/
+
+.content{
+}
+
+.content__inner{
+    margin: 0 20px 40px 20px;
+    
+    .content:last-child &{
+        margin: 0 20px 0 20px;
+    }
+
+    &--column-left{
+        @include g.media(pc){
+            margin: 0 240px 40px 20px;
+            .content:last-child &{
+                margin: 0 240px 0 20px;
+            }
+        }
+    }
+}

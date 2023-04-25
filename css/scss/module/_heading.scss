@@ -1,0 +1,24 @@
+@use '../global' as g;
+
+/*********************************
+    見出し
+*********************************/
+
+.heading{
+}
+
+.heading__page{
+}
+
+.heading__content{
+    font-size:g.$font_size_xl;
+    font-weight: bold;
+    &::after{
+        content: "";
+        display: block;
+        height: 2px;
+        width: 4rem;
+        background-color: g.$color_black_light;
+        border-radius: 100px;
+    }
+}
