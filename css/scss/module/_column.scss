@@ -1,10 +1,10 @@
 @use '../global' as g;
 
 /*********************************
-    コンテナ
+    カラム
 *********************************/
 
-.column-right{
+.column{
     display: none;
     position: absolute;
     top: calc(g.$header_height + 40px);
@@ -20,14 +20,39 @@
     }
 }
 
-.column-right__inner{
+.column__inner{
     padding: 20px;
 }
 
-.column-right__link{
+
+.column__link-wrapper{
+    &--heading{
+        margin: 15px 0 5px;
+    
+        &:first-child{
+            margin: 0 0 5px;
+        }
+    }
+}
+
+.column__link{
     color: g.$color_black_light;
 
     &:hover,&:focus {
         opacity: 0.8;
+    }
+
+    .column__link-wrapper--heading &{
+        display: inline-block;
+        font-weight: bold;
+
+        &::after{
+            content: "";
+            display: block;
+            height: 1px;
+            width: 6rem;
+            background-color: g.$color_black_light;
+        }
+
     }
 }

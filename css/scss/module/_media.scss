@@ -1,0 +1,48 @@
+@use '../global' as g;
+
+/*********************************
+    メディア
+*********************************/
+
+.media{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.media__body{
+    flex: 1;
+}
+
+.media__title{
+    margin-bottom: 10px;
+}
+
+.media__text{
+    word-break:break-all
+}
+
+.media__img-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include g.media(pc){
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &::after{
+            content: "";
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+}
+
+.media__img{
+    width: 100%;
+    max-width: 400px;
+}

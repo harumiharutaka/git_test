@@ -14,8 +14,9 @@
 6.Sassのコンパイルは「gulp」を使用（ターミナルで「npx gulp」と入力すれば起動）
 7.JavaScriptの命名は接頭辞「js_」をつけ「スネークケース」で記載する（js_multi-word_multi-word）
 8.基本的に子孫セレクタは使用しない
-9.font-sizeは「rem」で指定する
-10.z-indexは変数管理する（「$z_index_header」等）
+9.Blockの閉じタグには極力コメント「<!-- /.class-name -->をつける」
+10.font-sizeは「rem」で指定する
+11.z-indexは変数管理する（「$z_index_header」等）
 
 
 

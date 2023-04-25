@@ -13,11 +13,14 @@
 /* コンテンツ */
 @forward 'content';
 
+/* カラム */
+@forward 'column';
+
 /* コンテンツボックス */
 @forward 'content-box';
 
+/* メディア */
+@forward 'media';
+
 /* 見出し */
 @forward 'heading';
-
-/* 右カラム */
-@forward 'column-right';
