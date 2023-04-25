@@ -5,6 +5,8 @@
 *********************************/
 
 .container{
+    display: block;
+    
     &--bg-gray{
         background-color: g.$color_light;
     }
