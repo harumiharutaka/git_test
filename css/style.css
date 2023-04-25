@@ -1150,7 +1150,7 @@ li {
 /*********************************
     トップページ
 *********************************/
-.weather .box--blue {
+.weather .content__box--blue {
   background-color: #F7F9FB;
 }
 .weather .forecast {

@@ -14,7 +14,7 @@
 6.Sassのコンパイルは「gulp」を使用（ターミナルで「npx gulp」と入力すれば起動）
 7.JavaScriptの命名は接頭辞「js_」をつけ「スネークケース」で記載する（js_multi-word_multi-word）
 8.基本的に子孫セレクタは使用しない
-9.Blockの閉じタグには極力コメント「<!-- /.class-name -->をつける」
+9.Blockの閉じタグには極力コメント「<!-- /.class-name -->」をつける
 10.font-sizeは「rem」で指定する
 11.z-indexは変数管理する（「$z_index_header」等）
 
@@ -61,8 +61,9 @@ scss
 　┃　　┗━ _import.scss //外部ファイル
 　┣━ global //mixin,変数などを格納
 　┃　　┣━ _index.scss
-　┃　　┣━ _mixins.scss //mixin
+　┃　　┣━ _media.scss //メディアクエリ
 　┃　　┗━ _valiables.scss //変数
+　┃　　　　　：
 　┣━ module //コンポーネントとして使うBlockを格納
 　┃　　┣━ _index.scss
 　┃　　┣━ _header.scss //ヘッダー
