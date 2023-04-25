@@ -1067,16 +1067,16 @@ li {
 }
 
 /*********************************
-    コンテンツボックス
+    ボックス
 *********************************/
-.content-box {
+.box {
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
-.content-box__inner {
+.box__inner {
   padding: 20px;
 }
 
@@ -1148,13 +1148,13 @@ li {
 /* コンテナ */
 /* コンテンツ */
 /* カラム */
-/* コンテンツボックス */
+/* ボックス */
 /* メディア */
 /* 見出し */
 /*********************************
     トップページ
 *********************************/
-.weather .content-box--blue {
+.weather .box--blue {
   background-color: #F7F9FB;
 }
 .weather .forecast {
