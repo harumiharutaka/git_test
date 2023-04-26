@@ -1,0 +1,72 @@
+@use '../global' as g;
+
+/*********************************
+    トップページ
+*********************************/
+
+.note{
+    .index{
+        &--title{
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        &--first{
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        &--second{
+            margin-left: 1rem;
+        }
+        
+        &--third{
+            margin-left: 2rem;
+        }
+        
+        &--fourth{
+            margin-left: 3rem;
+        }
+
+        &--link{
+        }
+    }
+
+    .index-description {
+        font-size: 0.8em;
+        color: #666666;
+        margin-bottom: 5px;
+    }
+
+    .comment{
+        display: inline-block;
+        font-size: 0.9rem;
+        background-color: #fafafa;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        margin: 5px 0;
+        padding: 10px;
+
+        &--second{
+            margin-left: 1.5rem;
+        }
+        
+        &--third{
+            margin-left: 2.5rem;
+        }
+        
+        &--fourth{
+            margin-left: 3.5rem;
+        }
+    }
+
+    .comment__code{
+        display: block;
+        font-size: 0.9rem;
+        background-color: #333333;
+        border-radius: 4px;
+        padding: 5px 10px;
+        color: #ffffff;
+    }
+}

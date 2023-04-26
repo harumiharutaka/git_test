@@ -957,14 +957,6 @@ li {
 .header-nav__link:hover, .header-nav__link:focus {
   opacity: 0.8;
 }
-.header-nav__link--active {
-  background-color: #333333;
-  border-radius: 100px;
-  color: #ffffff;
-}
-.header-nav__link--active:hover, .header-nav__link--active:focus {
-  opacity: 1;
-}
 
 /*********************************
     フッター
@@ -1010,7 +1002,7 @@ li {
 }
 @media screen and (min-width: 901px) {
   .content__inner--column-left {
-    margin: 0 240px 0 20px;
+    margin: 0 260px 0 20px;
   }
 }
 
@@ -1034,7 +1026,7 @@ li {
   position: absolute;
   top: calc(3rem + 40px);
   right: max(20px, (100% - 1200px) / 2 + 20px);
-  width: 180px;
+  width: 200px;
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   border-radius: 4px;
@@ -1150,6 +1142,59 @@ li {
 /*********************************
     トップページ
 *********************************/
+/*********************************
+    トップページ
+*********************************/
+.note .index--title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.note .index--first {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.note .index--second {
+  margin-left: 1rem;
+}
+.note .index--third {
+  margin-left: 2rem;
+}
+.note .index--fourth {
+  margin-left: 3rem;
+}
+.note .index-description {
+  font-size: 0.8em;
+  color: #666666;
+  margin-bottom: 5px;
+}
+.note .comment {
+  display: inline-block;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  margin: 5px 0;
+  padding: 10px;
+}
+.note .comment--second {
+  margin-left: 1.5rem;
+}
+.note .comment--third {
+  margin-left: 2.5rem;
+}
+.note .comment--fourth {
+  margin-left: 3.5rem;
+}
+.note .comment__code {
+  display: block;
+  font-size: 0.9rem;
+  background-color: #333333;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
+
 .weather .content__box--blue {
   background-color: #F7F9FB;
 }
@@ -1283,6 +1328,7 @@ li {
 }
 
 /* トップページ */
+/* note */
 /* weather */
 /* ベース */
 /* モジュール */

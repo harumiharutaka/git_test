@@ -21,14 +21,4 @@
     &:hover,&:focus {
         opacity: 0.8;
     }
-
-    &--active{
-        background-color: g.$color_black_light;
-        border-radius: 100px;
-        color: g.$color_white;
-
-        &:hover,&:focus {
-            opacity: 1;
-        }
-    }
 }
