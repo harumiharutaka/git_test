@@ -102,43 +102,203 @@
                   <p class="index index--third">保守できる</p>
                   <p class="index index--third">拡張できる</p>
                   <p class="index index--second">2-5 CSS設計の実践と8つのポイント</p>
+                  <p class="comment comment--second">
+                    この章は「悪いコード」を改善していきながら解説している
+                  </p>
                   <p class="index index--third">1.特性に応じてCSSを分類する</p>
+                  <p class="comment comment--third">
+                    「body{font-family:sans-serif}」サイト共通なのでベースグループに記載する<br>
+                    「.ly-cont」コンテンツエリア全体のレイアウトグループに分ける<br>
+                    「.bl_module」サイト内全体で使いまわすことを想定したモジュールグループを作成する<br>
+                    （モジュール自体にはレイアウトに関する指定は基本的に行わない）
+                  </p>
                   <p class="index index--third">2.HTMLとスタイリングが疎結合である</p>
+                  <p class="comment comment--third">
+                    「#main div.bl_module.main-module h2」要素型セレクターはHTMLと密結合なので<br>
+                    「#main .bl_module.main-module .title」クラスセレクターに変えて疎結合にする
+                  </p>
                   <p class="index index--third">3.影響範囲がみだりに広すぎない</p>
+                  <p class="comment comment--third">
+                    「#main .bl_module.main-module span」#main spanが明らかに過激<br>
+                    「#main .bl_module.main-module .body > span」としてスコープを絞る（最適解はクラスを設定する）<br>
+                    （・スコープ[影響範囲]を絞れないか検討する・影響範囲の広いCSSは最小限に留める）
+                  </p>
                   <p class="index index--third">4.特定のコンテキストにみだりに依存していない</p>
+                  <p class="comment comment--third">
+                    「#main .bl_module.main-module」だと#mainの中でないと動かない<br>
+                    「.bl_module.main-module」にしてコンテキストに依存しないようにし、使い回せるようにする
+                  </p>
                   <p class="index index--third">5.詳細度がみだりに高くない</p>
+                  <p class="comment comment--third">
+                    セレクターはクラスセレクターを使用する（IDは使用しない）<br>
+                    「.bl_module.main-module」クラスが無駄に複数ついてると詳細度が高くなるので、<br>
+                    「.bl_module」にする
+                  </p>
                   <p class="index index--third">6.クラス名から影響範囲が想像できる</p>
+                  <p class="comment comment--third">
+                    HTMLだけ見て予想した影響範囲が。CSSでのスタイリングと一致している状態が理想<br>
+                    「.title」だと見た目の影響範囲が広すぎるので、モジュールのルート要素のクラス名を継承させて「.bl_module_title」とする、逆に「.sub-title」は他の箇所でも使えるようそのままにする
+                  </p>
                   <p class="index index--third">7.クラス名から見た目・機能・役割が想像できる</p>
+                  <p class="comment comment--third">
+                    「.bl_module」のクラス名を再考<br>
+                    「.bl_aboutService」「.bl_aboutMedia」「.bl_service」「.bl_media」「.bl_imgTitileTexit」の選択しから<br>
+                    名前から見た目・機能・役割が想像でき、具体性と汎用性のバランスが取れているものとして<br>
+                    「.bl_media」を新しいクラス名とする
+                  </p>
                   <p class="index index--third">8.拡張しやすい</p>
+                  <p class="comment comment--third">
+                    マルチクラス設計をする（「.el_btn .hp_theme 」のようにデザインと色を分けるなど）<br>
+                    変更・上書きはモディフィアを使う（「.blmedia__rev」の追加でモジュールを左右反転させるなど）<br>
+                    一つのプロパティを変更するためのクラスはヘルパークラスと言う（「.hp_textBlack」「.mb20」など）
+                  </p>
                   <p class="index index--second">2-6 モジュールの粒度を考える</p>
                   <p class="index index--third">改めてモジュールとは.</p>
                   <p class="index index--third">モジュールの粒度のばらつきが引き起こす問題</p>
+                  <p class="comment comment--third">
+                    二人以上の人間が関わる場合、粒度の認識がずれていると問題が起こる可能性がある
+                  </p>
                   <p class="index index--third">モジュール粒度の指針</p>
+                  <p class="comment comment--third">
+                    最小モジュールと複合モジュールの入れ子構造と考える（ボタンとそれを含むメディアなど）
+                  </p>
                   <p class="index index--second">2-7 CSS設計の必要性</p>
                   <p class="index index--first">Chapter3 さまざまな設計手法</p>
                   <p class="index index--second">3-1 本Chapterの解説の前提</p>
                   <p class="index index--second">3-2 OOCSS</p>
                   <p class="index index--third">ストラクチャーとスキンの分離</p>
+                  <p class="comment comment--third">
+                    色の違う二つのボタンは「.btn」「.general」「.warning」のようにボタンの基本形状と共通してない部分に分ける
+                  </p>
                   <p class="index index--third">コンテナとコンテンツの分離</p>
+                  <p class="comment comment--third">
+                    「#main .btn」だとコンテキストに依存しているので「.btn」にする
+                  </p>
                   <p class="index index--third">OOCSSのまとめ</p>
                   <p class="index index--second">3-3 SMACSS</p>
                   <p class="index index--third">ベースルール</p>
+                  <p class="comment comment--third">
+                    サイトの基本設定は要素型セレクターなどにまとめる
+                  </p>
                   <p class="index index--third">レイアウトルール</p>
+                  <p class="comment comment--third">
+                    サイトの大枠を構成する大きなモジュールは「.l-header」のように「l-」を付けたクラスに記載する、また、特定の状況でレイアウトが変更になる場合は「.l-narrow .l-header」のように子孫セレクターを使って上書きする
+                  </p>
                   <p class="index index--third">モジュールルール</p>
+                  <p class="comment comment--third">
+                    要素をセマンティック性を高めるためにクラスセレクターで記載するスタイルを上書きするサブクラスは場所や順序を入れ替えても破綻しないように設定する
+                  </p>
                   <p class="index index--third">ステートルール</p>
+                  <p class="comment comment--third">
+                    既存のスタイルを上書きするものだがモジュールのサブクラスと違い、レイアウトやモジュールに割り当てることができ、JavaScriptに依存するそのため、クラス名にモジュール名を含めて専用だということを分かりやすくする
+                  </p>
                   <p class="index index--third">テーマルール</p>
+                  <p class="comment comment--third">
+                    サイト内のレイアウトや色、テキスト処理を一定の法則に従い上書きする大規模なテーマを作成する場合は、対象モジュールには「theme-」の接頭語を付ける
+                  </p>
                   <p class="index index--third">SMACSSのまとめ</p>
                   <p class="index index--second">3-4 BEM</p>
+                  <p class="comment comment--second">
+                    BEMとは「Block__Element_Modifier」の略、3つの要素をまとめて「BEMエンティティ」と呼ぶ                   
+                  </p>
                   <p class="index index--third">BEMの基本</p>
+                  <p class="comment comment--third">
+                    ・要素型やIDは使用せず、クラスセレクターを使用し、詳細度は均一にする<br>
+                    ・クラス名は半角英数字の小文字、複数単語はハイフンでつなぐ（「global-navi」など）                    
+                  </p>
                   <p class="index index--third">Block の基本</p>
+                  <p class="comment comment--third">
+                    Block（論理的かつ機能的に独立したページモジュール）<br>
+                    ・Block自体にレイアウトに関するスタイリングをしてはいけない（レイアウトはMixを使う）<br>
+                    ・クラス名は「それが何なのか」を表す単語をつける（×：red-text、〇：error）
+                  </p>
                   <p class="index index--third">Elementの基本</p>
+                  <p class="comment comment--third">
+                    Element（Blockを構成し、Blockの外では独立して使用できないもの）<br>
+                    ・Blockと同じく「それが何なのか」を表す単語をつける<br>
+                    　（×：menu__brown, menu__bold、〇：menu__item）<br>
+                    ・Elementのネスト<br>
+                    　・Elementの中にElementがネストされた命名をしてはいけない<br>
+                    　　（×：「.menu__item__link{…}」、〇「.menu__item{…} .menu__link{…}」）<br>
+                    　・CSSは子（孫）セレクターは使用せず、詳細度を均一に保つ<br>
+                    　　（×：「.menu{…} .menu .menu__item{…}」、〇「.menu{...} .menu__item{…}」）<br>
+                    　・HTMLではElement（.menu__item）の中にElement（.menu__link）がネストしても良く、上限もない<br>
+                    ・Elementは必ずBlock内に配置し、Block外で独立して使用してはいけない<br>
+                    ・Elementはなくてもよい（Blockの中にBlockをネストしても良い）<br>
+                    ・Elementの数が多く複雑になる場合は、ElementをBlockに昇華させ整理させるのも一つの方法<br>
+                    　（「&lt;a class=”menu__btn”&gt;&lt;span class=”menu__icon”&gt;&lt;/span&gt;&lt;/a&gt;」を「&lt;a class=”btn”&gt;&lt;span class=”btn__icon”&gt;&lt;/span&gt;&lt;/a&gt;」にする）
+                  </p>
                   <p class="index index--third">Modifierの基本</p>
+                  <p class="comment comment--third">
+                    Modifier（BlockもしくはElementの見た目や状態、振る舞いを定義するもの）<br>
+                    ・単独で使用することはできず、必ずBlockかElementがある状態で、二つ目以降のクラス名として付ける<br>
+                    　（×：「class=”button_size_s”」、〇：「class=”button button_size_s”」）<br>
+                    ・Modifierの命名は「それがどうであるか」を重視する（概ね下記の3パターンのどれかに該当する）<br>
+                    　・見た目－どんなサイズか？どの色か？どのテーマに属するか？など（「size_s」「theme_caution」）<br>
+                    　・状態－他のBlock（またはElement）と比べて何が違うか？など（「disabled」「focused」「actived」）<br>
+                    　・振る舞い‐それがどのように振る舞うか？など（「directions_right-to-left」「position-botttom-right」）<br>
+                    ・Modifierは「真偽値」と「キーと値のペア」の二つのタイプに分けられる<br>
+                    　・真偽値／1語で完結する、状態に関する指定のものが多いタイプ（「disabled」「focused」「actived」）<br>
+                    　・キーと値のペア／「何が」「どう」であるかを示すタイプ（「size_s」「theme_caution」「text_large」）<br>
+                    ・HTMLではModifier付加の数に上限はない、ただし同じスタイルを上書きするModifierは付けられない<br>
+                    ・Modifierの責任範囲はクラス名から想像できるようにする<br>
+                    　（.button_bg-color_redにwidthやcolorを入れて責任とクラス名が一致しない、widthはsizeキーを持つModifierに、colorを入れるならクラス名を.button_theme_cautionにする）<br>
+                    ・クラスが増えた場合、子（孫）セレクターを使用して、一つのModifierで複数の要素を変更することが可能<br>
+                    　（ボタンの背景色が赤になれば文字色が白になるのはおそらくセットとなる挙動なので、次のように記す、<br>
+                    　「.button_theme_caution{background-color:red;}」「.button_theme_caution .button__text{color:#fff;}」）<br>
+                    　（ただし詳細度を高めてしまうので使用は最小限に）
+                  </p>
                   <p class="index index--third">Blockのネスト</p>
+                  <p class="comment comment--third">
+                    ・Blockは、他のあらゆるBlockの中にネストして配置することができる、このネストの数には上限はない<br>
+                    　（ヘッダーBlockの中にメニュー、ロゴ、検索、認証など各種Blockが埋め込める）
+                  </p>
                   <p class="index index--third">Mix</p>
-                  <p class="index index--third">Mix では対処できない場合</p>
+                  <p class="comment comment--third">
+                    Mix（単一のDOMノードに、異なるBEMエンティティが複数付与されたインスタンス）<br>
+                    ・一つのHTML要素に、役割の異なる複数のクラスが付いている状態<br>
+                    &lt;header class=”head”&gt;<br>
+                    　&lt;div class=”menu head__menu”&gt;…&lt;/div&gt;<br>
+                    　&lt;div class=”logo head__logo”&gt;…&lt;/div&gt;<br>
+                    　&lt;form class=”search head__search”&gt;…&lt;/form&gt;<br>
+                    　&lt;form class=”auth head__auth”&gt;…&lt;/form&gt;<br>
+                    &lt;/header&gt;<br>
+                    ・スタイリングはMixで行う<br>
+                    　（「.head__menu{margin-right:30px;}」）<br>
+                    　（上記はBlockとElementのMixだが、BlockとBlockや、ElementとElementのMixも可能）<br>
+                    ・MixかModifierか<br>
+                    　・Mixを使う場合：レイアウト（他の要素との位置関係を調整する）に絡む変更の場合<br>
+                    　・Modifierを使う場合：レイアウトではなく、そのBlockまたはElement内で完結する変更の場合<br>
+                    ・グループセレクターの代わりにMixを<br>
+                    　（×：ヘッダーに「.header」フッターに「.footer」、CSSを「.header,.hooter{fontsize:14px;color:#000;}」）<br>
+                    　（〇：ヘッダーに「.header.text」フッターに「.footer.text」、CSSを「.text{fontsize:14px;color:#000;}」Mixにすれば「.header{fontsize:16px;」のようにヘッダーだけスタイリングを変えるのも容易）<br>
+                    ・ただし、無理にMixを使って不具合が起こるようなら、グループセレクターやModifier（「class=”header text text_size_l」）で記載した方が良い
+                  </p>
+                  <p class="index index--third">Mixでは対処できない場合</p>
+                  <p class="comment comment--third">
+                    ・Mixは「一つのHTML要素に、役割の異なる複数のクラスが付いている状態」なので、スタイルが衝突したり、見た目的にボックスの中に配置したいなど都合が悪い場合があるそのような場合は「button__inner」のような新たなElementでネストすると解決できる<br>
+                    &lt;button class=”button”&gt;<br>
+                    　&lt;span class=”button__inner”&gt;&lt;!-- 新たなElementのspanで囲う --&gt;<br>
+                    　　&lt;span class=”icon”&gt;&lt;/span&gt;<br>
+                    　&lt;/span&gt;<br>
+                    &lt;/span&gt;<br>
+                    ・CMSでブログを書く時などは「.blog-post p」のように要素型セレクターを含むことも許容している
+                  </p>
                   <p class="index index--third">Modifier名は省略してはいけない</p>
+                  <p class="comment comment--third">
+                    ・クラス名が長くなったとしても「詳細度が増す、見分けがつかない、検索しづらい」の3つの理由からModifierは省略してはいけない<br>
+                    ・ヘルパークラスは問題なく使える（「.w200」「.mb10」など）
+                  </p>
                   <p class="index index--third">BEMのその他の命名規則</p>
+                  <p class="comment comment--third">
+                    ・MindBEMdingは本来の命名規則よりも広く使われている<br>
+                    　（「.block-name__elem-name—mod-name (--val)」）<br>
+                    　（「.button--size--s」から「.button--s」のようにキーは省略することもできる）
+                  </p>
                   <p class="index index--third">BEMのまとめ</p>
+                  <p class="comment comment--third">
+                    ・Blockは一つ一つがなるべく小さくなるように分割し、Blockを積極的に再利用するようにする
+                  </p>
                   <p class="index index--second">3-5 PRECSS</p>
                   <p class="index index--third">基本的な指針</p>
                   <p class="index index--third">ベースグループ</p>
@@ -314,7 +474,10 @@
           <a class="column__link" href="note_book_wordpress_2.html">書籍 wordpress 2</a>
         </li>
         <li class="column__link-wrapper">
-          <a class="column__link" href="note_progate_php1.html">progate php1</a>
+          <a class="column__link" href="note_progate_php1.html">progate phpⅠ</a>
+        </li>
+        <li class="column__link-wrapper">
+          <a class="column__link" href="note_gulp-memo.html">gulpメモ</a>
         </li>
         <li class="column__link-wrapper column__link-wrapper--heading">
           <a class="column__link" href="archive.html">archive</a>

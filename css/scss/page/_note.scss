@@ -66,7 +66,13 @@
         font-size: 0.9rem;
         background-color: #333333;
         border-radius: 4px;
+        margin-top: 5px;
         padding: 5px 10px;
         color: #ffffff;
+    }
+
+    .comment__strong{
+        font-weight: normal;
+        background:linear-gradient(transparent 60%, #ffff64 60%);
     }
 }
