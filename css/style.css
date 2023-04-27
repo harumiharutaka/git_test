@@ -1200,16 +1200,16 @@ li {
   background: linear-gradient(transparent 60%, #ffff64 60%);
 }
 
-.weather .content__box--blue {
+.js-weather .content__box--blue {
   background-color: #F7F9FB;
 }
-.weather .forecast {
+.js-weather .forecast {
   font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0;
   color: #333333;
 }
-.weather .forecast__title {
+.js-weather .forecast__title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1217,7 +1217,7 @@ li {
   font-weight: bold;
   margin-bottom: 32px;
 }
-.weather .forecast__title::after {
+.js-weather .forecast__title::after {
   content: "";
   width: 80px;
   height: 8px;
@@ -1225,95 +1225,95 @@ li {
   border-radius: 100px;
   background: linear-gradient(to right, #15D6E6, #05A9F4, #005BBE);
 }
-.weather .forecast__content {
+.js-weather .forecast__content {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 @media screen and (min-width: 901px) {
-  .weather .forecast__content {
+  .js-weather .forecast__content {
     flex-direction: row;
     gap: 16px;
   }
 }
-.weather .forecast__day {
+.js-weather .forecast__day {
   background-color: #FFFFFF;
   border-radius: 7px;
   overflow: hidden;
 }
 @media screen and (min-width: 901px) {
-  .weather .forecast__day--today {
+  .js-weather .forecast__day--today {
     width: calc(60% - 7px);
   }
 }
 @media screen and (min-width: 901px) {
-  .weather .forecast__day--tomorrow {
+  .js-weather .forecast__day--tomorrow {
     width: 40%;
   }
 }
-.weather .forecast__day--week {
+.js-weather .forecast__day--week {
   background-color: #F7F9FB;
 }
 @media screen and (min-width: 901px) {
-  .weather .forecast__day--week {
+  .js-weather .forecast__day--week {
     flex: 1;
   }
 }
-.weather .forecast__head {
+.js-weather .forecast__head {
   padding: 21px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
-.weather .forecast__head--today {
+.js-weather .forecast__head--today {
   background-color: #E7F0FC;
   color: #4A90E2;
 }
-.weather .forecast__head--tomorrow {
+.js-weather .forecast__head--tomorrow {
   background-color: #E4E4E4;
 }
-.weather .forecast__head--week {
+.js-weather .forecast__head--week {
   background-color: #E7F0FC;
   color: #4A90E2;
 }
-.weather .forecast__data {
+.js-weather .forecast__data {
   padding: 24px;
   color: #424242;
 }
-.weather .forecast__condition {
+.js-weather .forecast__condition {
   display: flex;
   justify-content: center;
   font-size: 16px;
 }
-.weather .forecast__image {
+.js-weather .forecast__image {
   display: flex;
   justify-content: center;
   margin-top: 18px;
 }
-.weather .forecast__temp {
+.js-weather .forecast__temp {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin-top: 36px;
 }
-.weather .temp {
+.js-weather .temp {
   text-align: center;
 }
-.weather .temp--max {
+.js-weather .temp--max {
   color: #FF0000;
 }
-.weather .temp--min {
+.js-weather .temp--min {
   color: #4A90E2;
 }
-.weather .temp__celsius {
+.js-weather .temp__celsius {
   font-size: 20px;
   font-weight: bold;
 }
-.weather .temp__between {
+.js-weather .temp__between {
   font-size: 16px;
   margin-top: 4px;
 }
-.weather .forecast__precip {
+.js-weather .forecast__precip {
   max-width: 360px;
   margin: 0 auto;
   display: flex;
@@ -1321,12 +1321,12 @@ li {
   gap: 8px;
   margin-top: 23px;
 }
-.weather .precip {
+.js-weather .precip {
   text-align: center;
   flex: 1;
   font-size: 16px;
 }
-.weather .precip__volume {
+.js-weather .precip__volume {
   margin-top: 2px;
 }
 

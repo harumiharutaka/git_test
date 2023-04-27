@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>git_test</title>
+  <meta name="description" content="">
+
+  <!-- ファビコン -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- OGP -->
+  <meta property="og:url" content="https://comic-school.jp/test/git_test/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="git_test">
+  <meta property="og:description" content="harumiharutakaのtestページ">
+  <meta property="og:site_name" content="comic-school">
+  <meta property="og:image" content="https://comic-school.jp/test/git_test/img/no-image.jpg">
+  
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/22eeb3d0d6.js" crossorigin="anonymous"></script>
+
+  <!-- 検索エンジンにインデックスさせない -->
+  <meta name="robots" content="noindex">
+</head>
+
+<body class="js-weather">
+
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__title">
+        <a class="header__link" href="index.html">git_test</a>
+      </h1>
+      <div class="header__nav">
+        <nav class="header-nav">
+          <ul class="header-nav__inner">
+            <li>
+              <a class="header-nav__link" href="index.html">top</a>
+            </li>
+            <li>
+              <a class="header-nav__link" href="note.html">note</a>
+            </li>
+            <li>
+              <a class="header-nav__link" href="archive.html">archive</a>
+            </li>
+          </ul>
+        </nav><!-- /.header-nav -->
+      </div>
+    </div>
+  </header><!-- /.header -->
+
+  <div class="wrapper">
+
+    <main>
+
+      <artcile class="container">
+        <div class="container__inner">
+  
+          <section class="content">
+            <div class="content__inner">
+              <div class="content__box content__box--blue">
+                
+                <div class="forecast">
+
+                  <div class="forecast__title">
+                    今日/明日の天気
+                  </div>
+  
+                  <div class="forecast__content">
+  
+                    <div class="forecast__day forecast__day--today">
+                      <div class="forecast__head forecast__head--today">
+                        今日の天気
+                      </div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day1">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day1" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day1">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day1">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day1">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day1">[-]</div>
+                          </div>
+                        </div>
+                        <div class="forecast__precip">
+                          <div class="precip precip--head">
+                            <div class="precip__time">
+                              時間
+                            </div>
+                            <div class="precip__volume">
+                              降水
+                            </div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              0-6時
+                            </div>
+                            <div class="precip__volume js_precip_volume_0-6_day1">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              6-12時
+                            </div>
+                            <div class="precip__volume js_precip_volume_6-12_day1">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              12-18時
+                            </div>
+                            <div class="precip__volume js_precip_volume_12-18_day1">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              18-24時
+                            </div>
+                            <div class="precip__volume js_precip_volume_18-24_day1">--%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                    <div class="forecast__day forecast__day--tomorrow">
+                      <div class="forecast__head forecast__head--tomorrow">
+                        明日の天気
+                      </div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day2">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day2" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day2">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day2">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day2">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day2">[-]</div>
+                          </div>
+                        </div>
+                        <div class="forecast__precip">
+                          <div class="precip precip--head">
+                            <div class="precip__time">
+                              時間
+                            </div>
+                            <div class="precip__volume">
+                              降水
+                            </div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              0-6時
+                            </div>
+                            <div class="precip__volume js_precip_volume_0-6_day2">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              6-12時
+                            </div>
+                            <div class="precip__volume js_precip_volume_6-12_day2">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              12-18時
+                            </div>
+                            <div class="precip__volume js_precip_volume_12-18_day2">--%</div>
+                          </div>
+                          <div class="precip">
+                            <div class="precip__time">
+                              18-24時
+                            </div>
+                            <div class="precip__volume js_precip_volume_18-24_day2">--%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                  </div><!-- /.forecast__content -->
+  
+                </div><!-- /.forecast -->             
+
+              </div>
+            </div>
+          </section><!-- /.content -->
+
+          <section class="content">
+            <div class="content__inner">
+              <div class="content__box">
+
+                <div class="forecast">
+
+                  <div class="forecast__title">
+                    今週の天気
+                  </div>
+  
+                  <div class="forecast__content js_forecast_content">
+  
+                    <div class="forecast__day forecast__day--week">
+                      <div class="forecast__head forecast__head--week js_forecast_head_day3">-月-日（-）</div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day3">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day3" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day3">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day3">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day3">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day3">[-]</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                    <div class="forecast__day forecast__day--week">
+                      <div class="forecast__head forecast__head--week js_forecast_head_day4">-月-日（-）</div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day4">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day4" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day4">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day4">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day4">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day4">[-]</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                    <div class="forecast__day forecast__day--week">
+                      <div class="forecast__head forecast__head--week js_forecast_head_day5">-月-日（-）</div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day5">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day5" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day5">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day5">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day5">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day5">[-]</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                    <div class="forecast__day forecast__day--week">
+                      <div class="forecast__head forecast__head--week js_forecast_head_day6">-月-日（-）-</div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day6">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day6" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day6">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day6">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day6">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day6">[-]</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                    <div class="forecast__day forecast__day--week">
+                      <div class="forecast__head forecast__head--week js_forecast_head_day7">-月-日（-）</div>
+                      <div class="forecast__data">
+                        <div class="forecast__condition js_forecast_condition_day7">-</div>
+                        <div class="forecast__image">
+                          <img class="js_forecast_img_day7" src="img/weather/img_loader.svg">
+                        </div>
+                        <div class="forecast__temp">
+                          <div class="temp">
+                            <div class="temp__celsius temp--max js_temp_celsius_max_day7">--℃</div>
+                            <div class="temp__between temp--max js_temp_between_max_day7">[-]</div>
+                          </div>
+                          <div class="temp">
+                            <div class="temp__celsius temp--min js_temp_celsius_min_day7">--℃</div>
+                            <div class="temp__between temp--min js_temp_between_min_day7">[-]</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.forecast__day -->
+  
+                  </div>
+                
+                </div><!-- /.forecast -->
+
+              </div>
+            </div>
+          </section><!-- /.content -->
+  
+        </div>
+      </artcile><!-- /.container -->
+
+    </main>
+
+  </div><!-- /.wrapper -->
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__text">comic-school.jp</p>
+    </div>
+  </footer><!-- /.footer -->
+
+  <script src="js/weather/weather.js" type="module"></script>
+
+</body>
+
+</html>
