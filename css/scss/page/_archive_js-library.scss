@@ -1,13 +1,10 @@
 @use '../global' as g;
 
 /*********************************
-    weather
+    archive js-library
 *********************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-.js-weather{
-
+.weather{
     .content__box--blue{
         background-color: #F7F9FB;
     }
