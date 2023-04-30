@@ -72,148 +72,169 @@
           <section class="content">
             <div class="content__inner content__inner--column-left">
               <div class="content__box">
-                <p class="index index--title">CSS設計完全ガイド 詳細解説＋実践的モジュール集
-                  <p class="index index--first">Chapter1 CSSの歴史と問題点</p>
-                  <p class="index index--second">1-1 CSSの始まり</p>
-                  <p class="index index--third">CSSの役割と目的</p>
-                  <p class="index index--second">1-2 CSSの問題点</p>
-                  <p class="index index--third">「カオス」になるCSS</p>
-                  <p class="index index--third">CSSはすべてがグローバルスコープ</p>
-                  <p class="index index--second">1-3 複雑化するWeb開発</p>
-                  <p class="index index--third">変更不可能なHTML/CSSと付き合う</p>
-                  <p class="index index--third">増加するページ数</p>
-                  <p class="index index--third">頻繁に変更される「状態」</p>
-                  <p class="index index--second">1-4 解決策として生まれたCSS設計</p>
-                  <p class="index index--second">1-5 CSS設計とデザインシステムとの連携</p>
-                  <p class="index index--first">Chapter2 CSS設計の基本と実践</p>
-                  <p class="index index--second">2-1 CSS設計の前に CSSの基本 詳細度とセレクター</p>
-                  <p class="index index--third">セレクターの種類と、 本書における呼称</p>
-                  <p class="index index--third">カスケーディングの基礎</p>
-                  <p class="index index--third">詳細度の基礎</p>
-                  <p class="index index--second">2-2 CSS設計の前に リセットCSS</p>
-                  <p class="index index--third">ブラウザのデフォルトスタイル</p>
-                  <p class="index index--third">ハードリセット系 CSS</p>
-                  <p class="index index--third">ノーマライズ系 CSS</p>
-                  <p class="index index--third">リセット CSSはCSS設計にどのような影響を及ぼすか?</p>
-                  <p class="index index--second">2-3 CSS設計の前に 英単語を結合する方式の名前</p>
-                  <p class="index index--second">2-4 よいCSS設計が目指す4つのゴール</p>
-                  <p class="index index--third">予測できる</p>
-                  <p class="index index--third">再利用できる</p>
-                  <p class="index index--third">保守できる</p>
-                  <p class="index index--third">拡張できる</p>
-                  <p class="index index--second">2-5 CSS設計の実践と8つのポイント</p>
-                  <p class="comment comment--second">
-                    この章は「悪いコード」を改善していきながら解説している
-                  </p>
-                  <p class="index index--third">1.特性に応じてCSSを分類する</p>
-                  <p class="comment comment--third">
+                <p class="index index--title">CSS設計完全ガイド 詳細解説＋実践的モジュール集</p>
+                <p class="index index--first">Chapter1 CSSの歴史と問題点</p>
+                <p class="index index--second">1-1 CSSの始まり</p>
+                <p class="index index--third">CSSの役割と目的</p>
+                <p class="index index--second">1-2 CSSの問題点</p>
+                <p class="index index--third">「カオス」になるCSS</p>
+                <p class="index index--third">CSSはすべてがグローバルスコープ</p>
+                <p class="index index--second">1-3 複雑化するWeb開発</p>
+                <p class="index index--third">変更不可能なHTML/CSSと付き合う</p>
+                <p class="index index--third">増加するページ数</p>
+                <p class="index index--third">頻繁に変更される「状態」</p>
+                <p class="index index--second">1-4 解決策として生まれたCSS設計</p>
+                <p class="index index--second">1-5 CSS設計とデザインシステムとの連携</p>
+                <p class="index index--first">Chapter2 CSS設計の基本と実践</p>
+                <p class="index index--second">2-1 CSS設計の前に CSSの基本 詳細度とセレクター</p>
+                <p class="index index--third">セレクターの種類と、 本書における呼称</p>
+                <p class="index index--third">カスケーディングの基礎</p>
+                <p class="index index--third">詳細度の基礎</p>
+                <p class="index index--second">2-2 CSS設計の前に リセットCSS</p>
+                <p class="index index--third">ブラウザのデフォルトスタイル</p>
+                <p class="index index--third">ハードリセット系 CSS</p>
+                <p class="index index--third">ノーマライズ系 CSS</p>
+                <p class="index index--third">リセット CSSはCSS設計にどのような影響を及ぼすか?</p>
+                <p class="index index--second">2-3 CSS設計の前に 英単語を結合する方式の名前</p>
+                <p class="index index--second">2-4 よいCSS設計が目指す4つのゴール</p>
+                <p class="index index--third">予測できる</p>
+                <p class="index index--third">再利用できる</p>
+                <p class="index index--third">保守できる</p>
+                <p class="index index--third">拡張できる</p>
+                <p class="index index--second">2-5 CSS設計の実践と8つのポイント</p>
+                <div class="comment comment--second">
+                  <p>この章は「悪いコード」を改善していきながら解説している</p>
+                </div>
+                <p class="index index--third">1.特性に応じてCSSを分類する</p>
+                <div class="comment comment--third">
+                  <p>
                     「body{font-family:sans-serif}」サイト共通なのでベースグループに記載する<br>
                     「.ly-cont」コンテンツエリア全体のレイアウトグループに分ける<br>
                     「.bl_module」サイト内全体で使いまわすことを想定したモジュールグループを作成する<br>
                     （モジュール自体にはレイアウトに関する指定は基本的に行わない）
                   </p>
-                  <p class="index index--third">2.HTMLとスタイリングが疎結合である</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">2.HTMLとスタイリングが疎結合である</p>
+                <div class="comment comment--third">
+                  <p>
                     「#main div.bl_module.main-module h2」要素型セレクターはHTMLと密結合なので<br>
                     「#main .bl_module.main-module .title」クラスセレクターに変えて疎結合にする
                   </p>
-                  <p class="index index--third">3.影響範囲がみだりに広すぎない</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">3.影響範囲がみだりに広すぎない</p>
+                <div class="comment comment--third">
+                  <p>
                     「#main .bl_module.main-module span」#main spanが明らかに過激<br>
                     「#main .bl_module.main-module .body > span」としてスコープを絞る（最適解はクラスを設定する）<br>
                     （・スコープ[影響範囲]を絞れないか検討する・影響範囲の広いCSSは最小限に留める）
                   </p>
-                  <p class="index index--third">4.特定のコンテキストにみだりに依存していない</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">4.特定のコンテキストにみだりに依存していない</p>
+                <div class="comment comment--third">
+                  <p>
                     「#main .bl_module.main-module」だと#mainの中でないと動かない<br>
                     「.bl_module.main-module」にしてコンテキストに依存しないようにし、使い回せるようにする
                   </p>
-                  <p class="index index--third">5.詳細度がみだりに高くない</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">5.詳細度がみだりに高くない</p>
+                <div class="comment comment--third">
+                  <p>
                     セレクターはクラスセレクターを使用する（IDは使用しない）<br>
                     「.bl_module.main-module」クラスが無駄に複数ついてると詳細度が高くなるので、<br>
                     「.bl_module」にする
                   </p>
-                  <p class="index index--third">6.クラス名から影響範囲が想像できる</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">6.クラス名から影響範囲が想像できる</p>
+                <div class="comment comment--third">
+                  <p>
                     HTMLだけ見て予想した影響範囲が。CSSでのスタイリングと一致している状態が理想<br>
                     「.title」だと見た目の影響範囲が広すぎるので、モジュールのルート要素のクラス名を継承させて「.bl_module_title」とする、逆に「.sub-title」は他の箇所でも使えるようそのままにする
                   </p>
-                  <p class="index index--third">7.クラス名から見た目・機能・役割が想像できる</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">7.クラス名から見た目・機能・役割が想像できる</p>
+                <div class="comment comment--third">
+                  <p>
                     「.bl_module」のクラス名を再考<br>
                     「.bl_aboutService」「.bl_aboutMedia」「.bl_service」「.bl_media」「.bl_imgTitileTexit」の選択しから<br>
                     名前から見た目・機能・役割が想像でき、具体性と汎用性のバランスが取れているものとして<br>
                     「.bl_media」を新しいクラス名とする
                   </p>
-                  <p class="index index--third">8.拡張しやすい</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">8.拡張しやすい</p>
+                <div class="comment comment--third">
+                  <p>
                     マルチクラス設計をする（「.el_btn .hp_theme 」のようにデザインと色を分けるなど）<br>
                     変更・上書きはモディフィアを使う（「.blmedia__rev」の追加でモジュールを左右反転させるなど）<br>
                     一つのプロパティを変更するためのクラスはヘルパークラスと言う（「.hp_textBlack」「.mb20」など）
                   </p>
-                  <p class="index index--second">2-6 モジュールの粒度を考える</p>
-                  <p class="index index--third">改めてモジュールとは.</p>
-                  <p class="index index--third">モジュールの粒度のばらつきが引き起こす問題</p>
-                  <p class="comment comment--third">
-                    二人以上の人間が関わる場合、粒度の認識がずれていると問題が起こる可能性がある
-                  </p>
-                  <p class="index index--third">モジュール粒度の指針</p>
-                  <p class="comment comment--third">
-                    最小モジュールと複合モジュールの入れ子構造と考える（ボタンとそれを含むメディアなど）
-                  </p>
-                  <p class="index index--second">2-7 CSS設計の必要性</p>
-                  <p class="index index--first">Chapter3 さまざまな設計手法</p>
-                  <p class="index index--second">3-1 本Chapterの解説の前提</p>
-                  <p class="index index--second">3-2 OOCSS</p>
-                  <p class="index index--third">ストラクチャーとスキンの分離</p>
-                  <p class="comment comment--third">
-                    色の違う二つのボタンは「.btn」「.general」「.warning」のようにボタンの基本形状と共通してない部分に分ける
-                  </p>
-                  <p class="index index--third">コンテナとコンテンツの分離</p>
-                  <p class="comment comment--third">
-                    「#main .btn」だとコンテキストに依存しているので「.btn」にする
-                  </p>
-                  <p class="index index--third">OOCSSのまとめ</p>
-                  <p class="index index--second">3-3 SMACSS</p>
-                  <p class="index index--third">ベースルール</p>
-                  <p class="comment comment--third">
-                    サイトの基本設定は要素型セレクターなどにまとめる
-                  </p>
-                  <p class="index index--third">レイアウトルール</p>
-                  <p class="comment comment--third">
-                    サイトの大枠を構成する大きなモジュールは「.l-header」のように「l-」を付けたクラスに記載する、また、特定の状況でレイアウトが変更になる場合は「.l-narrow .l-header」のように子孫セレクターを使って上書きする
-                  </p>
-                  <p class="index index--third">モジュールルール</p>
-                  <p class="comment comment--third">
-                    要素をセマンティック性を高めるためにクラスセレクターで記載するスタイルを上書きするサブクラスは場所や順序を入れ替えても破綻しないように設定する
-                  </p>
-                  <p class="index index--third">ステートルール</p>
-                  <p class="comment comment--third">
-                    既存のスタイルを上書きするものだがモジュールのサブクラスと違い、レイアウトやモジュールに割り当てることができ、JavaScriptに依存するそのため、クラス名にモジュール名を含めて専用だということを分かりやすくする
-                  </p>
-                  <p class="index index--third">テーマルール</p>
-                  <p class="comment comment--third">
-                    サイト内のレイアウトや色、テキスト処理を一定の法則に従い上書きする大規模なテーマを作成する場合は、対象モジュールには「theme-」の接頭語を付ける
-                  </p>
-                  <p class="index index--third">SMACSSのまとめ</p>
-                  <p class="index index--second">3-4 BEM</p>
-                  <p class="comment comment--second">
-                    BEMとは「Block__Element_Modifier」の略、3つの要素をまとめて「BEMエンティティ」と呼ぶ                   
-                  </p>
-                  <p class="index index--third">BEMの基本</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--second">2-6 モジュールの粒度を考える</p>
+                <p class="index index--third">改めてモジュールとは.</p>
+                <p class="index index--third">モジュールの粒度のばらつきが引き起こす問題</p>
+                <div class="comment comment--third">
+                  <p>二人以上の人間が関わる場合、粒度の認識がずれていると問題が起こる可能性がある</p>
+                </div>
+                <p class="index index--third">モジュール粒度の指針</p>
+                <div class="comment comment--third">
+                  <p>最小モジュールと複合モジュールの入れ子構造と考える（ボタンとそれを含むメディアなど）</p>
+                </div>
+                <p class="index index--second">2-7 CSS設計の必要性</p>
+                <p class="index index--first">Chapter3 さまざまな設計手法</p>
+                <p class="index index--second">3-1 本Chapterの解説の前提</p>
+                <p class="index index--second">3-2 OOCSS</p>
+                <p class="index index--third">ストラクチャーとスキンの分離</p>
+                <div class="comment comment--third">
+                  <p>色の違う二つのボタンは「.btn」「.general」「.warning」のようにボタンの基本形状と共通してない部分に分ける</p>
+                </div>
+                <p class="index index--third">コンテナとコンテンツの分離</p>
+                <div class="comment comment--third">
+                  <p>「#main .btn」だとコンテキストに依存しているので「.btn」にする</p>
+                </div>
+                <p class="index index--third">OOCSSのまとめ</p>
+                <p class="index index--second">3-3 SMACSS</p>
+                <p class="index index--third">ベースルール</p>
+                <div class="comment comment--third">
+                  <p>サイトの基本設定は要素型セレクターなどにまとめる</p>
+                </div>
+                <p class="index index--third">レイアウトルール</p>
+                <div class="comment comment--third">
+                  <p>サイトの大枠を構成する大きなモジュールは「.l-header」のように「l-」を付けたクラスに記載する、また、特定の状況でレイアウトが変更になる場合は「.l-narrow .l-header」のように子孫セレクターを使って上書きする</p>
+                </div>
+                <p class="index index--third">モジュールルール</p>
+                <div class="comment comment--third">
+                  <p>要素をセマンティック性を高めるためにクラスセレクターで記載するスタイルを上書きするサブクラスは場所や順序を入れ替えても破綻しないように設定する</p>
+                </div>
+                <p class="index index--third">ステートルール</p>
+                <div class="comment comment--third">
+                  <p>既存のスタイルを上書きするものだがモジュールのサブクラスと違い、レイアウトやモジュールに割り当てることができ、JavaScriptに依存するそのため、クラス名にモジュール名を含めて専用だということを分かりやすくする</p>
+                </div>
+                <p class="index index--third">テーマルール</p>
+                <div class="comment comment--third">
+                  <p>サイト内のレイアウトや色、テキスト処理を一定の法則に従い上書きする大規模なテーマを作成する場合は、対象モジュールには「theme-」の接頭語を付ける</p>
+                </div>
+                <p class="index index--third">SMACSSのまとめ</p>
+                <p class="index index--second">3-4 BEM</p>
+                <div class="comment comment--second">
+                  <p>BEMとは「Block__Element_Modifier」の略、3つの要素をまとめて「BEMエンティティ」と呼ぶ</p>                
+                </div>
+                <p class="index index--third">BEMの基本</p>
+                <div class="comment comment--third">
+                  <p>
                     ・要素型やIDは使用せず、クラスセレクターを使用し、詳細度は均一にする<br>
-                    ・クラス名は半角英数字の小文字、複数単語はハイフンでつなぐ（「global-navi」など）                    
-                  </p>
-                  <p class="index index--third">Block の基本</p>
-                  <p class="comment comment--third">
+                    ・クラス名は半角英数字の小文字、複数単語はハイフンでつなぐ（「global-navi」など）      
+                  </p>           
+                </div>
+                <p class="index index--third">Block の基本</p>
+                <div class="comment comment--third">
+                  <p>
                     Block（論理的かつ機能的に独立したページモジュール）<br>
                     ・Block自体にレイアウトに関するスタイリングをしてはいけない（レイアウトはMixを使う）<br>
                     ・クラス名は「それが何なのか」を表す単語をつける（×：red-text、〇：error）
                   </p>
-                  <p class="index index--third">Elementの基本</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Elementの基本</p>
+                <div class="comment comment--third">
+                  <p>
                     Element（Blockを構成し、Blockの外では独立して使用できないもの）<br>
                     ・Blockと同じく「それが何なのか」を表す単語をつける<br>
                     　（×：menu__brown, menu__bold、〇：menu__item）<br>
@@ -226,10 +247,12 @@
                     ・Elementは必ずBlock内に配置し、Block外で独立して使用してはいけない<br>
                     ・Elementはなくてもよい（Blockの中にBlockをネストしても良い）<br>
                     ・Elementの数が多く複雑になる場合は、ElementをBlockに昇華させ整理させるのも一つの方法<br>
-                    　（「&lt;a class=”menu__btn”&gt;&lt;span class=”menu__icon”&gt;&lt;/span&gt;&lt;/a&gt;」を「&lt;a class=”btn”&gt;&lt;span class=”btn__icon”&gt;&lt;/span&gt;&lt;/a&gt;」にする）
+                    　（「&lt;a class=”menu__btn”&gt;&lt;span class=”menu__icon”&gt;&lt;/span&gt;&lt;/a&gt;」を「&lt;a class=”btn”&gt;&lt;span class=”btn__icon”&gt;&lt;/span&gt;&lt;/a&gt;」にする）  
                   </p>
-                  <p class="index index--third">Modifierの基本</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Modifierの基本</p>
+                <div class="comment comment--third">
+                  <p>
                     Modifier（BlockもしくはElementの見た目や状態、振る舞いを定義するもの）<br>
                     ・単独で使用することはできず、必ずBlockかElementがある状態で、二つ目以降のクラス名として付ける<br>
                     　（×：「class=”button_size_s”」、〇：「class=”button button_size_s”」）<br>
@@ -248,13 +271,17 @@
                     　「.button_theme_caution{background-color:red;}」「.button_theme_caution .button__text{color:#fff;}」）<br>
                     　（ただし詳細度を高めてしまうので使用は最小限に）
                   </p>
-                  <p class="index index--third">Blockのネスト</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Blockのネスト</p>
+                <div class="comment comment--third">
+                  <p>
                     ・Blockは、他のあらゆるBlockの中にネストして配置することができる、このネストの数には上限はない<br>
                     　（ヘッダーBlockの中にメニュー、ロゴ、検索、認証など各種Blockが埋め込める）
                   </p>
-                  <p class="index index--third">Mix</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Mix</p>
+                <div class="comment comment--third">
+                  <p>
                     Mix（単一のDOMノードに、異なるBEMエンティティが複数付与されたインスタンス）<br>
                     ・一つのHTML要素に、役割の異なる複数のクラスが付いている状態<br>
                     &lt;header class=”head”&gt;<br>
@@ -274,8 +301,10 @@
                     　（〇：ヘッダーに「.header.text」フッターに「.footer.text」、CSSを「.text{fontsize:14px;color:#000;}」Mixにすれば「.header{fontsize:16px;」のようにヘッダーだけスタイリングを変えるのも容易）<br>
                     ・ただし、無理にMixを使って不具合が起こるようなら、グループセレクターやModifier（「class=”header text text_size_l」）で記載した方が良い
                   </p>
-                  <p class="index index--third">Mixでは対処できない場合</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Mixでは対処できない場合</p>
+                <div class="comment comment--third">
+                  <p>
                     ・Mixは「一つのHTML要素に、役割の異なる複数のクラスが付いている状態」なので、スタイルが衝突したり、見た目的にボックスの中に配置したいなど都合が悪い場合があるそのような場合は「button__inner」のような新たなElementでネストすると解決できる<br>
                     &lt;button class=”button”&gt;<br>
                     　&lt;span class=”button__inner”&gt;&lt;!-- 新たなElementのspanで囲う --&gt;<br>
@@ -284,152 +313,157 @@
                     &lt;/span&gt;<br>
                     ・CMSでブログを書く時などは「.blog-post p」のように要素型セレクターを含むことも許容している
                   </p>
-                  <p class="index index--third">Modifier名は省略してはいけない</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">Modifier名は省略してはいけない</p>
+                <div class="comment comment--third">
+                  <p>
                     ・クラス名が長くなったとしても「詳細度が増す、見分けがつかない、検索しづらい」の3つの理由からModifierは省略してはいけない<br>
                     ・ヘルパークラスは問題なく使える（「.w200」「.mb10」など）
                   </p>
-                  <p class="index index--third">BEMのその他の命名規則</p>
-                  <p class="comment comment--third">
+                </div>
+                <p class="index index--third">BEMのその他の命名規則</p>
+                <div class="comment comment--third">
+                  <p>
                     ・MindBEMdingは本来の命名規則よりも広く使われている<br>
                     　（「.block-name__elem-name—mod-name (--val)」）<br>
                     　（「.button--size--s」から「.button--s」のようにキーは省略することもできる）
                   </p>
-                  <p class="index index--third">BEMのまとめ</p>
-                  <p class="comment comment--third">
-                    ・Blockは一つ一つがなるべく小さくなるように分割し、Blockを積極的に再利用するようにする
-                  </p>
-                  <p class="index index--second">3-5 PRECSS</p>
-                  <p class="index index--third">基本的な指針</p>
-                  <p class="index index--third">ベースグループ</p>
-                  <p class="index index--third">レイアウトグループ</p>
-                  <p class="index index--third">モジュールグループ</p>
-                  <p class="index index--third">ヘルパーグループ</p>
-                  <p class="index index--third">ユニークグループ</p>
-                  <p class="index index--third">プログラムグループ</p>
-                  <p class="index index--third">オリジナルグループ</p>
-                  <p class="index index--third">PRECSSのまとめ</p>
-                  <p class="index index--first">Chapter4 レイアウトの設計</p>
-                  <p class="index index--second">4-1 Chapter4～Chapter7のコードの前提</p>
-                  <p class="index index--third">使用するリセットCSS</p>
-                  <p class="index index--third">独自に定義したベーススタイル</p>
-                  <p class="index index--third">使用する設計手法</p>
-                  <p class="index index--second">4-2 本Chapterで扱うサンプル</p>
-                  <p class="index index--second">4-3 ヘッダー</p>
-                  <p class="index index--third">① .header__inner/.ly_header_inner に対するスタイリング</p>
-                  <p class="index index--second">4-4 フッター</p>
-                  <p class="index index--third">①ボーダーの実装方法の違い</p>
-                  <p class="index index--third">ヘッダーの内側とフッターの内側のスタイリングは共通化すべきか?</p>
-                  <p class="index index--second">4-5 コンテンツエリア</p>
-                  <p class="index index--third">1カラム設計</p>
-                  <p class="index index--third">2カラム設計</p>
-                  <p class="index index--first">Chapter5 CSS設計モジュール集① 最小モジュール</p>
-                  <p class="index index--second">5-1 本Chapter 以降のモジュール集の進め方</p>
-                  <p class="index index--third">拡張パターンについて</p>
-                  <p class="index index--third">バリエーションについて</p>
-                  <p class="index index--third">BEM と PRECSSの差違について</p>
-                  <p class="index index--second">5-2 最小モジュールの定義</p>
-                  <p class="index index--second">5-3 ボタン</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">5-4 アイコン付き小ボタン</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--second">5-5 アイコン</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">5-6 ラベル</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">5-7 見出し</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">5-8 注釈</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--first">Chapter6 CSS設計モジュール集② 複合モジュール</p>
-                  <p class="index index--second">6-1 複合モジュールの定義</p>
-                  <p class="index index--second">6-2 メディア</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">6-3 カード</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--second">6-4 テーブル (水平)</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--second">6-5 テーブル (垂直)</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-6 テーブル (交差)</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-7 ページャー</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-8 タブナビゲーション</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-9 CTA</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-10 料金表</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">6-11 FAQ</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-12 アコーディオン</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-13 ジャンボトロン</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-14 ポストリスト</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--second">6-15 順序なしリスト</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">拡張パターン</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--second">6-16 順序ありリスト</p>
-                  <p class="index index--third">基本形</p>
-                  <p class="index index--third">バリエーション</p>
-                  <p class="index index--first">Chapter7 CSS設計モジュール集③ モジュールの再利用</p>
-                  <p class="index index--second">7-1 最小モジュールを利用した複合モジュールの作成</p>
-                  <p class="index index--third">水平ボタンリスト</p>
-                  <p class="index index--second">7-2 最小モジュールと複合モジュールの組み合わせ</p>
-                  <p class="index index--third">ボタン+画像半分サイズメディア</p>
-                  <p class="index index--third">ボタン+CTA エリア</p>
-                  <p class="index index--third">ラベル+ポストリスト</p>
-                  <p class="index index--second">7-3 複合モジュール同士の組み合わせ</p>
-                  <p class="index index--third">FAQ+リスト</p>
-                  <p class="index index--third">アコーディオン+カード+CTAエリア</p>
-                  <p class="index index--first">Chapter8 CSS設計をより活かすためのスタイルガイド</p>
-                  <p class="index index--second">8-1 スタイルガイドとは</p>
-                  <p class="index index--second">8-2 なぜスタイルガイドが必要か?</p>
-                  <p class="index index--second">8-3 スタイルガイドを作成する</p>
-                  <p class="index index--third">スタイルガイドジェネレーターを使用する</p>
-                  <p class="index index--third">手動で作成する</p>
-                  <p class="index index--second">8-4 スタイルガイドを作成する方針のまとめ</p>
-                  <p class="index index--first">Chapter9 CSS開発に役立つその他の技術</p>
-                  <p class="index index--second">9-1 CSS開発を効率化する、ミスを減らす</p>
-                  <p class="index index--third">Sass</p>
-                  <p class="index index--third">Browsersync</p>
-                  <p class="index index--third">Autoprefixer</p>
-                  <p class="index index--second">9-2 人による差異をなくす</p>
-                  <p class="index index--third">CSScomb</p>
-                  <p class="index index--third">EditorConfig</p>
-                  <p class="index index--third">Prettier</p>
-                  <p class="index index--second">9-3 リファクタリングのヒントを得る</p>
-                  <p class="index index--third">Stylelint</p>
-                  <p class="index index--third">CSS Stats</p>
-                  <p class="index index--second">9-4 CSSを軽量化する</p>
-                  <p class="index index--third">CSS MQPacker</p>
-                  <p class="index index--third">cssnano</p>
-                  <p class="index index--second">9-5 HTML開発を効率化する</p>
-                  <p class="index index--third">Nunjucks</p>
-                  <p class="index index--third">EJS</p>
-                  <p class="index index--third">Pug</p>
-                  <p class="index index--second">9-6 開発にまつわるタスクを自動処理する</p>
-                  <p class="index index--third">Prepros</p>
-                  <p class="index index--third">Gulp</p>
-                  <p class="index index--third">webpack</p>                      
+                </div>
+                <p class="index index--third">BEMのまとめ</p>
+                <div class="comment comment--third">
+                  <p>・Blockは一つ一つがなるべく小さくなるように分割し、Blockを積極的に再利用するようにする</p>
+                </div>
+                <p class="index index--second">3-5 PRECSS</p>
+                <p class="index index--third">基本的な指針</p>
+                <p class="index index--third">ベースグループ</p>
+                <p class="index index--third">レイアウトグループ</p>
+                <p class="index index--third">モジュールグループ</p>
+                <p class="index index--third">ヘルパーグループ</p>
+                <p class="index index--third">ユニークグループ</p>
+                <p class="index index--third">プログラムグループ</p>
+                <p class="index index--third">オリジナルグループ</p>
+                <p class="index index--third">PRECSSのまとめ</p>
+                <p class="index index--first">Chapter4 レイアウトの設計</p>
+                <p class="index index--second">4-1 Chapter4～Chapter7のコードの前提</p>
+                <p class="index index--third">使用するリセットCSS</p>
+                <p class="index index--third">独自に定義したベーススタイル</p>
+                <p class="index index--third">使用する設計手法</p>
+                <p class="index index--second">4-2 本Chapterで扱うサンプル</p>
+                <p class="index index--second">4-3 ヘッダー</p>
+                <p class="index index--third">① .header__inner/.ly_header_inner に対するスタイリング</p>
+                <p class="index index--second">4-4 フッター</p>
+                <p class="index index--third">①ボーダーの実装方法の違い</p>
+                <p class="index index--third">ヘッダーの内側とフッターの内側のスタイリングは共通化すべきか?</p>
+                <p class="index index--second">4-5 コンテンツエリア</p>
+                <p class="index index--third">1カラム設計</p>
+                <p class="index index--third">2カラム設計</p>
+                <p class="index index--first">Chapter5 CSS設計モジュール集① 最小モジュール</p>
+                <p class="index index--second">5-1 本Chapter 以降のモジュール集の進め方</p>
+                <p class="index index--third">拡張パターンについて</p>
+                <p class="index index--third">バリエーションについて</p>
+                <p class="index index--third">BEM と PRECSSの差違について</p>
+                <p class="index index--second">5-2 最小モジュールの定義</p>
+                <p class="index index--second">5-3 ボタン</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">5-4 アイコン付き小ボタン</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--second">5-5 アイコン</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">5-6 ラベル</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">5-7 見出し</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">5-8 注釈</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--first">Chapter6 CSS設計モジュール集② 複合モジュール</p>
+                <p class="index index--second">6-1 複合モジュールの定義</p>
+                <p class="index index--second">6-2 メディア</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">6-3 カード</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--second">6-4 テーブル (水平)</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--second">6-5 テーブル (垂直)</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-6 テーブル (交差)</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-7 ページャー</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-8 タブナビゲーション</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-9 CTA</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-10 料金表</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">6-11 FAQ</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-12 アコーディオン</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-13 ジャンボトロン</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-14 ポストリスト</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--second">6-15 順序なしリスト</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">拡張パターン</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--second">6-16 順序ありリスト</p>
+                <p class="index index--third">基本形</p>
+                <p class="index index--third">バリエーション</p>
+                <p class="index index--first">Chapter7 CSS設計モジュール集③ モジュールの再利用</p>
+                <p class="index index--second">7-1 最小モジュールを利用した複合モジュールの作成</p>
+                <p class="index index--third">水平ボタンリスト</p>
+                <p class="index index--second">7-2 最小モジュールと複合モジュールの組み合わせ</p>
+                <p class="index index--third">ボタン+画像半分サイズメディア</p>
+                <p class="index index--third">ボタン+CTA エリア</p>
+                <p class="index index--third">ラベル+ポストリスト</p>
+                <p class="index index--second">7-3 複合モジュール同士の組み合わせ</p>
+                <p class="index index--third">FAQ+リスト</p>
+                <p class="index index--third">アコーディオン+カード+CTAエリア</p>
+                <p class="index index--first">Chapter8 CSS設計をより活かすためのスタイルガイド</p>
+                <p class="index index--second">8-1 スタイルガイドとは</p>
+                <p class="index index--second">8-2 なぜスタイルガイドが必要か?</p>
+                <p class="index index--second">8-3 スタイルガイドを作成する</p>
+                <p class="index index--third">スタイルガイドジェネレーターを使用する</p>
+                <p class="index index--third">手動で作成する</p>
+                <p class="index index--second">8-4 スタイルガイドを作成する方針のまとめ</p>
+                <p class="index index--first">Chapter9 CSS開発に役立つその他の技術</p>
+                <p class="index index--second">9-1 CSS開発を効率化する、ミスを減らす</p>
+                <p class="index index--third">Sass</p>
+                <p class="index index--third">Browsersync</p>
+                <p class="index index--third">Autoprefixer</p>
+                <p class="index index--second">9-2 人による差異をなくす</p>
+                <p class="index index--third">CSScomb</p>
+                <p class="index index--third">EditorConfig</p>
+                <p class="index index--third">Prettier</p>
+                <p class="index index--second">9-3 リファクタリングのヒントを得る</p>
+                <p class="index index--third">Stylelint</p>
+                <p class="index index--third">CSS Stats</p>
+                <p class="index index--second">9-4 CSSを軽量化する</p>
+                <p class="index index--third">CSS MQPacker</p>
+                <p class="index index--third">cssnano</p>
+                <p class="index index--second">9-5 HTML開発を効率化する</p>
+                <p class="index index--third">Nunjucks</p>
+                <p class="index index--third">EJS</p>
+                <p class="index index--third">Pug</p>
+                <p class="index index--second">9-6 開発にまつわるタスクを自動処理する</p>
+                <p class="index index--third">Prepros</p>
+                <p class="index index--third">Gulp</p>
+                <p class="index index--third">webpack</p>                      
               </div>
             </div>
           </section><!-- /.content -->

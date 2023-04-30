@@ -1174,13 +1174,57 @@ li {
   font-size: 0.9rem;
   background-color: #333333;
   border-radius: 4px;
-  margin-top: 5px;
   padding: 5px 10px;
   color: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.note .comment__code:first-child {
+  margin-top: 0;
+}
+.note .comment__code:last-child {
+  margin-bottom: 0;
+}
+.note .comment__table {
+  background-color: #ffffff;
+  border-radius: 4px;
+  border-spacing: 0;
+  border-left: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+}
+.note .comment__table tr > * {
+  padding: 5px 10px;
+  border: none;
+  border-right: 1px solid #aaaaaa;
+  border-bottom: 1px solid #aaaaaa;
+}
+.note .comment__table tr:first-child > *:first-child {
+  border-radius: 4px 0 0 0;
+}
+.note .comment__table tr:first-child > *:last-child {
+  border-radius: 0 4px 0 0;
+}
+.note .comment__table tr:last-child > *:first-child {
+  border-radius: 0 0 0 4px;
+}
+.note .comment__table tr:last-child > *:last-child {
+  border-radius: 0 0 4px 0;
 }
 .note .comment__strong {
   font-weight: normal;
   background: linear-gradient(transparent 60%, #ffff64 60%);
+}
+.note .book-javascript-1 input[type=text] {
+  background-color: #ffffff;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0 8px;
+}
+.note .book-javascript-1 input[type=submit] {
+  background-color: #eeeeee;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0 8px;
 }
 
 /*********************************

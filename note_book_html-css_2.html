@@ -83,41 +83,41 @@
                 <p class="index index--second">1-6 JavaScript の読み込みの仕方</p>
                 <p class="index index--third">COLUMN 英単語をつなげるときの書き方</p>
                 <p class="index index--second">1-7 ブラウザーによる見え方の違い</p>
-                <p class="comment comment--second">
-                  書籍で利用されてるリセットCSS<br>
+                <div class="comment comment--second">
+                  <p>書籍で利用されてるリセットCSS</p>
                   <a href="https://nicolas-cusan.github.io/destyle.css/" target="_blank">Destyle.css<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </p>
+                </div>
                 <p class="index index--second">1-8 デベロッパーツールを使いこなす</p>
                 <p class="index index--second">1-9 次章以降で学ぶこと</p>
                 <p class="index index--first">CHAPTER 2 ランディングページで学ぶ「レスポンシブWebデザインとフォント｣</p>
                 <p class="index index--second">2-1 作成するランディングページの紹介</p>
                 <p class="index index--second">2-2 シングルカラムのレイアウトとは</p>
                 <p class="index index--second">2-3 全画面背景で目を引くデザインの実現</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     background-image: url(img/bg1.png), url(img/bg2.png); //2種類の背景画像を同時に指定できる<br>
                     background-position: left top, right top; //2種類の背景画像の位置を指定できる
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">2-4 フォントの詳しい使い方</p>
                 <p class="index index--third">COLUMN Google Fonts の組み合わせ提案機能</p>
                 <p class="index index--third">COLUMN 高解像度の画像が用意できない時の小技①</p>
                 <p class="index index--second">2-5 アイコンフォントの使い方</p>
                 <p class="index index--third">COLUMN 高解像度の画像が用意できない時の小技②</p>
-                <p class="comment comment--third">
+                <div class="comment comment--third">
                   <code class="comment__code">
                     background-image: repeating-linear-gradient(0deg, transparent, transparent 4px, rgb(255,255,255,0.4) 4px, rgb(255,255,255,0.4) 6px), url(img/bg1.png); //インターレースの様なライン柄を背景画像にかぶせる
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">2-6 スマートフォンでの閲覧に対応させる</p>
                 <p class="index index--third">COLUMN SVG形式のファビコンを設置しよう</p>
                 <p class="index index--second">2-7 ブレークポイントの詳細</p>
                 <p class="index index--second">2-8 表示領域にピタッと移動する方法</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     scroll-snap-type: y mandatory; //スクロールスナップさせるスタイル
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">2-9 練習問題</p>
                 <p class="index index--second">2-10 カスタマイズしよう</p>
                 <p class="index index--first">CHAPTER 3 ブログサイトで学ぶ「装飾とカラムレイアウト」</p>
@@ -126,66 +126,66 @@
                 <p class="index index--third">COLUMN Web サイトで使える様々なレイアウト一覧</p>
                 <p class="index index--second">3-3 異なる画面サイズの閲覧に対応させる</p>
                 <p class="index index--second">3-4 各要素を装飾する① (見出し・画像 ボタン)</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     shape-outside: circle(); //文字を図形の外側に回り込ませる<br>
                     box-shadow: 0 0 0 5px #eda1a1; //ぼかしのないボックスシャドウ
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN デザインに困った時に役立つサイト</p>
                 <p class="index index--third">COLUMN positionプロパティを使って位置を指定する</p>
                 <p class="index index--second">3-5 各要素を装飾する② (箇条書きリスト・番号付きリスト)</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     content: counter(list); //番号付きリストの装飾
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN 疑似要素とは</p>
                 <p class="index index--second">3-6 各要素を装飾する③ (引用文・ページ送り・囲み枠)</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     outline: 2px solid #ccc; //二重の枠線を作成できる<br>
                     outline-offset: 4px; 
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN ふりがな(ルビ)を振る</p>
-                <p class="comment comment--third">
+                <div class="comment comment--third">
                   <code class="comment__code">
                     &lt;ruby&gt;真奈&lt;rt&gt;マナ&lt;/rt&gt;&lt;/ruby&gt; //ルビタグ
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">3-7 各要素の装飾 ④ (ヘッダー・フッター・ナビゲーション・表・フォーム)</p>
                 <p class="index index--second">3-8 スクロールに合わせて追従させる</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     position: sticky; //要素内のスクロールに追従
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">3-9 練習問題</p>
                 <p class="index index--second">3-10 カスタマイズしよう</p>
                 <p class="index index--first">CHAPTER 4 コーポレートサイトで学ぶ「表組み、 フォーム、JavaScript」</p>
                 <p class="index index--second">4-1 作成するコーポレートサイトの紹介</p>
                 <p class="index index--second">4-2 枠からはみ出す要素を作る方法</p>
                 <p class="index index--second">4-3 グラフでもっとわかりやすくする</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <a href="https://gionkunz.github.io/chartist-js/" target="_blank">chartist.js<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN その他のグラフのJavaScript ライブラリ</p>
-                <p class="comment comment--third">
+                <div class="comment comment--third">
                   <a href="https://www.chartjs.org/" target="_blank">Chart.js<i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
                   <a href="https://frappe.io/charts" target="_blank">FrappeCharts<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </p>
+                </div>
                 <p class="index index--second">4-4 画像とテキストを互い違いに表示させる</p>
                 <p class="index index--third">COLUMN 偶数番目や奇数番目、○番目の要素だけ適用する書き方①</p>
                 <p class="index index--second">4-5 表でデータを示す</p>
                 <p class="index index--second">4-6 タイムラインを表示する</p>
                 <p class="index index--second">4-7 フォームの装飾</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     appearance: none; //user agent stylesheetを打ち消す<br>
                     -webkit-appearance: none;
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">4-8 属性セレクター</p>
                 <p class="index index--third">COLUMN 偶数番目や奇数番目、 ○番目の要素だけ適用する書き方②</p>
                 <p class="index index--second">4-9 練習問題</p>
@@ -193,26 +193,26 @@
                 <p class="index index--first">CHAPTER 5 イベントサイトで学ぶ「特定ページの作り方とアニメーション」</p>
                 <p class="index index--second">5-1 作成するイベントサイトの紹介</p>
                 <p class="index index--second">5-2 CSSでページ内をスルスル動かす</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     scroll-behavior: smooth; //ページ内リンクをスクロールで移動する
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN モバイルサイズのメニュー表示の例①</p>
                 <p class="index index--second">5-3 ブレンドモードで画像の色を変える</p>
                 <p class="index index--third">COLUMN backgroundプロパティでまとめて記述する際の注意点</p>
                 <p class="index index--third">COLUMN モバイルサイズのメニュー表示の例②</p>
                 <p class="index index--second">5-4 カスタムプロパティ (変数) を使う</p>
                 <p class="index index--second">5-5 CSSでアニメーションをつける (トランジション)</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     transition: background 1s, width 2s ease-in-out; //複数のプロパティをまとめて記述する
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">5-6 CSSでアニメーションをつける (キーフレーム)</p>
                 <p class="index index--third">COLUMN Animate.css を使ってアニメーションを実装する</p>
                 <p class="index index--second">5-7 斜めのラインのデザインを作る</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); //要素を斜めに変形させる<br>
                     -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);<br>
@@ -221,17 +221,17 @@
                     clip-path: circle(50% at 0 0); //要素を正円に変形させる<br>
                     -webkit-clip-path: circle(50% at 0 0);
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN 「clip-path｣ の座標を手軽に取得する</p>
                 <p class="index index--second">5-8 グラデーションで表現する</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     background-clip: text; //文字色を背景色にする（グラデーションにできる）<br>
                     -webkit-background-clip: text;<br>
                     text-fill-color: transparent;<br>
                     -webkit-text-fill-color: transparent
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">5-9 スライドメニューを設置する</p>
                 <p class="index index--second">5-10 練習問題</p>
                 <p class="index index--third">COLUMN グラデーションカラーのアイデアWebサイト</p>
@@ -239,14 +239,14 @@
                 <p class="index index--first">CHAPTER 6 ギャラリーサイトで学ぶ「動画と画像の使い方」</p>
                 <p class="index index--second">6-1 作成するギャラリーサイトの紹介</p>
                 <p class="index index--second">6-2 背景に動画を設置する</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     &lt;video scr="img/movie.mp4" poster="img/img.jpg" autoplay loop muted&gt; //ビデオタグ（posterは動画表示されないときの代替イメージ）<br>
                     &lt;iframe scr="https://www.youtube.com/..." frameborder="0"&gt;&lt;/iframe&gt; //YouTube動画の埋め込み
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">6-3 画像をレスポンシブに対応させる</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     &lt;img src="800.png"<br>
                     　　　srcset="400.png 400w,<br>
@@ -255,60 +255,60 @@
                     　　　sizes="(max-width: 800px) 800px, 100vh"<br>
                     　　　alt="デモ画像"&gt; //画面サイズによって読み込む画像を変える
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN 背景動画を実装する際の注意点</p>
                 <p class="index index--second">6-4 マルチカラムでレイアウトを作る ①</p>
                 <p class="index index--third">COLUMN 動画素材を用意する</p>
                 <p class="index index--second">6-5 マルチカラムでレイアウトを作る②</p>
                 <p class="index index--third">COLUMN CSSグリッドのコードを手軽に生成するWebサイト</p>
                 <p class="index index--second">6-6 フィルターで画像の色を変える</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     filter: grayscale(100%); //グレースケールのフィルター（複数のフィルターを同時指定することもできる）<br>
                     filter: blur(3px); //ぼかしのフィルター<br>
                     filter: drop-shadow(5px 10px 3px #856845); //ドロップシャドウのフィルター（SVGやPNG画像の時に不透明部分に合わせて影が付く）
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">6-7 カーソルを合わせると画像を拡大する</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     transform: rotate(10deg);<br>
                     transform-origin: 10px 100px; //変形する起点を設定する
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">6-8 要素に影をつける</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <code class="comment__code">
                     box-shadow: 8px 8px 24px rgb(2,90,102,0.6) inset; //insetで内側に影を入れられる
                   </code>
-                </p>
+                </div>
                 <p class="index index--third">COLUMN box-shadowのCSSコードを生成できるWebサイト</p>
                 <p class="index index--second">6-9 ライトボックスで画面いっぱいに表示する</p>
-                <p class="comment comment--second">
+                <div class="comment comment--second">
                   <a href="https://github.com/imgix/luminous" target="_blank">Luminous<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </p>
+                </div>
                 <p class="index index--second">6-10 アニメーションを加える</p>
                 <p class="index index--second">6-11 ダークモードに対応させる</p>
                 <p class="index index--second">6-12 練習問題</p>
                 <p class="index index--second">6-13 カスタマイズしよう</p>
                 <p class="index index--first">CHAPTER 7 HTMLやCSSをより早く、より上手に管理できる方法</p>
                 <p class="index index--second">7-1 Emmet を使って素早くコーディングする</p>
-                <p class="comment comment--second">
-                  記述した後に「tab」を押して「展開」する<br>
-                  HTML
+                <div class="comment comment--second">
+                  <p>記述した後に「tab」を押して「展開」する</p>
+                  <p>HTML</p>
                   <code class="comment__code">
                   p //タグを入力<br>
                   p.text　p#text //クラスやIDの付いたタグ(タグ名未入力だとdivになる)<br>
                   ul>li //入れ子になったタグ<br>
                   p*3 //複数のタグ
                   </code>
-                  CSS
+                  <p>CSS</p>
                   <code class="comment__code">
                   m　mb //プロパティ入力<br>
                   w100　c#0bd //値と組み合わせて<br>
                   m10-20-15-20 //複数の値
                   </code>
-                </p>
+                </div>
                 <p class="index index--second">7-2 calc 関数で計算式を書く</p>
                 <p class="index index--second">7-3 Sass を使って効率を上げる</p>
                 <p class="index index--third">COLUMN Sass の記述体験ができる 「SassMeister｣</p>

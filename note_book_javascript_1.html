@@ -85,32 +85,43 @@
                 <p class="index index--second">1-7 テンプレートを準備して、いざ出発!</p>
                 <p class="index index--fourth">Note 実習用テンプレートの特徴</p>
                 <p class="index index--first">Chapter2 アウトプットの基本</p>
-                <p class="index index--second">2-1 コンソールにアウトプット</p>
-                <p class="index index--third">開発ツールを使ってみよう</p>
+                <p class="index index--second">2-1 コンソールにアウトプット／開発ツールを使ってみよう</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    console.log('オウム返し');
+                  </code>
+                  <p>「console」がオブジェクト、「log()」がメソッド、「オウム返し」がパラメータ</p>
+                  <p>オブジェクトには「history」「window」「location」「document」「console」などがある</p>
+                </div>
                 <p class="index index--third">Step1 開発ツールを開く、閉じる</p>
                 <p class="index index--third">Step2 コンソールを使ってみよう</p>
-                <p class="comment comment--second">
-                  オブジェクト、メソッド、パラメータ
-                </p>
                 <p class="index index--fourth">Note エラーを恐れないで!</p>
                 <p class="index index--fourth">上達のポイント! プログラムの入力ミスを減らすには</p>
                 <p class="index index--third">Step3 さらに続けてみよう</p>
                 <p class="index index--fourth">Note なぜシングルクォートで囲むことにしているの?</p>
-                <p class="index index--second">2-2 JavaScriptはどこに書く?</p>
-                <p class="index index--third">scriptタグとJavaScriptの記述場所</p>
+                <p class="index index--second">2-2 JavaScriptはどこに書く?／scriptタグとJavaScriptの記述場所</p>
+                <div class="comment comment--second">
+                  <p>厳格モードにするため「"use strict";」を冒頭に記述する</p>
+                </div>
                 <p class="index index--third">Step1 HTMLにJavaScriptを直接記述する</p>
                 <p class="index index--third">Step2 JavaScriptファイルを読み込む</p>
                 <p class="index index--fourth">Note ファイルの文字コード形式は「UTF-8」 に</p>
-                <p class="index index--second">2-3 ダイアログボックスを表示する</p>
-                <p class="index index--third">window.alert()</p>
+                <p class="index index--second">2-3 ダイアログボックスを表示する／window.alert()</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    window.alert('アプリ連携が完了しました');
+                  </code>
+                </div>
                 <p class="index index--third">Step1 アラートダイアログボックスを表示する</p>
                 <p class="index index--fourth">Note ダイアログボックスはブラウザによって表示が異なる</p>
                 <p class="index index--fourth">上達のポイント! alertメソッドのパラメータは数式でもOK</p>
-                <p class="index index--second">2-4 HTMLを書き換える</p>
-                <p class="comment comment--second">
-                  プロパティ、プロパティの値
-                </p>
-                <p class="index index--third">要素を取得する・コンテンツを書き換える</p>
+                <p class="index index--second">2-4 HTMLを書き換える／要素を取得する・コンテンツを書き換える</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    document.getElementBuId('choice').textContent = new Date();
+                  </code>
+                  <p>「textContent」がプロパティ、「new Date()」がプロパティの値</p>
+                </div>
                 <p class="index index--third">Step1 要素を取得する</p>
                 <p class="index index--fourth">Note プログラムの書き順</p>
                 <p class="index index--third">Step2 取得した要素のコンテンツを書き換える</p>
@@ -118,14 +129,36 @@
                 <p class="index index--fourth">Note Elementオブジェクト</p>
                 <p class="index index--fourth">Note オブジェクトのまとめ</p>
                 <p class="index index--first">Chapter3 JavaScriptの文法と基本的な機能</p>
-                <p class="index index--second">3-1 確認ダイアログボックスを表示する</p>
-                <p class="index index--third">条件分岐(if)</p>
+                <p class="index index--second">3-1 確認ダイアログボックスを表示する／条件分岐(if)</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    if(window.confirm('ゲームスタート！準備はいい？')) {<br>
+                    　console.log('ゲームを開始します');<br>
+                    } else {<br>
+                    　consaole.log('ゲームを終了します');<br>
+                    }
+                  </code>
+                  <p>
+                    「window.confirm()」は確認ダイアログボックスを表示する
+                  </p>
+                </div>
                 <p class="index index--third">Step1 確認ダイアログボックスを使ってみよう</p>
                 <p class="index index--fourth">Note 戻り値・返り値</p>
                 <p class="index index--third">Step 2 クリックされたボタンでメッセージを変える</p>
                 <p class="index index--fourth">Note JavaScriptの仕様</p>
-                <p class="index index--second">3-2 入力内容に応じて動作を変更する</p>
-                <p class="index index--third">変数、定数</p>
+                <p class="index index--second">3-2 入力内容に応じて動作を変更する／変数、定数</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    const answer = window.prompt('ヘルプを見ますか？');<br>
+                    if(answer === 'yes') {<br>
+                    　window.alert('タップでジャンプ、障害物をよけます。');<br>
+                    }
+                  </code>
+                  <p>
+                    「let」は変数定義、再代入ができる<br>
+                    「const」は定数定義、再代入ができない
+                  </p>
+                </div>
                 <p class="index index--third">Step1 クリックされたボタンの結果を変数に保存する</p>
                 <p class="index index--fourth">Note 代入演算子(=)</p>
                 <p class="index index--fourth">Note 変数名をつけるときの実践的なルール</p>
@@ -133,43 +166,435 @@
                 <p class="index index--third">Step2 定数を使ってデータを書き換えられないようにする</p>
                 <p class="index index--third">Step3 保存された内容で動作を切り替える</p>
                 <p class="index index--fourth">Note ===は「比較演算子」</p>
-                <p class="index index--second">3-3 動作のバリエーションを増やす</p>
-                <p class="index index--third">条件分岐(else if)</p>
+                <p class="index index--second">3-3 動作のバリエーションを増やす／条件分岐(else if)</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    const answer = window.prompt('ヘルプを見ますか？');<br>
+                    if(answer === 'yes') {<br>
+                    　window.alert('タップでジャンプ、障害物をよけます。');<br>
+                    } else if(answer === 'no') {<br>
+                    　window.alert('ゲーム起動中...');<br>
+                    } else {<br>
+                    　window.alert('yesかnoでお答えください。');<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--third">Step1 noかどうかを判断する</p>
-                <p class="index index--second">3-4 数当てゲーム</p>
-                <p class="index index--third">比較演算子、データ型</p>
+                <p class="index index--second">3-4 数当てゲーム／比較演算子、データ型</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    const number = Math.floor(Math.random() * 6);<br>
+                    const answer = parseInt(window.prompt('数当てゲーム、0～5の数字を入力してね'))<br>
+                    let message;<br>
+                    if(answer === number) {<br>
+                    　message = 'あたり！';<br>
+                    } else if(answer &lt; number) {<br>
+                    　message = '残念でした！もっと大きい';<br>
+                    } else if(answer &gt; number) {<br>
+                    　message = '残念でした！もっと小さい';<br>
+                    } else {<br>
+                    　message = '0～5の数字を入力してね';<br>
+                    }
+                    window.alert(message);<br>
+                  </code>
+                  <p>
+                    比較演算子
+                  </p>
+                  <table class="comment__table">
+                    <tr>
+                      <td>
+                        a === b
+                      </td>
+                      <td>
+                        aとbが同じ時true
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a !== b
+                      </td>
+                      <td>
+                        aとbが同じでないときtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a &lt; b
+                      </td>
+                      <td>
+                        aがbより小さいときtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a &lt;= b
+                      </td>
+                      <td>
+                        aがb以下のときtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a &gt; b
+                      </td>
+                      <td>
+                        aがbより大きいtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a &gt;= b
+                      </td>
+                      <td>
+                        aがb以上のときtrue
+                      </td>
+                    </tr>
+                  </table>
+                </div>
                 <p class="index index--third">Step1 さまざまな比較演算子を使用する</p>
                 <p class="index index--fourth">Note データとデータ型～parseIntメソッドの役割</p>
-                <p class="index index--second">3-5 時間で異なるメッセージを表示する</p>
-                <p class="index index--third">論理演算子</p>
+                <div class="comment comment--fourth">
+                  <p>「parseInt」は入力内容を「文字」から「数値」に極力変換する</p>
+                </div>
+                <p class="index index--second">3-5 時間で異なるメッセージを表示する／論理演算子</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    const hour = new Date().getHours;<br>
+                    if(hour &gt;= 19 && hour &lt; 21) {<br>
+                    　window.alert('お弁当30%OFF');<br>
+                    } else if(hour === 9 || hour === 15) {<br>
+                    　window.alert('お弁当1個買ったら1個おまけ！');<br>
+                    } else {<br>
+                    　window.alert('お弁当はいかがですか');<br>
+                    }
+                  </code>
+                  <p>
+                    論理演算子
+                  </p>
+                  <table class="comment__table">
+                    <tr>
+                      <td>
+                        a && b
+                      </td>
+                      <td>
+                        aとbが両方trueのときtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a || b
+                      </td>
+                      <td>
+                        aとbのどちらかがtrueのときtrue
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        !a
+                      </td>
+                      <td>
+                        aがtrueでないときtrue
+                      </td>
+                    </tr>
+                  </table>
+                </div>
                 <p class="index index--third">Step1 2つ以上の条件式で1つの条件を作る</p>
-                <p class="index index--second">3-6 1枚、2枚、3枚･･･と出力する</p>
-                <p class="index index--third">回数が決まっている基本の繰り返し</p>
+                <p class="index index--second">3-6 1枚、2枚、3枚･･･と出力する／回数が決まっている基本の繰り返し</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    let i = 1;<br>
+                    while(1 &lt;= 10) {<br>
+                    　console.log(i + '枚');<br>
+                    　i += 1;<br>
+                    }
+                  </code>
+                  <p>「i = i + 1」は「i += 1」と省略できる</p>
+                </div>
                 <p class="index index--third">Step1 繰り返しを試してみよう</p>
                 <p class="index index--fourth">Note ところで、なぜ変数名がiなの?</p>
                 <p class="index index--third">Step2 文字列同士を連結する</p>
-                <p class="index index--second">3-7 コンソールでモンスターを倒せ!</p>
-                <p class="index index--third">回数が決まっていない繰り返し</p>
+                <p class="index index--second">3-7 コンソールでモンスターを倒せ!／回数が決まっていない繰り返し</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    let enemy = 100;<br>
+                    let count = 0;<br>
+                    window.alert('戦闘スタート！');<br>
+                    while(enemy &gt; 0) {<br>
+                    　const attack = Math.floor(Math.random() * 30) + 1;<br>
+                    　console.log('モンスターに' + atack + 'のダメージ！');<br>
+                    　enemy -= attack;<br>
+                    　count += 1;<br>
+                    }<br>
+                    console.log(count + '回でモンスターを倒した！');
+                  </code>
+                  <p>変数や定数には有効範囲がある（attackは{}の内が有効範囲）</p>
+                </div>
                 <p class="index index--third">Step1 ルールに沿って繰り返す</p>
                 <p class="index index--third">Step2 繰り返しの回数をカウントする</p>
                 <p class="index index--fourth">Note 無限ループに気をつけて!</p>
-                <p class="index index--second">3-8 税込価格を計算する</p>
-                <p class="index index--third">ファンクション</p>
+                <p class="index index--second">3-8 税込価格を計算する／ファンクション</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    function total(price){<br>
+                    　const tax = 0.1;<br>
+                    　return price + price * tax;<br>
+                    }<br>
+                    console.log('コーヒーメーカーの値段は' + total(8000) + '円(税込み)です');
+                  </code>
+                </div>
                 <p class="index index--third">Step1 ファンクションを作る・呼び出す</p>
                 <p class="index index--third">Step2 HTMLに出力する</p>
-                <p class="index index--second">3-9 FizzBuzz</p>
-                <p class="index index--third">算術演算子</p>
+                <p class="index index--second">3-9 FizzBuzz／算術演算子</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    function fizzbuzz(num) {<br>
+                    　if(num % 3 === 0 && num % 5 === 0) {<br>
+                    　　return 'fizzbuzz';<br>
+                    　} else if(num % 3 === 0) {<br>
+                    　　return 'fizz';<br>
+                    　} else if(num % 5 === 0) {<br>
+                    　　return 'buzz';<br>
+                    　} else {<br>
+                    　　return num;<br>
+                    　}<br>
+                    }<br>
+                    let i = 0;<br>
+                    while(i &lt;= 30) {<br>
+                    　console.log(fizzbuzz(i));<br>
+                    　i += 1;<br>
+                    }<br>
+                  </code>
+                  <p>
+                    算術演算子
+                  </p>
+                  <table class="comment__table">
+                    <tr>
+                      <td>
+                        a + b
+                      </td>
+                      <td>
+                        a+b
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a - b
+                      </td>
+                      <td>
+                        a-b
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a * b
+                      </td>
+                      <td>
+                        a×b
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a / b
+                      </td>
+                      <td>
+                        a÷b
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a % b
+                      </td>
+                      <td>
+                        a÷bの余り
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a ** b
+                      </td>
+                      <td>
+                        aのb乗
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a++ または ++a
+                      </td>
+                      <td>
+                        a+1してaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a-- または --a
+                      </td>
+                      <td>
+                        a-1してaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a += b
+                      </td>
+                      <td>
+                        a+bしてaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a -= b
+                      </td>
+                      <td>
+                        a-bしてaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a *= b
+                      </td>
+                      <td>
+                        a×bしてaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a /= b
+                      </td>
+                      <td>
+                        a÷bしてaに代入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        a %= b
+                      </td>
+                      <td>
+                        a÷bの余りをaに代入
+                      </td>
+                    </tr>
+                  </table>
+                </div>
                 <p class="index index--third">Step1 処理の流れを考えてファンクションを作る</p>
                 <p class="index index--third">Step2 30までの数でFizzBuzz</p>
-                <p class="index index--second">3-10 項目をリスト表示する</p>
-                <p class="index index--third">配列</p>
+                <p class="index index--second">3-10 項目をリスト表示する／配列</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    let todo = ['デザインカンプ作成', 'データ整理', '勉強会申し込み', '牛乳買う'];<br>
+                    todo.push('歯医者に行く');<br>
+                    for(let item of todo) { //for...of文は配列で使用する<br>
+                    　console.log(item); //「デザインカンプ作成」～「牛乳買う」が出力<br>
+                    }
+                  </code>
+                  <p>
+                    配列のメソッド
+                  </p>
+                  <table class="comment__table">
+                    <tr>
+                      <td>
+                        配列の変数名.pop()
+                      </td>
+                      <td>
+                        配列の最後のデータを削除する
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        配列の変数名.push(データ)
+                      </td>
+                      <td>
+                        配列の最後にデータを追加する
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        配列の変数名.shift()
+                      </td>
+                      <td>
+                        配列の最初のデータを削除する
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        配列の変数名.unshift(データ1,データ2...)
+                      </td>
+                      <td>
+                        配列の最初にデータ1、データ2・・・を追加する
+                      </td>
+                    </tr>
+                  </table>
+                </div>
                 <p class="index index--third">Step1 配列を作成する</p>
                 <p class="index index--third">Step2 配列の各項目をすべて読み取る</p>
                 <p class="index index--third">Step3 項目を追加する</p>
                 <p class="index index--third">Step4 項目一つひとつを&lt;li&gt;～&lt;/li&gt;で囲む</p>
+                <div class="comment comment--third">
+                  <p>
+                    バックティック「``」で囲んだ文字列をテンプレート文字列と言い<br>
+                    「${}」で変数やファンクションを埋め込める
+                  </p>
+                  <code class="comment__code">
+                    const li = `&lt;li&gt;${item}&lt;/li&gt;`;
+                  </code>
+                </div>
                 <p class="index index--third">Step5 項目をHTMLに出力する</p>
-                <p class="index index--second">3-11 アイテムの価格と在庫を表示する</p>
-                <p class="index index--third">オブジェクト</p>
+                <div class="comment comment--third">
+                  <p>
+                    「insertAdjacentHTML」メソッドは取得した要素の前後や子に別の要素を挿入できる
+                  </p>
+                  <code class="comment__code">
+                    document.getElementById('list').insertAdjacentHTML('beforeend', li);
+                  </code>
+                  <p>
+                    「insertAdjacentHTML」のキーワード
+                  </p>
+                  <table class="comment__table">
+                    <tr>
+                      <td>
+                        'beforebegin'
+                      </td>
+                      <td>
+                        取得した要素の前に挿入
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        'afterbegin'
+                      </td>
+                      <td>
+                        取得した要素の子として挿入（既要素の前）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        'beforeend'
+                      </td>
+                      <td>
+                        取得した要素の子として挿入（既要素の後）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        'afterend'
+                      </td>
+                      <td>
+                        取得した要素の後に挿入
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <p class="index index--second">3-11 アイテムの価格と在庫を表示する／オブジェクト</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    let jsbook = {title:'JavaScript入門', price:2500, stock:3};<br>
+                    console.log(jsbook.title); //「JavaScript入門」が出力<br>
+                    console.log(jsbook['price']); //「2500」が出力<br>
+                    jsbook.stock = 10; //stockプロパティを書き換え<br>
+                    console.log(jsbook.stock); //「10」が出力<br>
+                    for(let p in jsbook) { //for...in文はオブジェクトで使用する<br>
+                    　console.log(p + '=' + jsbook[p]);//「title=JavaScript入門」～「stock=3」が出力<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--third">Step1 本のデータを登録する</p>
                 <p class="index index--fourth">Note ところで、これまでに出てきたオブジェクトとの関係は?</p>
                 <p class="index index--third">Step2 すべてのプロパティを読み取る</p>
@@ -179,80 +604,84 @@
                 <p class="index index--fourth">Note どちらを選べばいいの!? 配列vsオブジェクト</p>
                 <p class="index index--fourth">Note プログラミングの「考え方」を身につけよう</p>
                 <p class="index index--first">Chapter4 インプットとデータの加工</p>
-                <p class="index index--second">4-1 フォームの入力内容を取得する</p>
-                <p class="index index--third">入力内容の取得とイベント</p>
+                <p class="index index--second">4-1 フォームの入力内容を取得する／入力内容の取得とイベント</p>
+                <div class="comment comment--second">
+                  <div class="book-javascript-1">
+                    <form action="#" class="js_form">
+                      <input type="text" name="word">
+                      <input type="submit" value="検索">
+                    </form>
+                    <p class="js_output"></p>
+                  </div>
+                </div>
+                <script>
+                  document.querySelector(".js_form").onsubmit = function(event) {
+                    event.preventDefault();
+                    const search = document.querySelector(".js_form").word.value;
+                    document.querySelector(".js_output").textContent = `「${search}」の検索中...`;
+                  }
+                </script>
                 <p class="index index--third">Step1 まずはイベントをテスト</p>
                 <p class="index index--third">Step2 入力内容を読み取って出力</p>
-                <p class="index index--second">4-2 わかりやすく日時を表示する</p>
-                <p class="index index--third">Dateオブジェクト</p>
+                <p class="index index--second">4-2 わかりやすく日時を表示する／Dateオブジェクト</p>
+                <p class="index index--third"></p>
                 <p class="index index--third">Step1 年月日と日時を表示する</p>
                 <p class="index index--fourth">Note オブジェクトには初期化するものとしないものがある</p>
                 <p class="index index--third">Step2 12時間時計にしてみよう</p>
-                <p class="index index--second">4-3 小数第○位で切り捨てる</p>
-                <p class="index index--third">Mathオブジェクト</p>
+                <p class="index index--second">4-3 小数第○位で切り捨てる／Mathオブジェクト</p>
                 <p class="index index--third">Step1 四則演算以外の計算をする</p>
                 <p class="index index--first">Chapter5 一歩進んだテクニック</p>
-                <p class="index index--second">5-1 カウントダウンタイマー</p>
-                <p class="index index--third">時間の計算とタイマー</p>
+                <p class="index index--second">5-1 カウントダウンタイマー／時間の計算とタイマー</p>
                 <p class="index index--third">Step1 残り時間を計算するファンクションを作る</p>
                 <p class="index index--fourth">Note なぜ秒を計算するときも切り捨てたの?</p>
                 <p class="index index--third">Step2 1秒ごとに再計算する</p>
                 <p class="index index--fourth">Note なぜ実行するファンクションに()をつけてはいけないの?</p>
                 <p class="index index--third">Step3 応用例:表示の仕方を変えてみよう</p>
                 <p class="index index--fourth">Note 余裕があればCSSの追加も</p>
-                <p class="index index--second">5-2 プルダウンメニューで指定ページへ</p>
-                <p class="index index--third">URLの操作､ブール属性の設定</p>
+                <p class="index index--second">5-2 プルダウンメニューで指定ページへ／URLの操作､ブール属性の設定</p>
                 <p class="index index--third">Step1 選んだタイミングでページを移動する</p>
                 <p class="index index--fourth">Note プルダウンメニューのHTML</p>
                 <p class="index index--third">Step2 最初に選択されている項目を切り替える</p>
                 <p class="index index--fourth">Note selected</p>
-                <p class="index index--fourth">Note <html>タグのlang属性</p>
+                <p class="index index--fourth">Note htmlタグのlang属性</p>
                 <p class="index index--fourth">Note ブール属性って何?</p>
                 <p class="index index--fourth">Note switch文</p>
-                <p class="index index--second">5-3 プライバシーポリシー承認パネルを作る</p>
-                <p class="index index--third">クッキー(cookie)</p>
+                <p class="index index--second">5-3 プライバシーポリシー承認パネルを作る／クッキー(cookie)</p>
                 <p class="index index--third">Step1 テスト専用の簡易Webサーバーを用意しよう</p>
                 <p class="index index--fourth">Note なぜ最初にlocal.htmlをドラッグするの?</p>
                 <p class="index index--third">Step2 クッキーの読み・書き・削除</p>
                 <p class="index index--fourth">Note ライブラリって何? オープンソースって何?</p>
                 <p class="index index--third">Step3 クッキーの内容に応じてパネルを削除する</p>
-                <p class="index index--second">5-4 イメージの切り替え</p>
-                <p class="index index--third">サムネイルのクリックによる画像の切り替え</p>
+                <p class="index index--second">5-4 イメージの切り替え／サムネイルのクリックによる画像の切り替え</p>
                 <p class="index index--third">Step1 HTMLのdata-ナンデモ属性を使用する</p>
                 <p class="index index--third">Step2 画像を切り替える</p>
-                <p class="index index--second">5-5 スライドショー</p>
-                <p class="index index--third">ここまでの知識を総動員</p>
+                <p class="index index--second">5-5 スライドショー／ここまでの知識を総動員</p>
                 <p class="index index--third">Step1 ボタンクリックで画像を切り替える</p>
                 <p class="index index--third">Step2 何枚目の画像か表示する</p>
                 <p class="index index--fourth">Note 画像をプリロードする</p>
                 <p class="index index--fourth">Note DOM操作とは</p>
                 <p class="index index--first">Chapter6 jQuery入門</p>
-                <p class="index index--second">6-1 開閉するナビゲーションメニュー</p>
-                <p class="index index--third">要素の取得とclass属性の追加・削除</p>
+                <p class="index index--second">6-1 開閉するナビゲーションメニュー／要素の取得とclass属性の追加・削除</p>
                 <p class="index index--third">Step1 jQueryの基本を押さえよう</p>
                 <p class="index index--fourth">Note jQueryを新たにダウンロードするときは</p>
                 <p class="index index--fourth">Note バージョン番号に気をつけて!</p>
                 <p class="index index--fourth">Note トラバーサルとは?</p>
-                <p class="index index--second">6-2 ドロワーを作ってみよう</p>
-                <p class="index index--third">CSSと組み合わせてアニメーションを実現</p>
+                <p class="index index--second">6-2 ドロワーを作ってみよう／CSSと組み合わせてアニメーションを実現</p>
                 <p class="index index--third">Step1 ヘッダーにボタンを設置する</p>
                 <p class="index index--third">Step2 メニューが｢開いた」ときの状態を作る</p>
                 <p class="index index--fourth">Note transform プロパティ</p>
                 <p class="index index--third">Step3 開閉機能をプログラミング</p>
-                <p class="index index--second">6-3 空き席状況をチェック</p>
-                <p class="index index--third">AjaxとJSON</p>
+                <p class="index index--second">6-3 空き席状況をチェック／AjaxとJSON</p>
                 <p class="index index--third">Step1 JSON ファイルの読み込み</p>
                 <p class="index index--third">Step2 データをもとに表示を切り替える</p>
                 <p class="index index--fourth">上達のポイント! data.jsonを書き換えてみよう</p>
                 <p class="index index--fourth">Note Ajaxの注意点と応用</p>
                 <p class="index index--first">Chapter7 外部データを活用したアプリケーションに挑戦!</p>
-                <p class="index index--second">7-1 あなたはいまどこ?</p>
-                <p class="index index--third">位置情報 (navigator.geolocation)</p>
+                <p class="index index--second">7-1 あなたはいまどこ?／位置情報 (navigator.geolocation)</p>
                 <p class="index index--third">Step1 現在地の緯度・経度を取得する</p>
                 <p class="index index--third">Step2 位置情報をページに表示する</p>
                 <p class="index index--fourth">Note 通信を暗号化する「https://｣、しない「http://」</p>
-                <p class="index index--second">7-2 WebAPIを使ってみよう</p>
-                <p class="index index--third">OpenWeatherMap APIで天気予報</p>
+                <p class="index index--second">7-2 WebAPIを使ってみよう／OpenWeatherMap APIで天気予報</p>
                 <p class="index index--third">Step1 APIの利用登録をする</p>
                 <p class="index index--third">Step2 位置情報からデータを取得する</p>
                 <p class="index index--fourth">Note index.htmlはダブルクリックして開く</p>
@@ -334,8 +763,6 @@
       <p class="footer__text">comic-school.jp</p>
     </div>
   </footer><!-- /.footer -->
-
-  <script src="js/note_book_javascript_1.min.js"></script>
 
 </body>
 
