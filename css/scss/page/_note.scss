@@ -115,18 +115,49 @@
         font-weight: normal;
         background:linear-gradient(transparent 60%, #ffff64 60%);
     }
+}
 
-    .book-javascript-1{
+/* book_javascript_1 */
+.book_javascript_1{
+
+    .comment{
+        &--js-result{
+            background-color: #e9e9d9;
+        }
+    }
         
-        input[type="text"]{
-            background-color: #ffffff;
-            border: 1px solid #aaaaaa;
-            border-radius: 4px;
-            padding: 0 8px;
+    input[type="text"]{
+        background-color: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        padding: 0 8px;
+    }
+
+    input[type="submit"]{
+        background-color: #eeeeee;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        padding: 0 8px;
+        color: #333333;
+    }
+
+   .select-box{
+        position: relative;
+
+        &::after{
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            content: "\f107";  
+            position: absolute;
+            top: 50%;
+            right: 0.5rem;
+            transform: translateY(-50%); 
+            pointer-events: none;              
         }
 
-        input[type="submit"]{
-            background-color: #eeeeee;
+        select{
+            width: 100%;
+            background-color: #ffffff;
             border: 1px solid #aaaaaa;
             border-radius: 4px;
             padding: 0 8px;

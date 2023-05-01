@@ -37,7 +37,7 @@
   <meta name="robots" content="noindex">
 </head>
 
-<body class="note">
+<body class="note book_javascript_1">
 
   <header class="header">
     <div class="header__inner">
@@ -254,7 +254,7 @@
                 <p class="index index--third">Step1 さまざまな比較演算子を使用する</p>
                 <p class="index index--fourth">Note データとデータ型～parseIntメソッドの役割</p>
                 <div class="comment comment--fourth">
-                  <p>「parseInt」は入力内容を「文字」から「数値」に極力変換する</p>
+                  <p>「parseInt」は入力内容を「文字列」から「数値」に極力変換する</p>
                 </div>
                 <p class="index index--second">3-5 時間で異なるメッセージを表示する／論理演算子</p>
                 <div class="comment comment--second">
@@ -481,10 +481,11 @@
                   <code class="comment__code">
                     let todo = ['デザインカンプ作成', 'データ整理', '勉強会申し込み', '牛乳買う'];<br>
                     todo.push('歯医者に行く');<br>
-                    for(let item of todo) { //for...of文は配列で使用する<br>
+                    for(let item of todo) {<br>
                     　console.log(item); //「デザインカンプ作成」～「牛乳買う」が出力<br>
                     }
                   </code>
+                  <p>「for...of文」は配列の項目をすべて読み取る繰り返し文</p>
                   <p>
                     配列のメソッド
                   </p>
@@ -590,10 +591,11 @@
                     console.log(jsbook['price']); //「2500」が出力<br>
                     jsbook.stock = 10; //stockプロパティを書き換え<br>
                     console.log(jsbook.stock); //「10」が出力<br>
-                    for(let p in jsbook) { //for...in文はオブジェクトで使用する<br>
+                    for(let p in jsbook) {<br>
                     　console.log(p + '=' + jsbook[p]);//「title=JavaScript入門」～「stock=3」が出力<br>
                     }
                   </code>
+                  <p>「for...in」文はオブジェクトのプロパティをすべて読み取る繰り返し文</p>
                 </div>
                 <p class="index index--third">Step1 本のデータを登録する</p>
                 <p class="index index--fourth">Note ところで、これまでに出てきたオブジェクトとの関係は?</p>
@@ -605,40 +607,157 @@
                 <p class="index index--fourth">Note プログラミングの「考え方」を身につけよう</p>
                 <p class="index index--first">Chapter4 インプットとデータの加工</p>
                 <p class="index index--second">4-1 フォームの入力内容を取得する／入力内容の取得とイベント</p>
-                <div class="comment comment--second">
-                  <div class="book-javascript-1">
-                    <form action="#" class="js_form">
-                      <input type="text" name="word">
-                      <input type="submit" value="検索">
-                    </form>
-                    <p class="js_output"></p>
-                  </div>
+                <div class="comment comment--second comment--js-result">
+                  <form action="#" class="js_4-1_form">
+                    <input type="text" name="word">
+                    <input type="submit" value="検索">
+                  </form>
+                  <p class="js_4-1_output"></p>
                 </div>
                 <script>
-                  document.querySelector(".js_form").onsubmit = function(event) {
+                  document.querySelector(".js_4-1_form").onsubmit = function(event) {
                     event.preventDefault();
-                    const search = document.querySelector(".js_form").word.value;
-                    document.querySelector(".js_output").textContent = `「${search}」の検索中...`;
+                    const search = document.querySelector(".js_4-1_form").word.value;
+                    document.querySelector(".js_4-1_output").textContent = `「${search}」の検索中...`;
                   }
                 </script>
                 <p class="index index--third">Step1 まずはイベントをテスト</p>
                 <p class="index index--third">Step2 入力内容を読み取って出力</p>
+                <div class="comment comment--third">
+                  <p>「event.preventDefault();」でタグの基本動作をキャンセル</p>
+                </div>
                 <p class="index index--second">4-2 わかりやすく日時を表示する／Dateオブジェクト</p>
+                <div class="comment comment--second comment--js-result">
+                  <p>最終アクセス日時:<span class="js_4-2_time"></span></p>
+                </div>
+                <script>
+                  const now = new Date();
+                  const year = now.getFullYear();
+                  const month = now.getMonth();
+                  const date = now.getDate();
+                  const hour = now.getHours();
+                  const min = now.getMinutes();
+                  let ampm = '';
+                  if(hour < 12) {
+                    ampm = 'a.m.';
+                  } else {
+                    ampm = 'p.m.';
+                  }
+
+                  const output = `${year}/${month + 1}/${date} ${hour % 12}:${min}${ampm}`;
+                  document.querySelector(".js_4-2_time").textContent = output;
+                </script>
                 <p class="index index--third"></p>
                 <p class="index index--third">Step1 年月日と日時を表示する</p>
                 <p class="index index--fourth">Note オブジェクトには初期化するものとしないものがある</p>
+                <div class="comment comment--fourth">
+                  <p>
+                    複数のオブジェクトを作れるオブジェクトは初期化する（Dateなど）<br>
+                    複数のオブジェクトを作れないオブジェクトは初期化しない（Mathなど）
+                  </p>
+                </div>
                 <p class="index index--third">Step2 12時間時計にしてみよう</p>
                 <p class="index index--second">4-3 小数第○位で切り捨てる／Mathオブジェクト</p>
+                <div class="comment comment--second comment--js-result">
+                  <p>円周率は <span class="js_4-3_pi"></span> です。</p>
+                  <p>ふつうに切り捨てると <span class="js_4-3_floor"></span> です。</p>
+                  <p>小数点第2位で切り捨てると <span class="js_4-3_output"></span> です。</p>
+                </div>
+                <script>
+                  document.querySelector(".js_4-3_pi").textContent = Math.PI;
+                  document.querySelector(".js_4-3_floor").textContent = Math.floor(Math.PI);
+
+                  function point(num, digit) {
+                    const mover = 10 ** digit;
+                    return Math.floor(num * mover) / mover;
+                  }
+
+                  document.querySelector(".js_4-3_output").textContent = point(Math.PI, 2);
+                </script>
                 <p class="index index--third">Step1 四則演算以外の計算をする</p>
                 <p class="index index--first">Chapter5 一歩進んだテクニック</p>
                 <p class="index index--second">5-1 カウントダウンタイマー／時間の計算とタイマー</p>
+                <div class="comment comment--second comment--js-result">
+                  <p>知ってました？2025年大阪万博まで</p>
+                  <p>あと<span class="js_5-1_day"></span>日<span class="js_5-1_hour"></span>時間<span class="js_5-1_min"></span>分<span class="js_5-1_sec"></span>秒</p>
+                </div>
+                <script>
+                  function countdown(due) {
+                    const now = new Date();
+
+                    const rest = due.getTime() - now.getTime();
+                    const sec = Math.floor(rest / 1000) % 60;
+                    const min = Math.floor(rest / 1000 / 60) % 60;
+                    const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+                    const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+                    const count = [days, hours , min, sec];
+
+                    return count
+                  }
+
+                  //let goal = new Date();
+                  //goal.setHours(23);
+                  //goal.setMinutes(59);
+                  //goal.setSeconds(59);
+                  const goal = new Date(2025, 4, 3);
+
+                  function recalc() {
+                    const counter = countdown(goal);
+                    //const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+                    //document.querySelector(".js_5-1_timer").textContent = time;
+                    document.querySelector(".js_5-1_day").textContent = counter[0];
+                    document.querySelector(".js_5-1_hour").textContent = counter[1];
+                    document.querySelector(".js_5-1_min").textContent = String(counter[2]).padStart(2, '0');
+                    document.querySelector(".js_5-1_sec").textContent = String(counter[3]).padStart(2, '0');
+                    refresh();
+                  }
+
+                  function refresh() {
+                    setTimeout(recalc, 1000);
+                  }
+
+                  recalc();
+                </script>
                 <p class="index index--third">Step1 残り時間を計算するファンクションを作る</p>
                 <p class="index index--fourth">Note なぜ秒を計算するときも切り捨てたの?</p>
                 <p class="index index--third">Step2 1秒ごとに再計算する</p>
                 <p class="index index--fourth">Note なぜ実行するファンクションに()をつけてはいけないの?</p>
+                <div class="comment comment--fourth">
+                  <p>ファンクションの後の「()」はその場で実行するという意味があるため、「recalc()」にするとsetTimeoutの処理が終わる前に即座に実行されてしまい、一瞬でブラウザの繰り返し上限に達してしまう</p>
+                </div>
                 <p class="index index--third">Step3 応用例:表示の仕方を変えてみよう</p>
+                <div class="comment comment--third">
+                  <p>「String」は入力内容を「数値」から「文字列」に変換する</p>
+                </div>
                 <p class="index index--fourth">Note 余裕があればCSSの追加も</p>
                 <p class="index index--second">5-2 プルダウンメニューで指定ページへ／URLの操作､ブール属性の設定</p>
+                <div class="comment comment--second comment--js-result">
+                  <form class="js_5-2_form">
+                    <div class="select-box">
+                      <select name="select">
+                        <option value="index.html">日本語</option>
+                        <option value="index-en.html">English</option>
+                        <option value="index-zh.html">中文</option>
+                      </select>
+                    </div>
+                  </form>
+                  <p>日本語のページ</p>
+                </div>
+                <script>
+                  const lang = document.querySelector("html").lang;
+
+                  if(lang ==="ja") {
+                    document.querySelector('option[value="index.html"]').selected = true;
+                  } else if(lang === "en") {
+                    document.querySelector('option[value="index-en.html"]').selected = true;
+                  } else if(lang === "zh") {
+                    document.querySelector('option[value="index-zh.html"]').selected = true;
+                  }
+
+                  document.querySelector(".js_5-2_form").select.onchange = function() {
+                    location.href = document.querySelector(".js_5-2_form").select.value;
+                  }
+                </script>
                 <p class="index index--third">Step1 選んだタイミングでページを移動する</p>
                 <p class="index index--fourth">Note プルダウンメニューのHTML</p>
                 <p class="index index--third">Step2 最初に選択されている項目を切り替える</p>

@@ -953,6 +953,7 @@ li {
     フッター
 *********************************/
 .footer {
+  position: -webkit-sticky;
   position: sticky;
   top: 100vh;
   width: 100%;
@@ -1214,21 +1215,48 @@ li {
   font-weight: normal;
   background: linear-gradient(transparent 60%, #ffff64 60%);
 }
-.note .book-javascript-1 input[type=text] {
+
+/* book_javascript_1 */
+.book_javascript_1 .comment--js-result {
+  background-color: #e9e9d9;
+}
+.book_javascript_1 input[type=text] {
   background-color: #ffffff;
   border: 1px solid #aaaaaa;
   border-radius: 4px;
   padding: 0 8px;
 }
-.note .book-javascript-1 input[type=submit] {
+.book_javascript_1 input[type=submit] {
   background-color: #eeeeee;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 0 8px;
+  color: #333333;
+}
+.book_javascript_1 .select-box {
+  position: relative;
+}
+.book_javascript_1 .select-box::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f107";
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
+}
+.book_javascript_1 .select-box select {
+  width: 100%;
+  background-color: #ffffff;
   border: 1px solid #aaaaaa;
   border-radius: 4px;
   padding: 0 8px;
 }
 
 /*********************************
-    archive js-library
+    archive js library
 *********************************/
 .weather .content__box--blue {
   background-color: #F7F9FB;
