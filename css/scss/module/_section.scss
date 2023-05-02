@@ -1,0 +1,22 @@
+@use '../global' as g;
+
+/*********************************
+    セクション
+*********************************/
+
+.section{
+}
+
+.section__inner{
+    margin-bottom: 20px;
+
+    .section:last-child &{
+        margin-bottom: 0;
+    }
+}
+
+.section__header{
+}
+
+.section__main{
+}

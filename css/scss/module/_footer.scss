@@ -5,8 +5,6 @@
 *********************************/
 
 .footer{
-    position: sticky;
-    top: 100vh;
     width: 100%;
     background-color: g.$color_grey_light;
 }
@@ -18,5 +16,5 @@
 }
 
 .footer__text{
-    font-size: g.$font_size_xs;
+    font-size: g.$font-size_xs;
 }

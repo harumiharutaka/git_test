@@ -4,22 +4,42 @@
     見出し
 *********************************/
 
-.heading{
+.page-visual-heading{
+    font-size:g.$font-size_xxxxl;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-    &--page{
+    &::after{
+        content: "";
+        width: 8rem;
+        height: 4px;
+        margin-top: 5px;
+        background-color: g.$color_black_light;
+        border-radius: 100px;
     }
+}
     
-    &--content{
-        font-size:g.$font_size_xl;
-        font-weight: bold;
-        
-        &::after{
-            content: "";
-            display: block;
-            height: 2px;
-            max-width: 12rem;
-            background-color: g.$color_black_light;
-            border-radius: 100px;
-        }
+.content-heading-first{
+    font-size:g.$font-size_xxl;
+    font-weight: bold;
+    
+    &::after{
+        content: "";
+        display: block;
+        max-width: 16rem;
+        height: 2px;
+        background-color: g.$color_black_light;
+        border-radius: 100px;
     }
+}
+
+.content-heading-second{
+    font-size:g.$font-size_xl;
+    font-weight: bold;
+}
+
+.content-heading-third{
+    font-weight: bold;
 }

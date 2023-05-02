@@ -16,7 +16,7 @@
 8.基本的に子孫セレクタは使用しない
 9.Blockの閉じタグには極力コメント「<!-- /.class-name -->」をつける
 10.font-sizeは「rem」で指定する
-11.z-indexは変数管理する（「$z_index_header」等）
+11.z-indexは変数管理する（「$z-index_header」等）
 
 
 

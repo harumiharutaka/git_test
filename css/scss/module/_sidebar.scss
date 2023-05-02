@@ -1,15 +1,15 @@
 @use '../global' as g;
 
 /*********************************
-    カラム
+    サイドバー
 *********************************/
 
-.column{
+.sidebar{
     display: none;
     position: absolute;
     top: calc(g.$header_height + 40px);
     right: max(20px, ( (100% - g.$content_width) / 2) + 20px);
-    width: 200px;
+    width: g.$sidebar_width;
     background-color: g.$color_white;
     border: 1px solid g.$color_grey_light;
     border-radius: 4px;
@@ -20,12 +20,12 @@
     }
 }
 
-.column__inner{
+.sidebar__inner{
     padding: 20px;
 }
 
 
-.column__link-wrapper{
+.sidebar__link-wrapper{
     
     &--heading{
         margin: 15px 0 5px;
@@ -36,14 +36,13 @@
     }
 }
 
-.column__link{
-    color: g.$color_black_light;
+.sidebar__link{
 
     &:hover,&:focus {
         opacity: 0.8;
     }
 
-    .column__link-wrapper--heading &{
+    .sidebar__link-wrapper--heading &{
         display: inline-block;
         font-weight: bold;
 

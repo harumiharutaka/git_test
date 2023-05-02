@@ -13,8 +13,14 @@
 // コンテンツ
 @forward 'content';
 
-// カラム
-@forward 'column';
+// サイドバー
+@forward 'sidebar';
+
+// ページビジュアル
+@forward 'page-visual';
+
+// セクション
+@forward 'section';
 
 // メディア
 @forward 'media';

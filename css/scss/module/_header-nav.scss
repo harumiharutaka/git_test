@@ -14,9 +14,8 @@
 
 .header-nav__link{
     display: block;
-    padding: 3px 15px 7px;
-    line-height: 1;
-    color: g.$color_black_light;
+    padding: 5px 15px;
+    font-weight: bold;
 
     &:hover,&:focus {
         opacity: 0.8;

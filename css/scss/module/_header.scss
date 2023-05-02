@@ -8,7 +8,7 @@
     position: fixed;
     width: 100%;
     height: g.$header_height;
-    z-index: g.$z_index_header;
+    z-index: g.$z-index_header;
     background-color: rgba(#ffffff,.95);
     box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
 }
@@ -24,12 +24,12 @@
 }
 
 .header__title{
-    font-size: g.$font_size_lg;
+    font-size: g.$font-size_lg;
+    font-weight: bold;
     line-height: 1;
 }
 
 .header__link{
-    color: g.$color_black_light;
 
     &:hover,&:focus {
         opacity: 0.8;

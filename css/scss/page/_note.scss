@@ -5,7 +5,7 @@
 *********************************/
 
 .note{
-
+    
     .index{
         &--title{
             font-size: 1.4rem;
@@ -31,6 +31,7 @@
         }
 
         &--link{
+            color: g.$color_link-blue;
         }
     }
 
@@ -59,6 +60,10 @@
         
         &--fourth{
             margin-left: 3.5rem;
+        }
+
+        a{
+            color: g.$color_link-blue;
         }
     }
 
@@ -154,13 +159,21 @@
             transform: translateY(-50%); 
             pointer-events: none;              
         }
+    }
 
-        select{
-            width: 100%;
-            background-color: #ffffff;
-            border: 1px solid #aaaaaa;
-            border-radius: 4px;
-            padding: 0 8px;
-        }
+    select{
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        padding: 0 8px;
+        cursor: pointer;
+    }
+
+    button{
+        background-color: #eeeeee;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        padding: 0 8px;
     }
 }
