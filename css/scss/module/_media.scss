@@ -24,13 +24,15 @@
 .media__body{
     flex: 1;
     
-    &> *:last-child{
+    > *:last-child{
         margin-bottom: 0;
     }
 }
 
 .media__title{
     margin-bottom: 10px;
+    font-size:g.$font-size_lg;
+    font-weight: bold;
 }
 
 .media__text{

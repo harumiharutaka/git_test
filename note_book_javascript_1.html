@@ -42,7 +42,7 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__title">
-        <a class="header__link" href="index.html">git_test</a>
+        <a class="header__title-link" href="index.html">git_test</a>
       </h1>
       <div class="header__nav">
         <nav class="header-nav">
@@ -804,12 +804,92 @@
                 <p class="index index--fourth">Note ライブラリって何? オープンソースって何?</p>
                 <p class="index index--third">Step3 クッキーの内容に応じてパネルを削除する</p>
                 <p class="index index--second">5-4 イメージの切り替え／サムネイルのクリックによる画像の切り替え</p>
+                <div class="comment comment--second comment--js-result">
+                  <div class="js_5-4_center">
+                    <div>
+                      <img class="js_5-4_bigimg" src="img/number-image_1.jpg">
+                    </div>
+                    <ul>
+                      <li><img class="js_5-4_thumb" src="img/number-image_1.jpg" data-image="img/number-image_1.jpg"></li>
+                      <li><img class="js_5-4_thumb" src="img/number-image_2.jpg" data-image="img/number-image_2.jpg"></li>
+                      <li><img class="js_5-4_thumb" src="img/number-image_3.jpg" data-image="img/number-image_3.jpg"></li>
+                      <li><img class="js_5-4_thumb" src="img/number-image_4.jpg" data-image="img/number-image_4.jpg"></li>
+                    </ul>
+                  </div>
+                </div>
+                <script>
+                  const thumbs = document.querySelectorAll(".js_5-4_thumb");
+                  thumbs.forEach(function(item, index) {
+                      item.onclick = function() {
+                        document.querySelector(".js_5-4_bigimg").src = this.dataset.image;
+                      }
+                  });
+                </script>
                 <p class="index index--third">Step1 HTMLのdata-ナンデモ属性を使用する</p>
+                <div class="comment comment--third">
+                  <p>
+                    「forEach」メソッドはは配列の項目をインデックス付きで読み取る配列専用のメソッド<br>
+                    「data-image(imageは任意に変えて良い)」は「dataset.image」で読み取ることができる
+                  </p>
+                </div>
                 <p class="index index--third">Step2 画像を切り替える</p>
                 <p class="index index--second">5-5 スライドショー／ここまでの知識を総動員</p>
+                <div class="comment comment--second comment--js-result">
+                  <div class="js_5-5_slide">
+                    <div class="js_5-5_image_box">
+                      <img class="js_5-5-main_image" src="img/number-image_1.jpg">
+                    </div>
+                    <div class="js_5-5_toolbar">
+                      <div class="js_5-5_nav">
+                        <div class="js_5-5_prev"><i class="fa-solid fa-chevron-left"></i></div>
+                        <div class="js_5-5_page"></div>
+                        <div class="js_5-5_next"><i class="fa-solid fa-chevron-right"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  const images = ["img/number-image_1.jpg","img/number-image_2.jpg","img/number-image_3.jpg","img/number-image_4.jpg","img/number-image_5.jpg"]
+                  images.forEach(function(item, index) {
+                    preloadImage(item);
+                  })
+                  let current = 0;
+
+                  function changeImage(num) {
+                    if(current + num >= 0 && current + num < images.length) {
+                      current += num;
+                      document.querySelector(".js_5-5-main_image").src = images[current];
+                      pageNum();
+                    }
+                  }
+
+                  function preloadImage(path) {
+                    let imgTag = document.createElement("img");
+                    imgTag.src = path;
+                  }
+
+                  function pageNum() {
+                    document.querySelector(".js_5-5_page").textContent = `${current + 1}/${images.length}`
+                  }
+
+                  pageNum();
+
+                  document.querySelector(".js_5-5_prev").onclick = function() {
+                    changeImage(-1);
+                  }
+                  document.querySelector(".js_5-5_next").onclick = function() {
+                    changeImage(1);
+                  }
+                </script>
                 <p class="index index--third">Step1 ボタンクリックで画像を切り替える</p>
                 <p class="index index--third">Step2 何枚目の画像か表示する</p>
                 <p class="index index--fourth">Note 画像をプリロードする</p>
+                <div class="comment comment--fourth">
+                  <p>
+                    「preloadImage()」関係の関数は画像をプリロードしておく処理<br>
+                    「document.createElement("img")」はメモリに保存されるだけでHTMLに代入されるわけではない
+                  </p>
+                </div>
                 <p class="index index--fourth">Note DOM操作とは</p>
                 <p class="index index--first">Chapter6 jQuery入門</p>
                 <p class="index index--second">6-1 開閉するナビゲーションメニュー／要素の取得とclass属性の追加・削除</p>

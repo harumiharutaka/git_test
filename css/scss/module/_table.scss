@@ -1,0 +1,85 @@
+@use '../global' as g;
+
+/*********************************
+    テーブル
+*********************************/
+
+.table{
+
+    &--md-scroll{
+        overflow-x: auto;
+
+        .table__header{
+            white-space: nowrap;
+        }
+
+        .table__text{
+            white-space: nowrap;
+        }
+    }
+
+    &--use-thead{
+
+        .table__body-row{
+
+            &:first-child>*{
+                border-top: none;
+            }
+        }
+    }
+}
+
+.table__inner{
+    width: 100%;
+    background-color: #ffffff;
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.table__headers{
+}
+
+.table__body{
+}
+
+.table__header-row{
+
+    &:first-child>*{
+        border-top: 1px solid #aaaaaa;
+    }
+}
+
+.table__body-row{
+
+    &:first-child>*{
+        border-top: 1px solid #aaaaaa;
+    }
+}
+
+.table__header{
+    padding: 5px 10px;
+    border: none;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    background-color: g.$color_light;
+
+    &:first-child{
+        border-left: 1px solid #aaaaaa;
+    }
+    
+    &--md-sticky{
+        position: sticky;
+        left: 0;
+    }
+}
+
+.table__text{
+    padding: 5px 10px;
+    border: none;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+
+    &:first-child{
+        border-left: 1px solid #aaaaaa;
+    }
+}

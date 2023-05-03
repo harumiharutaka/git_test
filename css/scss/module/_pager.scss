@@ -1,0 +1,56 @@
+@use '../global' as g;
+
+/*********************************
+    ページャー
+*********************************/
+
+.pager{
+    display: flex;
+    overflow-x: auto;
+
+}
+
+.pager__inner{
+    display: flex;
+    margin: 0 auto;
+    gap: 2px;
+}
+
+.pager__item{
+
+    &:first-child{
+        >*{
+            border-radius: 4px 0 0 4px;
+        }
+    }
+
+    &:last-child{
+        >*{
+            border-radius: 0 4px 4px 0;
+        }
+    }
+}
+
+.pager__link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: g.$color_grey;
+    border: 1px solid transparent;
+    color: g.$color_white;
+
+    &:hover,&:focus{
+        background-color: #dddddd;
+        border-color: g.$color_grey;
+        color: g.$color_grey;
+    }
+
+    &--active{
+        background-color: g.$color_white;
+        border-color: g.$color_grey;
+        color: g.$color_grey;
+        pointer-events: none;
+    }
+}

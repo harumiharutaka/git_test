@@ -1,0 +1,46 @@
+@use '../global' as g;
+
+/*********************************
+    CTA
+*********************************/
+
+.cta-area{
+    padding: 20px;
+    background-color: g.$color_grey_light;
+    border-radius: 4px;
+    text-align: center;
+
+    > *:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.cta-area__title{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom:  1px solid g.$color_grey;
+    font-size: g.$font-size_lg;
+    font-weight: bold;
+}
+
+.cta-area__text{
+    margin-bottom: 5px;
+    font-size: g.$font-size_sm;
+    line-height: g.$line-height_low;
+}
+
+.cta-area__link{
+    color: g.$color_link-blue;
+
+    &:hover,&:focus {
+        opacity: 0.8;
+    }
+
+    &::after{
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        content: "\f061"; 
+        font-size: 0.8em;
+        margin-left: 0.3em;
+    }  
+}
