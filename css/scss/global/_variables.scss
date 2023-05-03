@@ -3,18 +3,20 @@
 *********************************/
 
 /* font size */ 
-$font-size_xxxxl: 2rem;
-$font-size_xxxl: 1.8rem;
-$font-size_xxl: 1.6rem;
-$font-size_xl: 1.4rem;
-$font-size_lg: 1.2rem;
-$font-size_md: 1rem;
-$font-size_sm: 0.9rem;
-$font-size_xs: 0.8rem;
-$font-size_xxs: 0.7rem;
+$font-size_xxxxl: 2rem; //32px
+$font-size_xxxl: 1.75rem; //28px
+$font-size_xxl: 1.5rem; //24px
+$font-size_xl: 1.25rem; //20px
+$font-size_lg: 1.125rem; //18px
+$font-size_md: 1rem; //16px
+$font-size_sm: 0.875rem; //14px
+$font-size_xs: 0.75rem; //12px
+$font-size_xxs: 0.625rem; //10px
 
 /* line height */
 $line-height_base: 1.8;
+$line-height_low: 1.6;
+$line-height_lower: 1.4;
 
 /* letter spacing */
 $letter-spacing_base: 0.05em;

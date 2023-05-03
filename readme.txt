@@ -61,8 +61,8 @@ scss
 　┃　　┗━ _import.scss //外部ファイル
 　┣━ global //mixin,変数などを格納
 　┃　　┣━ _index.scss
-　┃　　┣━ _media.scss //メディアクエリ
-　┃　　┗━ _valiables.scss //変数
+　┃　　┣━ _valiables.scss //変数
+　┃　　┗━ _media.scss //メディアクエリ
 　┃　　　　　：
 　┣━ module //コンポーネントとして使うBlockを格納
 　┃　　┣━ _index.scss

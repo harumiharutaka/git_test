@@ -5,7 +5,7 @@
 *********************************/
 
 .page-visual{
-    background-color: g.$color_grey_light;
+    background: linear-gradient(#ffffff,#eeeeee);;
 }
 
 .page-visual__inner{
@@ -15,9 +15,8 @@
 }
 
 .page-visual__heading{
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
+    padding: 40px 20px;
+    text-align: center;
 
     &--left{
         @include g.media(pc){

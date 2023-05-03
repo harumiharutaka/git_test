@@ -1,0 +1,19 @@
+/*********************************
+    line height space fill
+*********************************/
+
+@mixin lineHeightSpaceFill($line-height) {
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+    }
+    &::before {
+        margin-top: calc((1 - #{$line-height}) * 0.5em);
+    }
+    &::after {
+        margin-bottom: calc((1 - #{$line-height}) * 0.5em);
+    }
+}

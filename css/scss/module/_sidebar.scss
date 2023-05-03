@@ -6,7 +6,8 @@
 
 .sidebar{
     display: none;
-    position: absolute;
+    //position: absolute;
+    position: fixed; //スクロールスナップ用スタイル
     top: calc(g.$header_height + 40px);
     right: max(20px, ( (100% - g.$content_width) / 2) + 20px);
     width: g.$sidebar_width;

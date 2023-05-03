@@ -1,0 +1,111 @@
+@use '../global' as g;
+
+/*********************************
+    カード
+*********************************/
+
+/* カード */
+.card{
+    border: 1px solid g.$color_grey_light;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px 0 rgba(#000000,0.1);
+    overflow: hidden;
+
+    &--link{
+        display: block;
+        transition: 0.5s;
+
+        &:hover,&:focus{ 
+            opacity: 0.8;
+
+            .card__title,.card__text{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.card__img-wrapper{
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.card__img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: cover;
+}
+
+.card__body{
+    padding: 20px;
+
+    &> *:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.card__title{
+    margin-bottom: 10px;
+}
+
+.card__text{
+    font-size: g.$font-size_sm;
+    line-height: g.$line-height_low;
+}
+
+.card__badge{
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        border-width: 3.75rem 3.75rem 0 0;
+        border-style: solid;
+        border-color: #9b3939 transparent transparent transparent;
+    }
+}
+
+.card__badge-text{
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 0.3125rem;
+    z-index: 2;
+    color: g.$color_white;
+    font-size: g.$font-size_sm;
+    font-weight: bold;
+    transform: rotate(-45deg);
+}
+
+/* カードカラム */
+.cards{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include g.media(pc){
+        flex-direction: row;
+    }
+
+    &--column3{
+
+        .cards__itme{
+
+            @include g.media(pc){
+                width: calc((100% - 40px) / 3);
+            }
+        }
+    }
+}
+
+.cards__itme{
+}

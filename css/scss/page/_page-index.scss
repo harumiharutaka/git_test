@@ -1,0 +1,58 @@
+@use '../global' as g;
+
+/*********************************
+    note & archive 目次
+*********************************/
+
+.page-index{
+
+    .page-link{
+
+        @include g.media(pc){
+            padding: 20px;
+        }
+    }
+
+    .page-link__link{
+        position: relative;
+        display: block;
+        font-size: g.$font-size_xl;
+        font-weight: bold;
+        line-height: g.$line-height_low;
+        margin-left: 1.3em;
+        margin-bottom: 15px;
+
+        &::before{
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: -1.3em;
+        }
+
+        &:hover,&:focus{ 
+            opacity: 0.8;
+        }
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        &--book{
+            &::before{
+                content: "\f02d"; 
+            } 
+        }
+
+        &--file{
+            &::before{
+                content: "\f15c"; 
+            }  
+        }
+
+        i{
+            margin: 0.3em;
+        }
+        
+    }
+}

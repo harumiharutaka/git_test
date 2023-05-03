@@ -37,7 +37,7 @@
   <meta name="robots" content="noindex">
 </head>
 
-<body class="note">
+<body class="note-content">
 
   <header class="header">
     <div class="header__inner">
@@ -364,6 +364,15 @@
                 <p class="index index--third">BEM と PRECSSの差違について</p>
                 <p class="index index--second">5-2 最小モジュールの定義</p>
                 <p class="index index--second">5-3 ボタン</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    border: 1px solid transparent; //borderの分だけbackgroundを広げられるのでhover時にサイズが変わらない<br>
+                    border-color: currentColor; //colorの値を取る<br>
+                    font-size: 1.125rem //16pxが18pxになる<br>
+                    :focus //キーボードのタブキーで操作するユーザーに配慮<br>
+                    padding: 0.2em 0.4em; //em指定すればfont-sizeが変わった時にもレイアウトが崩れない
+                  </code>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--third">バリエーション</p>
@@ -379,6 +388,11 @@
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--second">5-7 見出し</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    @include g.lineHeightSpaceFill(g.$line-height_base); //ハーフリーディングを疑似要素のネガティブマージンで打ち消すmixin
+                  </code>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--second">5-8 注釈</p>
@@ -387,10 +401,38 @@
                 <p class="index index--first">Chapter6 CSS設計モジュール集② 複合モジュール</p>
                 <p class="index index--second">6-1 複合モジュールの定義</p>
                 <p class="index index--second">6-2 メディア</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    flex: 0 1 30%; //flex-grow: 0;(初期値)、flex-shrink: 1;(初期値)、flex-basissu: 30%;のショートハンド、個々に記述するよりこちらが推奨される
+                  </code>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--second">6-3 カード</p>
+                <div class="comment comment--second">
+                  <p>
+                    画像を特定の比率でトリミングするテクニック、position: absolute;のサイズを指定するためにpaddingを使用している<br>
+                    padding-top: 56.25%;でおよそ19:9になる<br>
+                    縦長・横長の画像に対応するためobject-fitを使用している
+                  </p>
+                  <code class="comment__code">
+                      .card__img-wrapper{<br>
+                        position: relative;<br>
+                        padding-top: 56.25%;<br>
+                    }<br>
+                    .card__img{<br>
+                        position: absolute;<br>
+                        width: 100%;<br>
+                        height: 100%;<br>
+                        top: 50%;<br>
+                        transform: translateY(-50%);<br>
+                        object-fit: cover;<br>
+                    }
+                  </code>
+                  <p>プロパティの対応状況が分かるサイト</p>
+                  <a href="https://caniuse.com/" target="_blank">CanIuse<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--second">6-4 テーブル (水平)</p>

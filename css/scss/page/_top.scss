@@ -8,6 +8,7 @@
 
     .top-content{
         height: 100%;
+        background: linear-gradient(#ffffff,#dddddd);;
     }
 
     .top-content__inner{
@@ -22,7 +23,7 @@
 
     .top-content__button{
         flex: 1;
-        min-height: 300px;
+        min-height: 40vh;
         background-color: g.$color_light;
         border: 1px solid g.$color_grey_light;
         border-radius: 4px;
@@ -34,7 +35,7 @@
         font-weight: bold;
         transition: 0.5s;
 
-        &:hover{ 
+        &:hover,&:focus{ 
             background-color: g.$color_grey;
             color: g.$color_white;
         }

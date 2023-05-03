@@ -4,42 +4,56 @@
     見出し
 *********************************/
 
+/* メインビジュアル見出し */
 .page-visual-heading{
+    position: relative;
     font-size:g.$font-size_xxxxl;
     font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transform: translateY(-10%);
+    @include g.lineHeightSpaceFill(g.$line-height_base);
     
     &::after{
         content: "";
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        transform: translateX(-50%);
         width: 8rem;
         height: 4px;
-        margin-top: 5px;
         background-color: g.$color_black_light;
         border-radius: 100px;
+        margin-bottom: 0;
     }
 }
-    
+
+/* コンテンツ見出し1 */
 .content-heading-first{
     font-size:g.$font-size_xxl;
     font-weight: bold;
+    @include g.lineHeightSpaceFill(g.$line-height_base);
     
     &::after{
         content: "";
         display: block;
-        max-width: 16rem;
+        width: 16rem;
+        max-width: 100%;
         height: 2px;
         background-color: g.$color_black_light;
         border-radius: 100px;
+        margin-bottom: 0;
     }
 }
 
+/* コンテンツ見出し2 */
 .content-heading-second{
     font-size:g.$font-size_xl;
     font-weight: bold;
+    @include g.lineHeightSpaceFill(g.$line-height_base);
 }
 
+/* コンテンツ見出し3 */
 .content-heading-third{
+    font-size:g.$font-size_lg;
     font-weight: bold;
+    @include g.lineHeightSpaceFill(g.$line-height_base);
 }

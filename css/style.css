@@ -5,9 +5,6 @@
 /* web font */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /*********************************
-    メディアクエリ
-*********************************/
-/*********************************
     変数
 *********************************/
 /* font size */
@@ -19,6 +16,11 @@
 /* ヘッダー高さ */
 /* z-index */
 /*********************************
+    メディアクエリ
+*********************************/
+/*********************************
+    line height space fill
+*********************************/ /*********************************
     基本設定
 *********************************/
 /* html */
@@ -559,7 +561,7 @@ img {
 }
 
 .header__title {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: bold;
   line-height: 1;
 }
@@ -600,7 +602,7 @@ img {
 }
 
 .footer__text {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 /*********************************
@@ -640,7 +642,7 @@ img {
 }
 
 .content__header {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 /*********************************
@@ -648,7 +650,7 @@ img {
 *********************************/
 .sidebar {
   display: none;
-  position: absolute;
+  position: fixed;
   top: calc(3rem + 40px);
   right: max(20px, (100% - 1200px) / 2 + 20px);
   width: 200px;
@@ -693,7 +695,7 @@ img {
     ページビジュアル
 *********************************/
 .page-visual {
-  background-color: #eeeeee;
+  background: linear-gradient(#ffffff, #eeeeee);
 }
 
 .page-visual__inner {
@@ -703,9 +705,8 @@ img {
 }
 
 .page-visual__heading {
-  display: flex;
-  justify-content: center;
-  padding: 40px 0;
+  padding: 40px 20px;
+  text-align: center;
 }
 @media screen and (min-width: 901px) {
   .page-visual__heading--left {
@@ -717,10 +718,14 @@ img {
     セクション
 *********************************/
 .section__inner {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .section:last-child .section__inner {
   margin-bottom: 0;
+}
+
+.section__header {
+  margin-bottom: 15px;
 }
 
 /*********************************
@@ -729,11 +734,25 @@ img {
 .media {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+}
+@media screen and (min-width: 901px) {
+  .media {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 901px) {
+  .media--reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .media__body {
   flex: 1;
+}
+.media__body > *:last-child {
+  margin-bottom: 0;
 }
 
 .media__title {
@@ -741,75 +760,297 @@ img {
 }
 
 .media__text {
-  word-break: break-all;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .media__img-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 -20px -20px 0;
-}
-@media screen and (min-width: 901px) {
-  .media__img-wrapper {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .media__img-wrapper::after {
-    content: "";
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    height: 0;
-  }
+  flex: 0 1 30%;
 }
 
 .media__img {
   width: 100%;
-  max-width: 400px;
-  margin: 0 20px 20px 0;
+}
+
+/*********************************
+    カード
+*********************************/
+/* カード */
+.card {
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.card--link {
+  display: block;
+  transition: 0.5s;
+}
+.card--link:hover, .card--link:focus {
+  opacity: 0.8;
+}
+.card--link:hover .card__title, .card--link:hover .card__text, .card--link:focus .card__title, .card--link:focus .card__text {
+  text-decoration: underline;
+}
+
+.card__img-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.card__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card__body {
+  padding: 20px;
+}
+.card__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.card__title {
+  margin-bottom: 10px;
+}
+
+.card__text {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.card__badge {
+  position: relative;
+}
+.card__badge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-width: 3.75rem 3.75rem 0 0;
+  border-style: solid;
+  border-color: #9b3939 transparent transparent transparent;
+}
+
+.card__badge-text {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.3125rem;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/* カードカラム */
+.cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media screen and (min-width: 901px) {
+  .cards {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 901px) {
+  .cards--column3 .cards__itme {
+    width: calc((100% - 40px) / 3);
+  }
 }
 
 /*********************************
     見出し
 *********************************/
+/* メインビジュアル見出し */
 .page-visual-heading {
+  position: relative;
   font-size: 2rem;
   font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+}
+.page-visual-heading::before, .page-visual-heading::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+.page-visual-heading::before {
+  margin-top: calc((1 - 1.8) * 0.5em);
+}
+.page-visual-heading::after {
+  margin-bottom: calc((1 - 1.8) * 0.5em);
 }
 .page-visual-heading::after {
   content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   width: 8rem;
   height: 4px;
-  margin-top: 5px;
   background-color: #333333;
   border-radius: 100px;
+  margin-bottom: 0;
 }
 
+/* コンテンツ見出し1 */
 .content-heading-first {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
+}
+.content-heading-first::before, .content-heading-first::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+.content-heading-first::before {
+  margin-top: calc((1 - 1.8) * 0.5em);
+}
+.content-heading-first::after {
+  margin-bottom: calc((1 - 1.8) * 0.5em);
 }
 .content-heading-first::after {
   content: "";
   display: block;
-  max-width: 16rem;
+  width: 16rem;
+  max-width: 100%;
   height: 2px;
   background-color: #333333;
   border-radius: 100px;
+  margin-bottom: 0;
 }
 
+/* コンテンツ見出し2 */
 .content-heading-second {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
+.content-heading-second::before, .content-heading-second::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+.content-heading-second::before {
+  margin-top: calc((1 - 1.8) * 0.5em);
+}
+.content-heading-second::after {
+  margin-bottom: calc((1 - 1.8) * 0.5em);
+}
 
+/* コンテンツ見出し3 */
 .content-heading-third {
+  font-size: 1.125rem;
   font-weight: bold;
+}
+.content-heading-third::before, .content-heading-third::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+.content-heading-third::before {
+  margin-top: calc((1 - 1.8) * 0.5em);
+}
+.content-heading-third::after {
+  margin-bottom: calc((1 - 1.8) * 0.5em);
+}
+
+/*********************************
+    ボタン
+*********************************/
+/* ボタン */
+.button {
+  display: inline-block;
+  min-width: 150px;
+  padding: 5px 10px;
+  background-color: #666666;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.5s;
+}
+.button:hover, .button:focus {
+  background-color: #eeeeee;
+  border-color: currentColor;
+  color: #666666;
+}
+.button--chevron-right {
+  position: relative;
+  padding-right: 2em;
+  padding-left: 1.2em;
+}
+.button--chevron-right::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f054";
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.button--large {
+  min-width: 180px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.25rem;
+}
+.button--red {
+  background-color: #9b3939;
+}
+.button--red:hover, .button--red:focus {
+  color: #9b3939;
+}
+
+/* アイコン付き小ボタン */
+.before-icon-button {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  background-color: #ffffff;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  color: #666666;
+  transition: 0.5s;
+}
+.before-icon-button::before {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 0.4em;
+}
+.before-icon-button:hover, .before-icon-button:focus {
+  background-color: #666666;
+  border-color: transparent;
+  color: #ffffff;
+}
+.before-icon-button--download::before {
+  content: "\f019";
+}
+.before-icon-button--zoom::before {
+  content: "\f00e";
 }
 
 /*********************************
@@ -817,6 +1058,7 @@ img {
 *********************************/
 .top .top-content {
   height: 100%;
+  background: linear-gradient(#ffffff, #dddddd);
 }
 .top .top-content__inner {
   height: 100%;
@@ -829,7 +1071,7 @@ img {
 }
 .top .top-content__button {
   flex: 1;
-  min-height: 300px;
+  min-height: 40vh;
   background-color: #fafafa;
   border: 1px solid #eeeeee;
   border-radius: 4px;
@@ -837,45 +1079,88 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   transition: 0.5s;
 }
-.top .top-content__button:hover {
+.top .top-content__button:hover, .top .top-content__button:focus {
   background-color: #aaaaaa;
   color: #ffffff;
 }
 
 /*********************************
-    note
+    note & archive 目次
 *********************************/
-.note .index--title {
+@media screen and (min-width: 901px) {
+  .page-index .page-link {
+    padding: 20px;
+  }
+}
+.page-index .page-link__link {
+  position: relative;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.6;
+  margin-left: 1.3em;
+  margin-bottom: 15px;
+}
+.page-index .page-link__link::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  left: -1.3em;
+}
+.page-index .page-link__link:hover, .page-index .page-link__link:focus {
+  opacity: 0.8;
+}
+.page-index .page-link__link:last-child {
+  margin-bottom: 0;
+}
+.page-index .page-link__link--book::before {
+  content: "\f02d";
+}
+.page-index .page-link__link--file::before {
+  content: "\f15c";
+}
+.page-index .page-link__link i {
+  margin: 0.3em;
+}
+
+/*********************************
+    note content
+*********************************/
+.note-content .index--title {
   font-size: 1.4rem;
   font-weight: bold;
 }
-.note .index--first {
+.note-content .index--first {
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 20px;
 }
-.note .index--second {
+.note-content .index--second {
   margin-left: 1rem;
 }
-.note .index--third {
+.note-content .index--third {
   margin-left: 2rem;
 }
-.note .index--fourth {
+.note-content .index--fourth {
   margin-left: 3rem;
 }
-.note .index--link {
+.note-content .index--link {
   color: #1a0dab;
 }
-.note .index-description {
+.note-content .index--link:hover, .note-content .index--link:focus {
+  opacity: 0.8;
+}
+.note-content .index-description {
   font-size: 0.8em;
   color: #666666;
   margin-bottom: 5px;
 }
-.note .comment {
+.note-content .comment {
   display: inline-block;
   font-size: 0.9rem;
   background-color: #fafafa;
@@ -884,19 +1169,22 @@ img {
   margin: 5px 0;
   padding: 10px;
 }
-.note .comment--second {
+.note-content .comment--second {
   margin-left: 1.5rem;
 }
-.note .comment--third {
+.note-content .comment--third {
   margin-left: 2.5rem;
 }
-.note .comment--fourth {
+.note-content .comment--fourth {
   margin-left: 3.5rem;
 }
-.note .comment a {
+.note-content .comment a {
   color: #1a0dab;
 }
-.note .comment__code {
+.note-content .comment a:hover, .note-content .comment a:focus {
+  opacity: 0.8;
+}
+.note-content .comment__code {
   display: block;
   font-size: 0.9rem;
   background-color: #333333;
@@ -906,38 +1194,38 @@ img {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.note .comment__code:first-child {
+.note-content .comment__code:first-child {
   margin-top: 0;
 }
-.note .comment__code:last-child {
+.note-content .comment__code:last-child {
   margin-bottom: 0;
 }
-.note .comment__table {
+.note-content .comment__table {
   background-color: #ffffff;
   border-radius: 4px;
   border-spacing: 0;
   border-left: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
 }
-.note .comment__table tr > * {
+.note-content .comment__table tr > * {
   padding: 5px 10px;
   border: none;
   border-right: 1px solid #aaaaaa;
   border-bottom: 1px solid #aaaaaa;
 }
-.note .comment__table tr:first-child > *:first-child {
+.note-content .comment__table tr:first-child > *:first-child {
   border-radius: 4px 0 0 0;
 }
-.note .comment__table tr:first-child > *:last-child {
+.note-content .comment__table tr:first-child > *:last-child {
   border-radius: 0 4px 0 0;
 }
-.note .comment__table tr:last-child > *:first-child {
+.note-content .comment__table tr:last-child > *:first-child {
   border-radius: 0 0 0 4px;
 }
-.note .comment__table tr:last-child > *:last-child {
+.note-content .comment__table tr:last-child > *:last-child {
   border-radius: 0 0 4px 0;
 }
-.note .comment__strong {
+.note-content .comment__strong {
   font-weight: normal;
   background: linear-gradient(transparent 60%, #ffff64 60%);
 }

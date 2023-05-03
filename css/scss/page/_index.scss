@@ -1,8 +1,11 @@
 // トップページ
 @forward 'top';
 
-// note
-@forward 'note';
+// note & archive 目次
+@forward 'page-index';
+
+// note content
+@forward 'note-content';
 
 // archive js-library
 @forward 'archive_js-library';
