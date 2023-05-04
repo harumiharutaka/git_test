@@ -42,7 +42,7 @@
 .card__body{
     padding: 20px;
 
-    > *:last-child{
+    >*:last-child{
         margin-bottom: 0;
     }
 }
@@ -71,7 +71,7 @@
         height: 0;
         border-width: 3.75rem 3.75rem 0 0;
         border-style: solid;
-        border-color: #9b3939 transparent transparent transparent;
+        border-color: #a74848 transparent transparent transparent;
     }
 }
 
@@ -87,7 +87,7 @@
     transform: rotate(-45deg);
 }
 
-/* カードカラム */
+/* カードラッパー */
 .cards{
     display: flex;
     flex-direction: column;

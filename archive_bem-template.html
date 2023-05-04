@@ -192,7 +192,7 @@
                 <section class="section">
                   <div class="section__inner">
                     <div class="section__header">
-                      <h4 class="content-heading-second">カード（カードカラム）</h4>
+                      <h4 class="content-heading-second">カード</h4>
                     </div>
                     <div class="section__main">
 
@@ -288,15 +288,51 @@
                 <section class="section">
                   <div class="section__inner">
                     <div class="section__header">
-                      <h4 class="content-heading-second">テーブル（幅狭でスクロール）（theadあり）（横のheaderがsticky）</h4>
+                      <h4 class="content-heading-second">テーブル（垂直）</h4>
                     </div>
                     <div class="section__main">
                       
-                      <div class="table table--md-scroll table--use-thead">
+                      <div class="table table--vertical">
                         <table class="table__inner">
                           <thead class="table__headers">
                             <tr class="table__header-row">
-                              <th class="table__header table__header--md-sticky">テスト</th>
+                              <th class="table__header">テスト</th>
+                              <th class="table__header">テスト</th>
+                            </tr>
+                          </thead>
+                          <tbody class="table__body">
+                            <tr class="table__body-row">
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                            </tr>
+                            <tr class="table__body-row">
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                            </tr>
+                            <tr class="table__body-row">
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                              <td class="table__text">テキストテキストテキストテキスト</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div><!-- /.table -->
+                      
+                    </div>
+                  </div>
+                </section><!-- /.section -->
+
+                <section class="section">
+                  <div class="section__inner">
+                    <div class="section__header">
+                      <h4 class="content-heading-second">テーブル（交差）（幅狭でスクロール）（横のheaderがsticky）</h4>
+                    </div>
+                    <div class="section__main">
+                      
+                      <div class="table table--cross table--md-scroll">
+                        <table class="table__inner">
+                          <thead class="table__headers">
+                            <tr class="table__header-row">
+                              <th class="table__header table__header--md-sticky"></th>
                               <th class="table__header">テスト</th>
                               <th class="table__header">テスト</th>
                             </tr>
@@ -429,10 +465,150 @@
                 <section class="section">
                   <div class="section__inner">
                     <div class="section__header">
-                      <h4 class="content-heading-second">テスト</h4>
+                      <h4 class="content-heading-second">料金表</h4>
+                    </div>
+                    <div class="section__main">
+
+                      <ul class="price-boxes">
+
+                        <li class="price-boxes__item price-box">
+                          <div class="price-box__header">
+                            <p class="price-box__title">プラン</p>
+                            <p class="price-box__price">10,000円/月</p>
+                          </div>                          
+                          <div class="price-box__body">
+                            <p class="price-box__lead">テキストテキストテキストテキストテキスト</p>
+                            <dl class="price-box__features">
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                            </dl>
+                          </div>
+                        </li><!-- /.price-box -->
+
+                        <li class="price-boxes__item price-box">
+                          <div class="price-box__header">
+                            <p class="price-box__title">プラン</p>
+                            <p class="price-box__price">10,000円/月</p>
+                          </div>                          
+                          <div class="price-box__body">
+                            <p class="price-box__lead">テキストテキストテキストテキストテキスト</p>
+                            <dl class="price-box__features">
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                            </dl>
+                          </div>
+                        </li><!-- /.price-box -->
+
+                        <li class="price-boxes__item price-box">
+                          <div class="price-box__header">
+                            <p class="price-box__title">プラン</p>
+                            <p class="price-box__price">10,000円/月</p>
+                          </div>                          
+                          <div class="price-box__body">
+                            <p class="price-box__lead">テキストテキストテキストテキストテキスト</p>
+                            <dl class="price-box__features">
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                              <dt class="price-box__features-header">テスト</dt>
+                              <dd class="price-box__features-text">テキスト</dd>
+                            </dl>
+                          </div>
+                        </li><!-- /.price-box -->
+
+                      </ul><!-- /.price-boxes -->
+                      
+                    </div>
+                  </div>
+                </section><!-- /.section -->
+                
+                <section class="section">
+                  <div class="section__inner">
+                    <div class="section__header">
+                      <h4 class="content-heading-second">FAQ</h4>
+                    </div>
+                    <div class="section__main">
+
+                      <dl class="faq">
+                        <dt class="faq__row faq__row--question">
+                          <span class="faq__icon faq__icon--question">Q</span>
+                          <span class="faq__question-text">
+                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                          </span>
+                        </dt>
+                        <dd class="faq__row faq__row--answer">
+                          <span class="faq__icon faq__icon--answer">A</span>
+                          <div class="faq__answer-body">
+                            <p class="faq__answer-text">
+                              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            </p>
+                            <p class="faq__answer-text">
+                              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            </p>
+                          </div>
+                        </dd>
+                        <dt class="faq__row faq__row--question">
+                          <span class="faq__icon faq__icon--question">Q</span>
+                          <span class="faq__question-text">
+                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                          </span>
+                        </dt>
+                        <dd class="faq__row faq__row--answer">
+                          <span class="faq__icon faq__icon--answer">A</span>
+                          <div class="faq__answer-body">
+                            <p class="faq__answer-text">
+                              テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                            </p>
+                          </div>
+                        </dd>
+                      </dl><!-- /.faq -->
+                      
+                    </div>
+                  </div>
+                </section><!-- /.section -->
+                
+                <section class="section">
+                  <div class="section__inner">
+                    <div class="section__header">
+                      <h4 class="content-heading-second">アコーディオン</h4>
                     </div>
                     <div class="section__main">
                       
+                      <dl class="accordion">
+                        <dt class="accordion__title">
+                          <button class="accordion__button accordion__button--active" type="button">
+                            テストテストテストテストテスト
+                          </button>
+                        </dt>
+                        <dd class="accordion__body accordion__body--active">
+                          <p class="accordion__text">
+                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                          </p>
+                          <p class="accordion__text">
+                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                          </p>
+                        </dd>
+                        <dt class="accordion__title">
+                          <button class="accordion__button accordion__button--active" type="button">
+                            テストテストテストテストテスト
+                          </button>
+                        </dt>
+                        <dd class="accordion__body accordion__body--active">
+                          <p class="accordion__text">
+                            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                          </p>
+                        </dd>
+                      </dl><!-- /.accordion -->
+
                     </div>
                   </div>
                 </section><!-- /.section -->
@@ -520,12 +696,8 @@
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_bem-template.html">bem-template</a>
-        </li>
-        <li class="sidebar__link-wrapper">
+        </li>        <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-library.html">js-library</a>
-        </li>
-        <li class="sidebar__link-wrapper">
-          <a class="sidebar__link" href="archive_js-test.html">js-test</a>
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-weather.html">js-weather</a>

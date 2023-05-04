@@ -18,7 +18,26 @@
         }
     }
 
-    &--use-thead{
+    &--vertical{
+
+        .table__body-row{
+
+            &:first-child>*{
+                border-top: none;
+            }
+        }
+    }
+    
+    &--cross{
+
+        .table__header-row{
+
+            &:first-child>*:first-child{
+                background-color: g.$color_white;
+                border-top: none;
+                border-left: none;
+            }
+        }
 
         .table__body-row{
 

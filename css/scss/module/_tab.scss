@@ -24,6 +24,7 @@
 
 /* タブナビゲーション */
 .tab-navigation{
+    display: flex;
     overflow-x: auto;
 
     @include g.media(pc){
@@ -33,10 +34,12 @@
 
 .tab-navigation__inner{
     display: flex;
+    margin: 0 auto;
     row-gap: 10px;
 
     @include g.media(pc){
         flex-wrap: wrap;
+        width: 100%;
     }
 }
 
@@ -53,7 +56,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-bottom: 4px solid g.$color_grey;
     line-height: g.$line-height_low;
     font-weight: bold;

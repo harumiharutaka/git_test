@@ -37,7 +37,7 @@
   <meta name="robots" content="noindex">
 </head>
 
-<body class="note-content book_javascript_1">
+<body class="note note_book_javascript_1">
 
   <header class="header">
     <div class="header__inner">
@@ -780,10 +780,8 @@
                   const agree = Cookies.get("cookie-agree");
                   const panel = document.querySelector(".js_5-3_privacy-panel");
                   if(agree === "yes") {
-                    //console.log("クッキーを確認しました");
                     document.querySelector(".js_5-3_body").removeChild(panel);
                   } else {
-                    //console.log("クッキーを確認できません");
                     document.querySelector(".js_5-3_agreebtn").onclick = function() {
                       Cookies.set("cookie-agree", "yes", {expires: 7});
                       document.querySelector(".js_5-3_body").removeChild(panel);
@@ -903,12 +901,77 @@
                 <p class="index index--fourth">Note transform プロパティ</p>
                 <p class="index index--third">Step3 開閉機能をプログラミング</p>
                 <p class="index index--second">6-3 空き席状況をチェック／AjaxとJSON</p>
+                <div class="comment comment--second comment--js-result">
+                  <ul class="js_6-3_list">
+                    <li class="js_6-3_seminur" id="js">
+                      <h2>JavaScript勉強会</h2>
+                      <p class="js_6-3_check">空き状況を確認</p>
+                    </li>
+                    <li class="js_6-3_seminur" id="security">
+                      <h2>セキュリティ対策講座</h2>
+                      <p class="js_6-3_check">空き状況を確認</p>
+                    </li>
+                    <li class="js_6-3_seminur" id="aiux">
+                      <h2>AIを利用したUX設計</h2>
+                      <p class="js_6-3_check">空き状況を確認</p>
+                    </li>
+                  </ul>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+                <script>
+                  $(document).ready(function(){
+                    //ファイルの読み込み
+                    $.ajax({url: "js/json/data.json", dataType: "json"})
+                    .done(function(data){
+                      data.forEach(function(item, index){
+                        if(item.crowded === "yes") {
+                          const idName = "#" + item.id;
+                          $(idName).find(".js_6-3_check").addClass("crowded")  ;
+                        }
+                      });
+                    })
+                    .fail(function(){
+                      window.alert("読み込みエラー");
+                    });
+
+                    //クリックされたら席状況を表示
+                    $(".js_6-3_check").on("click", function(){
+                      if($(this).hasClass("crowded")) {
+                        $(this).text("残席わずか").addClass("js_6-3_red");
+                      } else {
+                        $(this).text("お席あります").addClass("js_6-3_green");
+                      }
+                    });
+                  });
+                </script>
                 <p class="index index--third">Step1 JSON ファイルの読み込み</p>
                 <p class="index index--third">Step2 データをもとに表示を切り替える</p>
                 <p class="index index--fourth">上達のポイント! data.jsonを書き換えてみよう</p>
                 <p class="index index--fourth">Note Ajaxの注意点と応用</p>
                 <p class="index index--first">Chapter7 外部データを活用したアプリケーションに挑戦!</p>
                 <p class="index index--second">7-1 あなたはいまどこ?／位置情報 (navigator.geolocation)</p>
+                <div class="comment comment--second comment--js-result">
+                  <p>あなたはいま</p>
+                  <p class="js_7-1_loc"></p>
+                  <p>の場所にいます。因みに制度は半径<span class="js_7-1_accuracy"></span>mです。</p>
+                </div>
+                <script>
+                  function success(pos) {
+                    console.log(pos);
+                    const lat = pos.coords.latitude;
+                    const lng = pos.coords.longitude;
+                    const accuracy = pos.coords.accuracy;
+
+                    $(".js_7-1_loc").text(`緯度:${lat} 経度:${lng}`);
+                    $(".js_7-1_accuracy").text(accuracy);
+                  }
+
+                  function fail(error) {
+                    alert("位置情報の取得に失敗しました。エラーコード" + error.code);
+                  }
+
+                  navigator.geolocation.getCurrentPosition(success, fail);
+                </script>
                 <p class="index index--third">Step1 現在地の緯度・経度を取得する</p>
                 <p class="index index--third">Step2 位置情報をページに表示する</p>
                 <p class="index index--fourth">Note 通信を暗号化する「https://｣、しない「http://」</p>
@@ -974,12 +1037,8 @@
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_bem-template.html">bem-template</a>
-        </li>
-        <li class="sidebar__link-wrapper">
+        </li>        <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-library.html">js-library</a>
-        </li>
-        <li class="sidebar__link-wrapper">
-          <a class="sidebar__link" href="archive_js-test.html">js-test</a>
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-weather.html">js-weather</a>

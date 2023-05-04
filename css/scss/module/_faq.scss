@@ -1,0 +1,75 @@
+@use '../global' as g;
+
+/*********************************
+    FAQ
+*********************************/
+
+.faq{
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.faq__row{
+    position: relative;
+    display: flex;
+    min-height: 40px;
+    padding-left: 55px;
+
+    &--question{
+        margin-bottom: 15px;
+    }
+
+    &--answer{
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid g.$color_grey_light;
+
+        &:last-child{
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+}
+
+.faq__icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    line-height: 40px;
+    text-align: center;
+    color: g.$color_white;
+    font-weight: bold;
+
+    &--question{
+        background-color: #7373b0;
+    }
+
+    &--answer{
+        background-color: #b17474;
+    
+    }
+}
+
+.faq__question-text{
+    padding-top: calc((40px - (g.$font-size_md * g.$line-height_low)) / 2);
+    line-height: g.$line-height_low;
+}
+
+.faq__answer-body{
+    padding-top: calc((40px - (g.$font-size_md * g.$line-height_low)) / 2);
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.faq__answer-text{
+    margin-bottom: 10px;
+    font-weight: normal;
+    line-height: g.$line-height_low;
+}

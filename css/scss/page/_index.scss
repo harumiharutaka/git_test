@@ -1,11 +1,11 @@
 // トップページ
 @forward 'top';
 
-// note & archive 目次
+// ページ目次
 @forward 'page-index';
 
-// note content
-@forward 'note-content';
+// note
+@forward 'note';
 
-// archive js-library
-@forward 'archive_js-library';
+// archive js weather
+@forward 'archive_js-weather';
