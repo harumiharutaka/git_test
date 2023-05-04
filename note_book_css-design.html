@@ -465,12 +465,31 @@
                 <p class="index index--second">6-13 ジャンボトロン</p>
                 <p class="index index--third">基本形</p>
                 <p class="index index--second">6-14 ポストリスト</p>
+                <div class="comment comment--second">
+                  <p>
+                    特定の時を表すには「&lt;time&gt;」が最適、さらに「datatime=""」を使用することが望ましい
+                  </p>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--second">6-15 順序なしリスト</p>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--second">6-16 順序ありリスト</p>
+                <div class="comment comment--second">
+                  <p>
+                    CSSカウンターは下記のように記すこともできる、変数名はユニークにし、使い回さない方が良い
+                  </p>
+                  <code class="comment__code">
+                  .order-list{<br>
+                  　counter-reset: order-list;<br>
+                  }<br>
+                  .order-list__item::before{<br>
+                  　counter-increment: order-list;<br>
+                  　content: counter(order-list); <br>
+                  }
+                  </code>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--first">Chapter7 CSS設計モジュール集③ モジュールの再利用</p>

@@ -1,0 +1,34 @@
+@use '../global' as g;
+
+/*********************************
+    ポストリスト
+*********************************/
+
+.posts{
+}
+
+.posts__item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid g.$color_grey_light;
+
+    &:first-child{
+        padding-top: 0;
+    }
+}
+
+.posts__header{
+    margin-bottom: 5px;
+}
+
+.posts__date{
+    font-size: g.$font-size_sm;
+}
+
+.posts__title{
+
+    &:hover,&:focus{ 
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+}

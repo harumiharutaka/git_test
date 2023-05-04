@@ -1,0 +1,137 @@
+@use '../global' as g;
+
+/*********************************
+    リスト
+*********************************/
+
+/* 順序なしリスト */
+.bullet-list{
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+
+    &--horizontal{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: -10px;
+
+        .bullet-list__item{
+            flex: calc(50% - 5px);
+            margin-right: 10px;
+
+            &:nth-of-type(even){
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.bullet-list__item{
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: 10px;
+
+    &::before{
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        content: "\f111";  
+        display:  inline-block;
+        position: absolute;
+        top: 0.5em;
+        left: 0;
+        font-size: 0.5em;
+    }
+}
+
+.child-bullet-list{
+    margin-top: 10px;
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.child-bullet-list__item{
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: 10px;
+
+    &::before{
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 400;
+        content: "\f111";  
+        position: absolute;
+        top: 0.6em;
+        left: 0;
+        font-size: 0.5em;
+    }
+
+}
+
+/* 順序ありリスト */
+.order-list{
+    counter-reset: order-list;
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.order-list__item{
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 10px;
+
+    &::before{
+        counter-increment: order-list;
+        content: counter(order-list); 
+        display: inline-block;
+        position: absolute;
+        top: 0.3em;
+        left: 0;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: g.$color_grey_dark;
+        border-radius: 100px;
+        color: g.$color_white;
+        font-size: g.$font-size_xs;
+        line-height: 1.5em;
+        text-align: center;
+        padding-left: 0.1em;
+    }
+}
+
+.child-order-list{
+    counter-reset: child-order-list;
+    margin-top: 10px;
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.child-order-list__item{
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 10px;
+
+    &::before{
+        counter-increment: child-order-list;
+        content: counter(child-order-list); 
+        display: inline-block;
+        position: absolute;
+        top: 0.3em;
+        left: 0;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: g.$color_grey;
+        border-radius: 100px;
+        color: g.$color_white;
+        font-size: g.$font-size_xs;
+        line-height: 1.5em;
+        text-align: center;
+        padding-left: 0.1em;
+    }
+}

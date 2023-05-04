@@ -13,9 +13,11 @@
         }
     }
 
+    .page-link__item{
+    }
+
     .page-link__link{
         position: relative;
-        display: block;
         font-size: g.$font-size_xl;
         font-weight: bold;
         line-height: g.$line-height_low;

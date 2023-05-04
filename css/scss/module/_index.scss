@@ -28,6 +28,9 @@
 // ボタン
 @forward 'button';
 
+// ラベル
+@forward 'label';
+
 // メディア
 @forward 'media';
 
@@ -43,7 +46,7 @@
 // タブ
 @forward 'tab';
 
-// CTA
+// CTAエリア
 @forward 'cta-area';
 
 // 料金表
@@ -54,3 +57,9 @@
 
 // アコーディオン
 @forward 'accordion';
+
+// ポストリスト
+@forward 'posts';
+
+// リスト
+@forward 'list';

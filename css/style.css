@@ -832,7 +832,7 @@ img {
 /*********************************
     ボタン
 *********************************/
-/* ボタン */
+/* 標準ボタン */
 .button {
   display: inline-block;
   min-width: 150px;
@@ -907,6 +907,32 @@ img {
 }
 .before-icon-button--zoom::before {
   content: "\f00e";
+}
+
+/*********************************
+    ラベル
+*********************************/
+.label {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  background-color: #aaaaaa;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 0.625rem;
+}
+.label--red {
+  background-color: #a74848;
+}
+.label--link {
+  background-color: #666666;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.label--link:hover, .label--link:focus {
+  background-color: #ffffff;
+  border-color: currentColor;
+  color: #666666;
 }
 
 /*********************************
@@ -1239,7 +1265,7 @@ img {
 }
 
 /*********************************
-    CTA
+    CTAエリア
 *********************************/
 .cta-area {
   padding: 20px;
@@ -1470,6 +1496,152 @@ img {
 }
 
 /*********************************
+    ポストリスト
+*********************************/
+.posts__item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+.posts__item:first-child {
+  padding-top: 0;
+}
+
+.posts__header {
+  margin-bottom: 5px;
+}
+
+.posts__date {
+  font-size: 0.875rem;
+}
+
+.posts__title:hover, .posts__title:focus {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/*********************************
+    リスト
+*********************************/
+/* 順序なしリスト */
+.bullet-list > *:last-child {
+  margin-bottom: 0;
+}
+.bullet-list--horizontal {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+}
+.bullet-list--horizontal .bullet-list__item {
+  flex: calc(50% - 5px);
+  margin-right: 10px;
+}
+.bullet-list--horizontal .bullet-list__item:nth-of-type(even) {
+  margin-right: 0;
+}
+
+.bullet-list__item {
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: 10px;
+}
+.bullet-list__item::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f111";
+  display: inline-block;
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  font-size: 0.5em;
+}
+
+.child-bullet-list {
+  margin-top: 10px;
+}
+.child-bullet-list > *:last-child {
+  margin-bottom: 0;
+}
+
+.child-bullet-list__item {
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: 10px;
+}
+.child-bullet-list__item::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  content: "\f111";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  font-size: 0.5em;
+}
+
+/* 順序ありリスト */
+.order-list {
+  counter-reset: order-list;
+}
+.order-list > *:last-child {
+  margin-bottom: 0;
+}
+
+.order-list__item {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 10px;
+}
+.order-list__item::before {
+  counter-increment: order-list;
+  content: counter(order-list);
+  display: inline-block;
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #666666;
+  border-radius: 100px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1.5em;
+  text-align: center;
+  padding-left: 0.1em;
+}
+
+.child-order-list {
+  counter-reset: child-order-list;
+  margin-top: 10px;
+}
+.child-order-list > *:last-child {
+  margin-bottom: 0;
+}
+
+.child-order-list__item {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 10px;
+}
+.child-order-list__item::before {
+  counter-increment: child-order-list;
+  content: counter(child-order-list);
+  display: inline-block;
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #aaaaaa;
+  border-radius: 100px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1.5em;
+  text-align: center;
+  padding-left: 0.1em;
+}
+
+/*********************************
     トップページ
 *********************************/
 .top .top-content {
@@ -1514,7 +1686,6 @@ img {
 }
 .page-index .page-link__link {
   position: relative;
-  display: block;
   font-size: 1.25rem;
   font-weight: bold;
   line-height: 1.6;
