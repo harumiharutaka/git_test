@@ -53,6 +53,8 @@
         border-radius: 4px;
         margin: 5px 0;
         padding: 10px;
+        overflow-wrap: break-word;
+        word-break: break-word;
 
         &--second{
             margin-left: 1.5rem;

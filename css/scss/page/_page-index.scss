@@ -8,12 +8,17 @@
 
     .page-link{
 
+        >*:last-child{
+            margin-bottom: 0;
+        }
+
         @include g.media(pc){
             padding: 20px;
         }
     }
 
     .page-link__item{
+        margin-bottom: 15px;
     }
 
     .page-link__link{
@@ -22,7 +27,6 @@
         font-weight: bold;
         line-height: g.$line-height_low;
         margin-left: 1.3em;
-        margin-bottom: 15px;
 
         &::before{
             font-family: 'Font Awesome 6 Free';
@@ -34,10 +38,6 @@
 
         &:hover,&:focus{ 
             opacity: 0.8;
-        }
-
-        &:last-child{
-            margin-bottom: 0;
         }
 
         &--book{

@@ -920,6 +920,7 @@ img {
   border-radius: 2px;
   color: #ffffff;
   font-size: 0.625rem;
+  font-weight: bold;
 }
 .label--red {
   background-color: #a74848;
@@ -1679,10 +1680,16 @@ img {
 /*********************************
     ページ目次
 *********************************/
+.page-index .page-link > *:last-child {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 901px) {
   .page-index .page-link {
     padding: 20px;
   }
+}
+.page-index .page-link__item {
+  margin-bottom: 15px;
 }
 .page-index .page-link__link {
   position: relative;
@@ -1690,7 +1697,6 @@ img {
   font-weight: bold;
   line-height: 1.6;
   margin-left: 1.3em;
-  margin-bottom: 15px;
 }
 .page-index .page-link__link::before {
   font-family: "Font Awesome 6 Free";
@@ -1701,9 +1707,6 @@ img {
 }
 .page-index .page-link__link:hover, .page-index .page-link__link:focus {
   opacity: 0.8;
-}
-.page-index .page-link__link:last-child {
-  margin-bottom: 0;
 }
 .page-index .page-link__link--book::before {
   content: "\f02d";
@@ -1755,6 +1758,8 @@ img {
   border-radius: 4px;
   margin: 5px 0;
   padding: 10px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .note .comment--second {
   margin-left: 1.5rem;
