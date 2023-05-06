@@ -19,6 +19,7 @@
     text-align: center;
 
     &--left{
+        
         @include g.media(pc){
             margin-right:  calc(60px + g.$sidebar_width);
         }

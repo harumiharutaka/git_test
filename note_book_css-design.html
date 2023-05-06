@@ -369,14 +369,18 @@
                     border: 1px solid transparent; //borderの分だけbackgroundを広げられるのでhover時にサイズが変わらない<br>
                     border-color: currentColor; //colorの値を取る<br>
                     font-size: 1.125rem //16pxが18pxになる<br>
-                    :focus //キーボードのタブキーで操作するユーザーに配慮<br>
-                    padding: 0.2em 0.4em; //em指定すればfont-sizeが変わった時にもレイアウトが崩れない
+                    :focus //キーボードのタブキーで操作するユーザーに配慮
                   </code>
                 </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--second">5-4 アイコン付き小ボタン</p>
+                <div class="comment comment--second">
+                  <code class="comment__code">
+                    padding: 0.2em 0.4em; //ボタンサイズをfont-sizeに合わせたい場合em指定すればfont-sizeが変わった時にもデザインが崩れない
+                  </code>
+                </div>
                 <p class="index index--third">基本形</p>
                 <p class="index index--third">拡張パターン</p>
                 <p class="index index--second">5-5 アイコン</p>
@@ -414,7 +418,7 @@
                 <div class="comment comment--second">
                   <p>
                     画像を特定の比率でトリミングするテクニック、position: absolute;のサイズを指定するためにpaddingを使用している<br>
-                    padding-top: 56.25%;でおよそ19:9になる<br>
+                    padding-top: 56.25%;でおよそ16:9になる<br>
                     縦長・横長の画像に対応するためobject-fitを使用している
                   </p>
                   <code class="comment__code">
@@ -431,7 +435,7 @@
                     　object-fit: cover;<br>
                     }
                   </code>
-                  <p>プロパティの対応状況が分かるサイト</p>
+                  <p>プロパティはブラウザによって対応してないものもあるので、気になったものは対応状況を調べると良い</p>
                   <a href="https://caniuse.com/" target="_blank">CanIuse<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
                 <p class="index index--third">基本形</p>
@@ -457,7 +461,7 @@
                 <p class="index index--second">6-12 アコーディオン</p>
                 <div class="comment comment--second">
                   <p>
-                    CSSでは「&lt;bt&gt;」だけでもボタンは作れるが、HTMLは「意味づけ」の言語のため、クリックできる要素として「&lt;button&gt;」を使う<br>
+                    CSSでは「&lt;a&gt;」だけでもボタンは作れるが、HTMLは「意味づけ」の言語のため、クリックできる要素として「&lt;button&gt;」を使う<br>
                     また「&lt;button&gt;」をフォーム外で、独自イベントで設定する場合は「type="button"」を記述する<br>
                     （クリック要素は「&lt;a&gt;」でも良いが、それが適切ではない場合もある）
                   </p>
@@ -479,7 +483,7 @@
                 <p class="index index--second">6-16 順序ありリスト</p>
                 <div class="comment comment--second">
                   <p>
-                    CSSカウンターは下記のように記すこともできる、変数名はユニークにし、使い回さない方が良い
+                    CSSカウンターは下記のように記すこともできる、変数名はユニークにし使い回さない方が良い
                   </p>
                   <code class="comment__code">
                   .order-list{<br>
@@ -507,8 +511,8 @@
                     CMSと併用する際に「data-*属性」を使用する場合もある
                   </p>
                   <code class="comment__code">
-                  .button[data-text="OK"]{<br>
-                  　background-color: #62ac81;<br>
+                  .label[data-text="ATTENTION"]{<br>
+                  　background-color: #a74848;<br>
                   }
                   </code>
                 </div>

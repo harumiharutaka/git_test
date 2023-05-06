@@ -18,7 +18,7 @@
         margin-bottom: -10px;
 
         .bullet-list__item{
-            flex: calc(50% - 5px);
+            flex: 0 1 calc(50% - 5px);
             margin-right: 10px;
 
             &:nth-of-type(even){

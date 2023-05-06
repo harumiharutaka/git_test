@@ -12,6 +12,7 @@
     margin: 0 20px;
 
     &--column-left{
+        
         @include g.media(pc){
             margin-right: calc(60px + g.$sidebar_width);
         }

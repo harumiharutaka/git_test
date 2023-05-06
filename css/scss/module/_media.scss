@@ -15,6 +15,7 @@
     }
 
     &--reverse{
+        
         @include g.media(pc){
             flex-direction: row-reverse;
         }
