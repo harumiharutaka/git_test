@@ -31,7 +31,7 @@
         position: absolute;
         top: 50%;
         right: 15px;
-        transform: translateY(-50%); 
+        transform: translateY(-45%); 
     }
 
     &:hover,&:focus{ 
@@ -43,13 +43,14 @@
         border-radius: 4px 4px 0 0;
         
         &::before{
-            transform: translateY(-50%) rotate(180deg);
+            transform: translateY(-55%) rotate(180deg);
         }
     }
 }
 
 .accordion__body{
     display: none;
+    height: 0;
     border: 1px solid g.$color_grey_light;
     border-radius: 0 0 4px 4px;
     padding: 10px;
@@ -60,6 +61,7 @@
 
     &--active{
         display: block;
+        height: auto;
     }
 }
 
