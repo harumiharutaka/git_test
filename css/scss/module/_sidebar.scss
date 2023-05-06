@@ -23,18 +23,17 @@
 
 .sidebar__inner{
     padding: 20px;
-}
 
+    >*:first-child{
+        margin-top: 0;
+    }
+}
 
 .sidebar__link-wrapper{
     
     &--heading{
         margin: 15px 0 5px;
     
-        &:first-child{
-            margin: 0 0 5px;
-        }
-
         .sidebar__link{
             display: inline-block;
             font-weight: bold;

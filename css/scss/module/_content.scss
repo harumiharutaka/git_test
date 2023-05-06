@@ -5,14 +5,11 @@
 *********************************/
 
 .content{
+    display: block;
 }
 
 .content__inner{
-    margin: 0 20px 40px;
-
-    .content:last-child &{
-        margin-bottom: 0;
-    }
+    margin: 0 20px;
 
     &--column-left{
         @include g.media(pc){
@@ -27,8 +24,16 @@
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
     padding: 40px;
+
+    >*:last-child{
+        margin-bottom: 0;
+    }
 }
 
 .content__header{
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+}
+
+.content__section{
+    margin-bottom: 60px;
 }

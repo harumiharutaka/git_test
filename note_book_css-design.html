@@ -69,7 +69,7 @@
       <div class="container">
         <div class="container__inner">
   
-          <artcile class="content">
+          <artcile class="container__content content">
             <div class="content__inner content__inner--column-left">
               <div class="content__box">
                 <p class="index index--title">CSS設計完全ガイド 詳細解説＋実践的モジュール集</p>
@@ -390,7 +390,8 @@
                 <p class="index index--second">5-7 見出し</p>
                 <div class="comment comment--second">
                   <code class="comment__code">
-                    @include g.lineHeightSpaceFill(g.$line-height_base); //ハーフリーディングを疑似要素のネガティブマージンで打ち消すmixin
+                    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1); //ハーフリーディングをネガティブマージンで打ち消す<br>
+                    margin-bottom: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
                   </code>
                 </div>
                 <p class="index index--third">基本形</p>
@@ -551,7 +552,7 @@
             </div>
           </artcile><!-- /.content -->
           
-          <artcile class="content">
+          <artcile class="container__content content">
             <div class="content__inner content__inner--column-left">
               <div class="content__box">
                 <p class="index index--title">サンプルデータ</p>

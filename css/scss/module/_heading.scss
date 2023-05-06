@@ -10,7 +10,7 @@
     font-size:g.$font-size_xxxxl;
     font-weight: bold;
     transform: translateY(-10%);
-    @include g.lineHeightSpaceFill(g.$line-height_base);
+    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
     
     &::after{
         content: "";
@@ -30,7 +30,7 @@
 .content-heading-first{
     font-size:g.$font-size_xxl;
     font-weight: bold;
-    @include g.lineHeightSpaceFill(g.$line-height_base);
+    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
     
     &::after{
         content: "";
@@ -46,14 +46,31 @@
 
 /* コンテンツ見出し2 */
 .content-heading-second{
+    position: relative;
     font-size:g.$font-size_xl;
     font-weight: bold;
-    @include g.lineHeightSpaceFill(g.$line-height_base);
+    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
+    margin-bottom: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
+    padding-left: 12px;
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: g.$font-size_xl;
+        background-color: g.$color_black_light;
+        border-radius: 10px;
+        margin-top: calc((((1em * g.$line-height_base) - 1em) / 2));
+        
+    }
 }
 
 /* コンテンツ見出し3 */
 .content-heading-third{
     font-size:g.$font-size_lg;
     font-weight: bold;
-    @include g.lineHeightSpaceFill(g.$line-height_base);
+    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
+    margin-bottom: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
 }
