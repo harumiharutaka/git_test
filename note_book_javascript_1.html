@@ -44,21 +44,62 @@
       <h1 class="header__title">
         <a class="header__title-link" href="index.html">git_test</a>
       </h1>
-      <div class="header__nav">
-        <nav class="header-nav">
-          <ul class="header-nav__inner">
-            <li>
-              <a class="header-nav__link" href="index.html">top</a>
-            </li>
-            <li>
-              <a class="header-nav__link" href="note.html">note</a>
-            </li>
-            <li>
-              <a class="header-nav__link" href="archive.html">archive</a>
-            </li>
-          </ul>
-        </nav><!-- /.header-nav -->
+      <div class="header__hamburger">
+        <button class="header__hamburger-button js_header_hamburger-button">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+        </button>
       </div>
+      <nav class="drawer">
+        <ul class="drawer__inner">
+          <li class="drawer__link-wrapper">
+            <a class="drawer__link" href="index.html">top</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--heading">
+            <a class="drawer__link" href="note.html">note</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_html-css_1.html">書籍 html-css 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_html-css_2.html">書籍 html-css 2</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_css-design.html">書籍 css設計</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_javascript_1.html">書籍 javascript 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_wordpress_1.html">書籍 wordpress 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_wordpress_2.html">書籍 wordpress 2</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_progate_php1.html">progate phpⅠ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_gulp-memo.html">gulpメモ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_git-memo.html">Gitメモ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--heading">
+            <a class="drawer__link" href="archive.html">archive</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_bem-template.html">bem-template</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_js-library.html">js-library</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_js-weather.html">js-weather</a>
+          </li>
+        </ul>
+      </nav><!-- /.drawer -->
     </div>
   </header><!-- /.header -->
 
@@ -99,6 +140,12 @@
                 <p class="index index--fourth">上達のポイント! プログラムの入力ミスを減らすには</p>
                 <p class="index index--third">Step3 さらに続けてみよう</p>
                 <p class="index index--fourth">Note なぜシングルクォートで囲むことにしているの?</p>
+                <div class="comment comment--fourth">
+                  <p>
+                    「"」が含まれてる文字列を囲う場合は「'」でなければ判別がつかないため<br>
+                    （「"」と「'」のどちらを優先してもいいが、含まれる可能性が高い「"」を避けた方が無難）
+                  </p>
+                </div>
                 <p class="index index--second">2-2 JavaScriptはどこに書く?／scriptタグとJavaScriptの記述場所</p>
                 <div class="comment comment--second">
                   <p>厳格モードにするため「"use strict";」を冒頭に記述する</p>
@@ -615,10 +662,10 @@
                   <p class="js_4-1_output"></p>
                 </div>
                 <script>
-                  document.querySelector(".js_4-1_form").onsubmit = function(event) {
+                  document.querySelector('.js_4-1_form').onsubmit = function(event) {
                     event.preventDefault();
-                    const search = document.querySelector(".js_4-1_form").word.value;
-                    document.querySelector(".js_4-1_output").textContent = `「${search}」の検索中...`;
+                    const search = document.querySelector('.js_4-1_form').word.value;
+                    document.querySelector('.js_4-1_output').textContent = `「${search}」の検索中...`;
                   }
                 </script>
                 <p class="index index--third">Step1 まずはイベントをテスト</p>
@@ -645,7 +692,7 @@
                   }
 
                   const output = `${year}/${month + 1}/${date} ${hour % 12}:${min}${ampm}`;
-                  document.querySelector(".js_4-2_time").textContent = output;
+                  document.querySelector('.js_4-2_time').textContent = output;
                 </script>
                 <p class="index index--third"></p>
                 <p class="index index--third">Step1 年月日と日時を表示する</p>
@@ -664,15 +711,15 @@
                   <p>小数点第2位で切り捨てると <span class="js_4-3_output"></span> です。</p>
                 </div>
                 <script>
-                  document.querySelector(".js_4-3_pi").textContent = Math.PI;
-                  document.querySelector(".js_4-3_floor").textContent = Math.floor(Math.PI);
+                  document.querySelector('.js_4-3_pi').textContent = Math.PI;
+                  document.querySelector('.js_4-3_floor').textContent = Math.floor(Math.PI);
 
                   function point(num, digit) {
                     const mover = 10 ** digit;
                     return Math.floor(num * mover) / mover;
                   }
 
-                  document.querySelector(".js_4-3_output").textContent = point(Math.PI, 2);
+                  document.querySelector('.js_4-3_output').textContent = point(Math.PI, 2);
                 </script>
                 <p class="index index--third">Step1 四則演算以外の計算をする</p>
                 <p class="index index--first">Chapter5 一歩進んだテクニック</p>
@@ -704,11 +751,11 @@
                   function recalc() {
                     const counter = countdown(goal);
                     //const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
-                    //document.querySelector(".js_5-1_timer").textContent = time;
-                    document.querySelector(".js_5-1_day").textContent = counter[0];
-                    document.querySelector(".js_5-1_hour").textContent = counter[1];
-                    document.querySelector(".js_5-1_min").textContent = String(counter[2]).padStart(2, '0');
-                    document.querySelector(".js_5-1_sec").textContent = String(counter[3]).padStart(2, '0');
+                    //document.querySelector('.js_5-1_timer').textContent = time;
+                    document.querySelector('.js_5-1_day').textContent = counter[0];
+                    document.querySelector('.js_5-1_hour').textContent = counter[1];
+                    document.querySelector('.js_5-1_min').textContent = String(counter[2]).padStart(2, '0');
+                    document.querySelector('.js_5-1_sec').textContent = String(counter[3]).padStart(2, '0');
                     refresh();
                   }
 
@@ -744,18 +791,18 @@
                   <p>日本語のページ</p>
                 </div>
                 <script>
-                  const lang = document.querySelector("html").lang;
+                  const lang = document.querySelector('html').lang;
 
-                  if(lang ==="ja") {
+                  if(lang ==='ja') {
                     document.querySelector('option[value="index.html"]').selected = true;
-                  } else if(lang === "en") {
+                  } else if(lang === 'en') {
                     document.querySelector('option[value="index-en.html"]').selected = true;
-                  } else if(lang === "zh") {
+                  } else if(lang === 'zh') {
                     document.querySelector('option[value="index-zh.html"]').selected = true;
                   }
 
-                  document.querySelector(".js_5-2_form").select.onchange = function() {
-                    location.href = document.querySelector(".js_5-2_form").select.value;
+                  document.querySelector('.js_5-2_form').select.onchange = function() {
+                    location.href = document.querySelector('.js_5-2_form').select.value;
                   }
                 </script>
                 <p class="index index--third">Step1 選んだタイミングでページを移動する</p>
@@ -777,20 +824,20 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
                 <script>
-                  const agree = Cookies.get("cookie-agree");
-                  const panel = document.querySelector(".js_5-3_privacy-panel");
-                  if(agree === "yes") {
-                    document.querySelector(".js_5-3_body").removeChild(panel);
+                  const agree = Cookies.get('cookie-agree');
+                  const panel = document.querySelector('.js_5-3_privacy-panel');
+                  if(agree === 'yes') {
+                    document.querySelector('.js_5-3_body').removeChild(panel);
                   } else {
-                    document.querySelector(".js_5-3_agreebtn").onclick = function() {
-                      Cookies.set("cookie-agree", "yes", {expires: 7});
-                      document.querySelector(".js_5-3_body").removeChild(panel);
+                    document.querySelector('.js_5-3_agreebtn').onclick = function() {
+                      Cookies.set('cookie-agree', 'yes', {expires: 7});
+                      document.querySelector('.js_5-3_body').removeChild(panel);
                     };
                   }
 
                   // クッキー削除（テスト用）
-                  document.querySelector(".js_5-3_testbtn").onclick = function() {
-                    Cookies.remove("cookie-agree");
+                  document.querySelector('.js_5-3_testbtn').onclick = function() {
+                    Cookies.remove('cookie-agree');
                   }
                 </script>
                 <p class="index index--third">Step1 テスト専用の簡易Webサーバーを用意しよう</p>
@@ -816,10 +863,10 @@
                   </div>
                 </div>
                 <script>
-                  const thumbs = document.querySelectorAll(".js_5-4_thumb");
+                  const thumbs = document.querySelectorAll('.js_5-4_thumb');
                   thumbs.forEach(function(item, index) {
                       item.onclick = function() {
-                        document.querySelector(".js_5-4_bigimg").src = this.dataset.image;
+                        document.querySelector('.js_5-4_bigimg').src = this.dataset.image;
                       }
                   });
                 </script>
@@ -856,26 +903,26 @@
                   function changeImage(num) {
                     if(current + num >= 0 && current + num < images.length) {
                       current += num;
-                      document.querySelector(".js_5-5-main_image").src = images[current];
+                      document.querySelector('.js_5-5-main_image').src = images[current];
                       pageNum();
                     }
                   }
 
                   function preloadImage(path) {
-                    let imgTag = document.createElement("img");
+                    let imgTag = document.createElement('img');
                     imgTag.src = path;
                   }
 
                   function pageNum() {
-                    document.querySelector(".js_5-5_page").textContent = `${current + 1}/${images.length}`
+                    document.querySelector('.js_5-5_page').textContent = `${current + 1}/${images.length}`
                   }
 
                   pageNum();
 
-                  document.querySelector(".js_5-5_prev").onclick = function() {
+                  document.querySelector('.js_5-5_prev').onclick = function() {
                     changeImage(-1);
                   }
-                  document.querySelector(".js_5-5_next").onclick = function() {
+                  document.querySelector('.js_5-5_next').onclick = function() {
                     changeImage(1);
                   }
                 </script>
@@ -885,7 +932,7 @@
                 <div class="comment comment--fourth">
                   <p>
                     「preloadImage()」関係の関数は画像をプリロードしておく処理<br>
-                    「document.createElement("img")」はメモリに保存されるだけでHTMLに代入されるわけではない
+                    「document.createElement('img')」はメモリに保存されるだけでHTMLに代入されるわけではない
                   </p>
                 </div>
                 <p class="index index--fourth">Note DOM操作とは</p>
@@ -921,25 +968,25 @@
                 <script>
                   $(document).ready(function(){
                     //ファイルの読み込み
-                    $.ajax({url: "js/json/data.json", dataType: "json"})
+                    $.ajax({url: 'js/json/data.json', dataType: 'json'})
                     .done(function(data){
                       data.forEach(function(item, index){
-                        if(item.crowded === "yes") {
-                          const idName = "#" + item.id;
-                          $(idName).find(".js_6-3_check").addClass("crowded")  ;
+                        if(item.crowded === 'yes') {
+                          const idName = '#' + item.id;
+                          $(idName).find('.js_6-3_check').addClass('crowded')  ;
                         }
                       });
                     })
                     .fail(function(){
-                      window.alert("読み込みエラー");
+                      window.alert('読み込みエラー');
                     });
 
                     //クリックされたら席状況を表示
-                    $(".js_6-3_check").on("click", function(){
-                      if($(this).hasClass("crowded")) {
-                        $(this).text("残席わずか").addClass("js_6-3_red");
+                    $('.js_6-3_check').on('click', function(){
+                      if($(this).hasClass('crowded')) {
+                        $(this).text('残席わずか').addClass('js_6-3_red');
                       } else {
-                        $(this).text("お席あります").addClass("js_6-3_green");
+                        $(this).text('お席あります').addClass('js_6-3_green');
                       }
                     });
                   });
@@ -962,12 +1009,12 @@
                     const lng = pos.coords.longitude;
                     const accuracy = pos.coords.accuracy;
 
-                    $(".js_7-1_loc").text(`緯度:${lat} 経度:${lng}`);
-                    $(".js_7-1_accuracy").text(accuracy);
+                    $('.js_7-1_loc').text(`緯度:${lat} 経度:${lng}`);
+                    $('.js_7-1_accuracy').text(accuracy);
                   }
 
                   function fail(error) {
-                    alert("位置情報の取得に失敗しました。エラーコード" + error.code);
+                    alert('位置情報の取得に失敗しました。エラーコード' + error.code);
                   }
 
                   navigator.geolocation.getCurrentPosition(success, fail);
@@ -1040,7 +1087,8 @@
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_bem-template.html">bem-template</a>
-        </li>        <li class="sidebar__link-wrapper">
+        </li>
+        <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-library.html">js-library</a>
         </li>
         <li class="sidebar__link-wrapper">
@@ -1056,6 +1104,10 @@
       <p class="footer__text">comic-school.jp</p>
     </div>
   </footer><!-- /.footer -->
+
+  <div class="drawer-overlay"></div>
+
+  <script src="js/script.min.js"></script>
 
 </body>
 

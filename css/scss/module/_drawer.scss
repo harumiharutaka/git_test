@@ -1,0 +1,130 @@
+@use '../global' as g;
+
+/*********************************
+    ドロワー
+*********************************/
+
+/* ドロワー */
+.drawer{
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    max-height: calc(100vh - (g.$header_height + 20px + 65px));
+    margin-top: calc(g.$header_height + 20px);
+    background-color: g.$color_white;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
+    overflow: auto;
+    transform: translateX(100%);
+    transform-origin: right;
+    transition: 0.5s;
+
+    &--active{
+        transform: translateX(0%);
+        transform-origin: right;
+    }
+
+    @include g.media(pc){
+        position: static;
+        max-height: none;
+        margin-top: 0;
+        background: none;
+        box-shadow: none;
+        transform: translateX(0%);
+    }
+}
+
+.drawer__inner{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 40px;
+
+    >*:first-child{
+        margin-top: 0;
+    }
+
+    @include g.media(pc){
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        gap: 20px;
+    }
+}
+
+.drawer__link-wrapper{
+    margin-bottom: 5px;
+
+    @include g.media(pc){
+        margin-bottom: 0;
+    }
+
+    &--heading{
+        margin: 10px 0 10px;
+    
+        .drawer__link{
+            display: inline-block;
+            font-weight: bold;
+    
+            &::after{
+                content: "";
+                display: block;
+                height: 1px;
+                width: 6rem;
+                background-color: g.$color_black_light;
+            }
+        }
+
+        @include g.media(pc){
+            margin: 0;
+
+            .drawer__link{
+        
+                &::after{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &--pc-hidden{
+
+        @include g.media(pc){
+            display: none;
+        }
+    }
+}
+
+.drawer__link{
+    color: g.$color_black_light;
+
+    &:hover,&:focus {
+        opacity: 0.8;
+    }
+
+    @include g.media(pc){
+        display: block;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+}
+
+/* ドロワーオーバーレイ */
+.drawer-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: g.$z-index_drawer-overlay;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+    &--active{
+        visibility: visible;
+        opacity: 0.6;
+    }
+}

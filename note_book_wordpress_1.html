@@ -44,21 +44,62 @@
       <h1 class="header__title">
         <a class="header__title-link" href="index.html">git_test</a>
       </h1>
-      <div class="header__nav">
-        <nav class="header-nav">
-          <ul class="header-nav__inner">
-            <li>
-              <a class="header-nav__link" href="index.html">top</a>
-            </li>
-            <li>
-              <a class="header-nav__link" href="note.html">note</a>
-            </li>
-            <li>
-              <a class="header-nav__link" href="archive.html">archive</a>
-            </li>
-          </ul>
-        </nav><!-- /.header-nav -->
+      <div class="header__hamburger">
+        <button class="header__hamburger-button js_header_hamburger-button">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+        </button>
       </div>
+      <nav class="drawer">
+        <ul class="drawer__inner">
+          <li class="drawer__link-wrapper">
+            <a class="drawer__link" href="index.html">top</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--heading">
+            <a class="drawer__link" href="note.html">note</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_html-css_1.html">書籍 html-css 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_html-css_2.html">書籍 html-css 2</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_css-design.html">書籍 css設計</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_javascript_1.html">書籍 javascript 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_wordpress_1.html">書籍 wordpress 1</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_book_wordpress_2.html">書籍 wordpress 2</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_progate_php1.html">progate phpⅠ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_gulp-memo.html">gulpメモ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="note_git-memo.html">Gitメモ</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--heading">
+            <a class="drawer__link" href="archive.html">archive</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_bem-template.html">bem-template</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_js-library.html">js-library</a>
+          </li>
+          <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
+            <a class="drawer__link" href="archive_js-weather.html">js-weather</a>
+          </li>
+        </ul>
+      </nav><!-- /.drawer -->
     </div>
   </header><!-- /.header -->
 
@@ -220,7 +261,8 @@
         </li>
         <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_bem-template.html">bem-template</a>
-        </li>        <li class="sidebar__link-wrapper">
+        </li>
+        <li class="sidebar__link-wrapper">
           <a class="sidebar__link" href="archive_js-library.html">js-library</a>
         </li>
         <li class="sidebar__link-wrapper">
@@ -236,6 +278,10 @@
       <p class="footer__text">comic-school.jp</p>
     </div>
   </footer><!-- /.footer -->
+
+  <div class="drawer-overlay"></div>
+
+  <script src="js/script.min.js"></script>
 
 </body>
 
