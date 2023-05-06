@@ -32,8 +32,6 @@
 .header__title-link{
     font-size: g.$font-size_lg;
     font-weight: bold;
-    margin-top: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
-    margin-bottom: calc((((1em * g.$line-height_base) - 1em) / 2) * -1);
 
     &:hover,&:focus {
         opacity: 0.8;
@@ -59,9 +57,9 @@
         .header__hamburger-line{
 
             &:nth-of-type(1) {
-                top: 26%;
-                right: 26%;
-                transform: rotate(-45deg);
+                top: 50%;
+                left: 50%;
+                transform:  translateY(-50%) translateX(-50%) rotate(-45deg);
             }
               
             &:nth-of-type(2) {
@@ -69,9 +67,9 @@
             }
               
             &:nth-of-type(3) {
-                bottom: 26%;
-                right: 26%;
-                transform: rotate(45deg);
+                top: 50%;
+                left: 50%;
+                transform:  translateY(-50%) translateX(-50%) rotate(45deg);
             }
         }
     }
@@ -89,7 +87,6 @@
 
     &:nth-of-type(1) {
         top: 30%;
-        transform-origin: top right;
     }
       
     &:nth-of-type(2) {
@@ -97,7 +94,6 @@
     }
       
     &:nth-of-type(3) {
-        bottom: 30%;
-        transform-origin: bottom right;
+        top: calc(70% - (2px));
     }
 }

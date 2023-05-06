@@ -563,8 +563,6 @@ img {
 .header__title-link {
   font-size: 1.125rem;
   font-weight: bold;
-  margin-top: -0.4em;
-  margin-bottom: -0.4em;
 }
 .header__title-link:hover, .header__title-link:focus {
   opacity: 0.8;
@@ -584,19 +582,19 @@ img {
   cursor: pointer;
 }
 .header__hamburger-button--active .header__hamburger-line:nth-of-type(1) {
-  top: 26%;
-  right: 26%;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+          transform: translateY(-50%) translateX(-50%) rotate(-45deg);
 }
 .header__hamburger-button--active .header__hamburger-line:nth-of-type(2) {
   opacity: 0;
 }
 .header__hamburger-button--active .header__hamburger-line:nth-of-type(3) {
-  bottom: 26%;
-  right: 26%;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(45deg);
+          transform: translateY(-50%) translateX(-50%) rotate(45deg);
 }
 
 .header__hamburger-line {
@@ -611,16 +609,12 @@ img {
 }
 .header__hamburger-line:nth-of-type(1) {
   top: 30%;
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
 }
 .header__hamburger-line:nth-of-type(2) {
   top: calc(50% - 1px);
 }
 .header__hamburger-line:nth-of-type(3) {
-  bottom: 30%;
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
+  top: calc(70% - 2px);
 }
 
 /*********************************
@@ -738,7 +732,6 @@ img {
 .drawer__inner {
   display: inline-flex;
   flex-direction: column;
-  justify-content: flex-end;
   padding: 20px 40px;
 }
 .drawer__inner > *:first-child {
@@ -762,7 +755,7 @@ img {
   }
 }
 .drawer__link-wrapper--heading {
-  margin: 10px 0 10px;
+  margin: 10px 0;
 }
 .drawer__link-wrapper--heading .drawer__link {
   display: inline-block;
@@ -789,9 +782,6 @@ img {
   }
 }
 
-.drawer__link {
-  color: #333333;
-}
 .drawer__link:hover, .drawer__link:focus {
   opacity: 0.8;
 }
@@ -817,8 +807,8 @@ img {
   transition: 0.5s;
 }
 .drawer-overlay--active {
-  visibility: visible;
   opacity: 0.6;
+  visibility: visible;
 }
 
 /*********************************
@@ -2051,7 +2041,7 @@ img {
   padding: 0 8px;
   cursor: pointer;
 }
-.note_book_javascript_1 button {
+.note_book_javascript_1 .js_5-3_agreebtn, .note_book_javascript_1 .js_5-3_testbtn {
   background-color: #eeeeee;
   border: 1px solid #aaaaaa;
   border-radius: 4px;

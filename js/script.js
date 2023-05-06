@@ -33,7 +33,7 @@ function drawerClose(){
 
 //ハンバーガークリック処理
 hamburger.onclick = function() {
-    let active = hamburger.classList.contains('header__hamburger-button--active');
+    const active = hamburger.classList.contains('header__hamburger-button--active');
 
     if(!active){
         drawerOpen();
@@ -46,7 +46,7 @@ hamburger.onclick = function() {
 window.onresize = function() {
 
     if (window.matchMedia('(min-width:901px)').matches) {
-        let active = hamburger.classList.contains('header__hamburger-button--active');
+        const active = hamburger.classList.contains('header__hamburger-button--active');
 
         if(active){
             drawerClose();
