@@ -709,13 +709,13 @@ img {
           transform: translateX(100%);
   -webkit-transform-origin: right;
           transform-origin: right;
-  transition: 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 .drawer--active {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  -webkit-transform-origin: right;
-          transform-origin: right;
 }
 @media screen and (min-width: 901px) {
   .drawer {
@@ -726,6 +726,7 @@ img {
     box-shadow: none;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
+    transition: none;
   }
 }
 
@@ -804,7 +805,7 @@ img {
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transition: 0.5s;
+  transition: opacity 0.5s;
 }
 .drawer-overlay--active {
   opacity: 0.6;
