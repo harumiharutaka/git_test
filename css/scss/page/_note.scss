@@ -189,6 +189,7 @@
     }
 
     .js_5-4_bigimg{
+        width: 100%;
         max-width: 300px;
         margin-bottom: 5px;
     }
@@ -196,6 +197,7 @@
     .js_5-4_center{
 
         ul{
+            width: 100%;
             max-width: 300px;
             display: flex;
             gap: 5px;
@@ -207,6 +209,7 @@
     }
 
     .js_5-5-main_image{
+        width: 100%;
         max-width: 300px;
     }
 
@@ -243,6 +246,7 @@
     }
 
     .js_6-3_seminur{
+        flex: 1;
         background-color: #ffffff;
         border: 1px solid #23648f;
         padding: 10px;

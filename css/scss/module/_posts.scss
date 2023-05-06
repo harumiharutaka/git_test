@@ -19,10 +19,25 @@
 
 .posts__header{
     margin-bottom: 5px;
+
+    >*:last-child{
+        margin-right: 0;
+    }
 }
 
 .posts__date{
+    margin-right: 10px;
     font-size: g.$font-size_sm;
+}
+
+.posts__labels{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.posts__label{
+    font-size: 0;
 }
 
 .posts__title{

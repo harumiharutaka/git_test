@@ -836,7 +836,8 @@ img {
 .button {
   display: inline-block;
   min-width: 150px;
-  padding: 5px 10px;
+  max-width: 100%;
+  padding: 5px 15px;
   background-color: #666666;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -869,9 +870,16 @@ img {
 }
 .button--large {
   min-width: 180px;
+  max-width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 1.25rem;
+}
+.button--green {
+  background-color: #62ac81;
+}
+.button--green:hover, .button--green:focus {
+  color: #62ac81;
 }
 .button--red {
   background-color: #a74848;
@@ -907,6 +915,27 @@ img {
 }
 .before-icon-button--zoom::before {
   content: "\f00e";
+}
+
+/* 水平ボタンリスト */
+.horizontal-button-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.horizontal-button-list__item {
+  flex: 1;
+  max-width: 150px;
+}
+
+.horizontal-button-list__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: auto;
+  height: 100%;
 }
 
 /*********************************
@@ -972,6 +1001,7 @@ img {
 .media__text {
   font-size: 0.875rem;
   line-height: 1.6;
+  margin-bottom: 10px;
 }
 
 .media__img-wrapper {
@@ -1287,7 +1317,7 @@ img {
 }
 
 .cta-area__text {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -1496,6 +1526,13 @@ img {
   margin-bottom: 10px;
 }
 
+.accordion__cards {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
 /*********************************
     ポストリスト
 *********************************/
@@ -1511,9 +1548,23 @@ img {
 .posts__header {
   margin-bottom: 5px;
 }
+.posts__header > *:last-child {
+  margin-right: 0;
+}
 
 .posts__date {
+  margin-right: 10px;
   font-size: 0.875rem;
+}
+
+.posts__labels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.posts__label {
+  font-size: 0;
 }
 
 .posts__title:hover, .posts__title:focus {
@@ -1693,17 +1744,18 @@ img {
 }
 .page-index .page-link__link {
   position: relative;
+  display: inline-block;
   font-size: 1.25rem;
   font-weight: bold;
   line-height: 1.6;
-  margin-left: 1.3em;
+  padding-left: 1.3em;
 }
 .page-index .page-link__link::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
   top: 0;
-  left: -1.3em;
+  left: 0;
 }
 .page-index .page-link__link:hover, .page-index .page-link__link:focus {
   opacity: 0.8;
@@ -1713,9 +1765,6 @@ img {
 }
 .page-index .page-link__link--file::before {
   content: "\f15c";
-}
-.page-index .page-link__link i {
-  margin: 0.3em;
 }
 
 /*********************************
@@ -1869,10 +1918,12 @@ img {
   padding: 0 8px;
 }
 .note_book_javascript_1 .js_5-4_bigimg {
+  width: 100%;
   max-width: 300px;
   margin-bottom: 5px;
 }
 .note_book_javascript_1 .js_5-4_center ul {
+  width: 100%;
   max-width: 300px;
   display: flex;
   gap: 5px;
@@ -1881,6 +1932,7 @@ img {
   cursor: pointer;
 }
 .note_book_javascript_1 .js_5-5-main_image {
+  width: 100%;
   max-width: 300px;
 }
 .note_book_javascript_1 .js_5-5_toolbar {
@@ -1910,6 +1962,7 @@ img {
   text-align: center;
 }
 .note_book_javascript_1 .js_6-3_seminur {
+  flex: 1;
   background-color: #ffffff;
   border: 1px solid #23648f;
   padding: 10px;

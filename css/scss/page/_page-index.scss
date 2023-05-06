@@ -23,17 +23,18 @@
 
     .page-link__link{
         position: relative;
+        display: inline-block;
         font-size: g.$font-size_xl;
         font-weight: bold;
         line-height: g.$line-height_low;
-        margin-left: 1.3em;
+        padding-left: 1.3em;
 
         &::before{
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             top: 0;
-            left: -1.3em;
+            left: 0;
         }
 
         &:hover,&:focus{ 
@@ -51,10 +52,5 @@
                 content: "\f15c"; 
             }  
         }
-
-        i{
-            margin: 0.3em;
-        }
-        
     }
 }

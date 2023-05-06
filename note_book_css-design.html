@@ -494,8 +494,23 @@
                 <p class="index index--third">バリエーション</p>
                 <p class="index index--first">Chapter7 CSS設計モジュール集③ モジュールの再利用</p>
                 <p class="index index--second">7-1 最小モジュールを利用した複合モジュールの作成</p>
+                <div class="comment comment--second">
+                  <p>
+                    「button」と「horizontal-button-list__button」をMixしてスタイリングしているが、詳細度が同一なため「最小モジュールは前の方に、複合モジュールは後の方に」記述するよう工夫しなければならない
+                  </p>
+                </div>
                 <p class="index index--third">水平ボタンリスト</p>
                 <p class="index index--second">7-2 最小モジュールと複合モジュールの組み合わせ</p>
+                <div class="comment comment--second">
+                  <p>
+                    CMSと併用する際に「data-*属性」を使用する場合もある
+                  </p>
+                  <code class="comment__code">
+                  .button[data-text="OK"]{<br>
+                  　background-color: #62ac81;<br>
+                  }
+                  </code>
+                </div>
                 <p class="index index--third">ボタン+画像半分サイズメディア</p>
                 <p class="index index--third">ボタン+CTA エリア</p>
                 <p class="index index--third">ラベル+ポストリスト</p>
