@@ -699,6 +699,7 @@ img {
   display: inline-block;
   top: 0;
   right: 0;
+  max-width: 60%;
   max-height: calc(100vh - (3rem + 20px + 65px));
   margin-top: calc(3rem + 20px);
   background-color: #ffffff;
@@ -717,6 +718,7 @@ img {
 @media screen and (min-width: 901px) {
   .drawer {
     position: static;
+    max-width: none;
     max-height: none;
     margin-top: 0;
     background: none;
@@ -799,11 +801,16 @@ img {
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s, visibility 0.5s;
 }
 .drawer-overlay--active {
   opacity: 0.6;
   visibility: visible;
+}
+@media screen and (min-width: 901px) {
+  .drawer-overlay {
+    display: none;
+  }
 }
 
 /*********************************
