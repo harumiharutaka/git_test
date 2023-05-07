@@ -132,7 +132,7 @@ function slideUp(el, duration = 500) {
 }
 
 // アコーディオン開閉の処理
-const accordions = document.querySelectorAll('.js_accordion'); //
+const accordions = document.querySelectorAll('.js_accordion');
 accordions.forEach(function(accordion, index) {
 
     const accordionBtns = accordion.querySelectorAll('.js_accordion_button');

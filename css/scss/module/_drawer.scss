@@ -53,14 +53,13 @@
 }
 
 .drawer__link-wrapper{
-    margin-bottom: 5px;
 
     @include g.media(pc){
         margin-bottom: 0;
     }
 
     &--heading{
-        margin: 10px 0;
+        margin: 15px 0 5px;
     
         .drawer__link{
             display: inline-block;
