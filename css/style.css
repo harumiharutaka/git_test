@@ -544,7 +544,7 @@ img {
   left: 0;
   width: 100%;
   height: 3rem;
-  z-index: 20;
+  z-index: 30;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
@@ -798,7 +798,7 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: #000000;
-  z-index: 10;
+  z-index: 20;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s, visibility 0.5s;
@@ -1827,6 +1827,38 @@ img {
   line-height: 1.5em;
   text-align: center;
   padding-left: 0.1em;
+}
+
+/*********************************
+    ページトップ
+*********************************/
+.pagetop {
+  display: block;
+  position: fixed;
+  right: max(40px, (100% - 1200px) / 2 + 40px);
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #666666;
+  border-radius: 100px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.pagetop::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f106";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+  color: #ffffff;
+}
+.pagetop--show {
+  opacity: 0.6;
 }
 
 /*********************************
