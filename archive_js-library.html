@@ -151,7 +151,7 @@
                     </div>
                     <div class="section__main">
 
-                      <p>アクセスした時1回だけ表示</p>
+                      <p>ページにアクセスした1回目に表示</p>
                       <p>または<a class="js_loading_test">クリック</a>で表示</p>
 
                     </div>
@@ -256,6 +256,19 @@
                   </div>
                 </section><!-- /.section -->
 
+                <section class="content__section section">
+                  <div class="section__inner">
+                    <div class="section__header">
+                      <h4 class="content-heading-second">モーダル</h4>
+                    </div>
+                    <div class="section__main">
+
+                      <p><a class="js_modal_open" data-modal="js_modal_1">クリック</a>で表示</p>
+
+                    </div>
+                  </div>
+                </section><!-- /.section -->
+
 
               </div>
             </div>
@@ -333,6 +346,25 @@
       </div>
     </div>
   </div><!-- /.loading -->
+
+  <div class="modal" id="js_modal_1">
+    <div class="modal__overlay"></div>
+    <div class="modal__window">
+      <button class="modal__close js_modal_close"></button>
+      <div class="modal__body">
+        <div class="modal__title">
+          <h5>
+            テスト
+          </h5>
+        </div>
+        <div class="modal__text">
+          <p>
+            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          </p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.modal -->
 
   <script src="js/script.min.js"></script>
 

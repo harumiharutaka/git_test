@@ -1,6 +1,37 @@
 'use strict';
 
 /*********************************
+    bodyのスクロールを止める
+*********************************/
+//iOSか判定
+const ua = window.navigator.userAgent;
+const iOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
+
+//bodyのスクロールを止める関数
+function bodyScrollStop(){
+    if (iOS) {
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.width = '100%';
+    } else {
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+//bodyのスクロールを始める関数
+function bodyScrollStart(){
+    if (iOS) {
+        const bodyTop = document.body.style.top;
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        window.scrollTo(0, parseInt(bodyTop) * -1);
+    } else {
+        document.body.style.removeProperty('overflow');
+    }
+}
+
+/*********************************
     ハンバーガー＆ドロワー
 *********************************/
 const hamburger = document.querySelector('.js_header_hamburger-button');
@@ -9,15 +40,12 @@ const overlay = document.querySelector('.drawer-overlay');
 
 //ドロワーを開く関数
 function drawerOpen(duration = 500){
-    const windowTop = window.scrollY;
     drawer.style.transitionProperty = 'transform';
     drawer.style.transitionDuration = duration + 'ms';
     hamburger.classList.add('header__hamburger-button--active');
     drawer.classList.add('drawer--active');
     overlay.classList.add('drawer-overlay--active');
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${windowTop}px`;
-    document.body.style.width = '100%';
+    bodyScrollStop();
     setTimeout(() => {
         drawer.style.removeProperty('transition-property');
         drawer.style.removeProperty('transition-duration');
@@ -26,16 +54,12 @@ function drawerOpen(duration = 500){
 
 //ドロワーを閉じる関数
 function drawerClose(duration = 500){
-    const bodyTop = document.body.style.top;
     drawer.style.transitionProperty = 'transform';
     drawer.style.transitionDuration = duration + 'ms';
     hamburger.classList.remove('header__hamburger-button--active');
     drawer.classList.remove('drawer--active');
     overlay.classList.remove('drawer-overlay--active');
-    document.body.style.removeProperty('position');
-    document.body.style.removeProperty('top');
-    document.body.style.removeProperty('width');
-    window.scrollTo(0, parseInt(bodyTop) * -1);
+    bodyScrollStart();
     setTimeout(() => {
         drawer.style.removeProperty('transition-property');
         drawer.style.removeProperty('transition-duration');
@@ -51,6 +75,7 @@ hamburger.onclick = function() {
     } else {
         drawerClose();
     }
+
 }
 
 //ウィンドウリサイズの処理
@@ -62,7 +87,9 @@ window.onresize = function() {
         if(active){
             drawerClose();
         }
+
     }
+
 }
 
 /*********************************
@@ -94,6 +121,7 @@ window.addEventListener('scroll', function() {
     } else {
         pagetopBtn.style.removeProperty('bottom');
     }
+
 });
 
 /*********************************
@@ -105,35 +133,38 @@ const progressBar = document.querySelector('.loading__bar');
 // ローディングを表示する関数
 function loadingTime(duration = 1000, transition = 200) {
     loading.classList.add('loading--active');
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
     loading.style.removeProperty('transition-property');
     loading.style.removeProperty('transition-duration');
+    bodyScrollStop();
     progressBar.animate({
         width: ['0', '100%'],
     }, duration);
     setTimeout(() => {
         loading.classList.remove('loading--active');
-        document.body.style.removeProperty('position');
-        document.body.style.removeProperty('width');
         loading.style.transitionProperty = 'opacity, visibility';
         loading.style.transitionDuration = transition + 'ms';
+        bodyScrollStart();
     }, duration);
 }
 
-// アクセスした時1回だけ表示する処理
-if (!sessionStorage.getItem('visited')) {
-    sessionStorage.setItem('visited', 'first');
-    window.onload = function() {
+// archive_js-library.htmlでのみ動作
+if(document.URL.match(/archive_js-library.html/)){
+
+    // アクセスした時1回だけ表示する処理
+    if (!sessionStorage.getItem('visited')) {
+        sessionStorage.setItem('visited', 'first');
+        window.onload = function() {
+            loadingTime();
+        }
+    } else {
+        loading.classList.remove('loading--active');
+    }
+
+    // ※テスト用 クリックしたとき表示する処理
+    document.querySelector('.js_loading_test').onclick = function() {
         loadingTime();
     }
-} else {
-    loading.classList.remove('loading--active');
-}
-
-// ※テスト用 クリックしたとき表示する処理
-document.querySelector('.js_loading_test').onclick = function() {
-    loadingTime();
+    
 }
 
 /*********************************
@@ -203,7 +234,9 @@ accordions.forEach(function(accordion, index) {
                 accordionBtn.classList.add('accordion__button--active');
             }
         }
+
     });
+
 });
 
 /*********************************
@@ -225,5 +258,37 @@ tabs.forEach(function(tab, index) {
             tab.querySelectorAll('.tab__item')[index].classList.add('tab__item--active');
 
         }
+
     });
+
+});
+
+/*********************************
+    モーダル
+*********************************/
+// モーダルを開ける処理
+const modalOpens = document.querySelectorAll('.js_modal_open');
+modalOpens.forEach(function(modalBtn, index) {
+
+    modalBtn.onclick = function() {
+
+        const modalBtnId = this.dataset.modal;
+        document.querySelector('#' + modalBtnId).classList.add('modal--active')
+        bodyScrollStop();
+
+    }
+
+});
+
+// モーダルを閉じる処理
+const modalCloses = document.querySelectorAll('.js_modal_close');
+modalCloses.forEach(function(modalClose, index) {
+
+    modalClose.onclick = function() {
+
+        this.parentNode.parentNode.classList.remove('modal--active')
+        bodyScrollStart();
+
+    }
+
 });

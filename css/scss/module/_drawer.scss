@@ -14,6 +14,7 @@
     max-height: calc(100vh - (g.$header_height + 20px + 20px));
     margin-top: calc(g.$header_height + 20px);
     background-color: g.$color_white;
+    border: 1px solid g.$color_grey_light;
     border-radius: 4px 0 0 4px;
     box-shadow: 0 2px 8px 0 rgba(g.$color_pure-black,0.1);
     overflow: auto;
@@ -31,9 +32,9 @@
         max-height: none;
         margin-top: 0;
         background: none;
+        border: none;
         box-shadow: none;
         transform: translateX(0%);
-        transition: none;
     }
 }
 
