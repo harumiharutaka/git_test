@@ -11,8 +11,8 @@
     width: 100%;
     height: g.$header_height;
     z-index: g.$z-index_header;
-    background-color: rgba(#ffffff,.95);
-    box-shadow: 0 2px 8px 0 rgba(#000000,0.1);
+    background-color: rgba(g.$color_white,0.95);
+    box-shadow: 0 2px 8px 0 rgba(g.$color_pure-black,0.1);
 }
 
 .header__inner{

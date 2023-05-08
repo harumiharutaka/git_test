@@ -814,6 +814,38 @@ img {
 }
 
 /*********************************
+    ページトップ
+*********************************/
+.pagetop {
+  display: block;
+  position: fixed;
+  right: max(40px, (100% - 1200px) / 2 + 40px);
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #666666;
+  border-radius: 100px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.pagetop::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f106";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+  color: #ffffff;
+}
+.pagetop--show {
+  opacity: 0.6;
+}
+
+/*********************************
     サイドバー
 *********************************/
 .sidebar {
@@ -857,6 +889,117 @@ img {
 
 .sidebar__link:hover, .sidebar__link:focus {
   opacity: 0.8;
+}
+
+/*********************************
+    ローディング
+*********************************/
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fafafa;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+}
+.loading--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading__inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading__icon {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+          animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+@-webkit-keyframes load5 {
+  0%, 100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.5), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.5), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.5), 2.5em 0em 0 0em rgba(51, 51, 51, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.5), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.5), 0em 2.5em 0 0em rgba(51, 51, 51, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.5), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.5), -2.6em 0em 0 0em rgba(51, 51, 51, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+@keyframes load5 {
+  0%, 100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.5), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.5), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.5), 2.5em 0em 0 0em rgba(51, 51, 51, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.5), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.2), -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.5), 0em 2.5em 0 0em rgba(51, 51, 51, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(51, 51, 51, 0.2), -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.5), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(51, 51, 51, 0.2), 1.8em -1.8em 0 0em rgba(51, 51, 51, 0.2), 2.5em 0em 0 0em rgba(51, 51, 51, 0.2), 1.75em 1.75em 0 0em rgba(51, 51, 51, 0.2), 0em 2.5em 0 0em rgba(51, 51, 51, 0.2), -1.8em 1.8em 0 0em rgba(51, 51, 51, 0.5), -2.6em 0em 0 0em rgba(51, 51, 51, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+.loading__progress-bar {
+  position: relative;
+  width: 100px;
+  height: 8px;
+  margin-top: 60px;
+  border: 1px solid #aaaaaa;
+  border-radius: 100px;
+}
+
+.loading__bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: #666666;
+  border-radius: 100px;
 }
 
 /*********************************
@@ -1830,38 +1973,6 @@ img {
 }
 
 /*********************************
-    ページトップ
-*********************************/
-.pagetop {
-  display: block;
-  position: fixed;
-  right: max(40px, (100% - 1200px) / 2 + 40px);
-  bottom: 20px;
-  width: 40px;
-  height: 40px;
-  background-color: #666666;
-  border-radius: 100px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  opacity: 0;
-  transition: opacity 0.1s;
-}
-.pagetop::after {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  content: "\f106";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-          transform: translateY(-50%) translateX(-50%);
-  color: #ffffff;
-}
-.pagetop--show {
-  opacity: 0.6;
-}
-
-/*********************************
     トップページ
 *********************************/
 .top .top-content {
@@ -2150,8 +2261,16 @@ img {
 }
 
 /*********************************
-    archive js weather
+    archive
 *********************************/
+.archive_js-library .js_loading_test {
+  color: #1a0dab;
+  cursor: pointer;
+}
+.archive_js-library .js_loading_test:hover, .archive_js-library .js_loading_test:focus {
+  opacity: 0.8;
+}
+
 .archive_js-weather .content__box--blue {
   background-color: #F7F9FB;
 }

@@ -13,7 +13,7 @@
     background-color: g.$color_grey_dark;
     border: 1px solid transparent;
     border-radius: 4px;
-    box-shadow: 0 1px 4px 0 rgba(#000000,0.1);
+    box-shadow: 0 1px 4px 0 rgba(g.$color_pure-black,0.1);
     color: g.$color_white;
     font-size: g.$font-size_lg;
     font-weight: bold;
@@ -74,7 +74,7 @@
     background-color: g.$color_white;
     border: 1px solid currentColor;;
     border-radius: 2px;
-    box-shadow: 0 1px 4px 0 rgba(#000000,0.1);
+    box-shadow: 0 1px 4px 0 rgba(g.$color_pure-black,0.1);
     color: g.$color_grey_dark;
     transition: 0.5s;
 

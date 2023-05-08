@@ -13,7 +13,7 @@
     height: 40px;
     background-color: g.$color_grey_dark;
     border-radius: 100px;
-    box-shadow: 0 1px 4px 0 rgba(#000000,0.1);
+    box-shadow: 0 1px 4px 0 rgba(g.$color_pure-black,0.1);
     z-index: g.$z-index_pagetop;
     opacity: 0;
     transition: opacity 0.1s;

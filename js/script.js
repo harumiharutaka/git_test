@@ -6,7 +6,6 @@
 const hamburger = document.querySelector('.js_header_hamburger-button');
 const drawer = document.querySelector('.drawer');
 const overlay = document.querySelector('.drawer-overlay');
-const body = document.body;
 
 //ドロワーを開く関数
 function drawerOpen(duration = 500){
@@ -16,30 +15,30 @@ function drawerOpen(duration = 500){
     hamburger.classList.add('header__hamburger-button--active');
     drawer.classList.add('drawer--active');
     overlay.classList.add('drawer-overlay--active');
-    body.style.position = 'fixed';
-    body.style.top = `-${windowTop}px`;
-    body.style.width = '100%';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${windowTop}px`;
+    document.body.style.width = '100%';
     setTimeout(() => {
-        drawer.style.removeProperty('transition-duration');
         drawer.style.removeProperty('transition-property');
+        drawer.style.removeProperty('transition-duration');
     }, duration);
 }
 
 //ドロワーを閉じる関数
 function drawerClose(duration = 500){
-    const bodyTop = body.style.top;
+    const bodyTop = document.body.style.top;
     drawer.style.transitionProperty = 'transform';
     drawer.style.transitionDuration = duration + 'ms';
     hamburger.classList.remove('header__hamburger-button--active');
     drawer.classList.remove('drawer--active');
     overlay.classList.remove('drawer-overlay--active');
-    body.style.position = '';
-    body.style.top = ``;
-    body.style.width = '';
+    document.body.style.removeProperty('position');
+    document.body.style.removeProperty('top');
+    document.body.style.removeProperty('width');
     window.scrollTo(0, parseInt(bodyTop) * -1);
     setTimeout(() => {
-        drawer.style.removeProperty('transition-duration');
         drawer.style.removeProperty('transition-property');
+        drawer.style.removeProperty('transition-duration');
     }, duration);
 }
 
@@ -93,9 +92,49 @@ window.addEventListener('scroll', function() {
     if(spaceB >= 0){
         pagetopBtn.style.bottom = spaceB + 20 + 'px';
     } else {
-        pagetopBtn.style.removeProperty("bottom");
+        pagetopBtn.style.removeProperty('bottom');
     }
 });
+
+/*********************************
+    ローディング
+*********************************/
+const loading = document.querySelector('.loading');
+const progressBar = document.querySelector('.loading__bar');
+
+// ローディングを表示する関数
+function loadingTime(duration = 2000, transition = 200) {
+    loading.classList.add('loading--active');
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    loading.style.removeProperty('transition-property');
+    loading.style.removeProperty('transition-duration');
+    progressBar.animate({
+        width: ['0', '100%'],
+    }, duration);
+    setTimeout(() => {
+        loading.classList.remove('loading--active');
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('width');
+        loading.style.transitionProperty = 'opacity, visibility';
+        loading.style.transitionDuration = transition + 'ms';
+    }, duration);
+}
+
+// アクセスした時1回だけ表示する処理
+if (!sessionStorage.getItem('visited')) {
+    sessionStorage.setItem('visited', 'first');
+    window.onload = function() {
+        loadingTime();
+    }
+} else {
+    loading.classList.remove('loading--active');
+}
+
+// ※テスト用 クリックしたとき表示する処理
+document.querySelector('.js_loading_test').onclick = function() {
+    loadingTime();
+}
 
 /*********************************
     アコーディオン
@@ -117,9 +156,9 @@ function slideDown(el, duration = 500) {
     }, duration);
     setTimeout(() => {
         el.style.removeProperty('overflow');
-        el.style.removeProperty("height");
-        el.style.removeProperty("padding-top");
-        el.style.removeProperty("padding-bottom");
+        el.style.removeProperty('height');
+        el.style.removeProperty('padding-top');
+        el.style.removeProperty('padding-bottom');
     }, duration);
 }
   
@@ -139,9 +178,9 @@ function slideUp(el, duration = 500) {
     }, duration);
     setTimeout(() => {
         el.style.removeProperty('overflow');
-        el.style.removeProperty("height");
-        el.style.removeProperty("padding-top");
-        el.style.removeProperty("padding-bottom");
+        el.style.removeProperty('height');
+        el.style.removeProperty('padding-top');
+        el.style.removeProperty('padding-bottom');
         el.classList.remove('accordion__body--active');
     }, duration);
 }

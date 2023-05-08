@@ -1,8 +1,23 @@
 @use '../global' as g;
 
 /*********************************
-    archive js weather
+    archive
 *********************************/
+
+.archive{
+}
+
+.archive_js-library{
+    
+    .js_loading_test{
+        color: g.$color_link-blue;
+        cursor: pointer;
+
+        &:hover,&:focus {
+            opacity: 0.8;
+        }
+    }
+}
 
 .archive_js-weather{
     

@@ -50,7 +50,7 @@
 
 .table__inner{
     width: 100%;
-    background-color: #ffffff;
+    background-color: g.$color_white;
     border-spacing: 0;
     border-collapse: separate;
 }
@@ -64,26 +64,26 @@
 .table__header-row{
 
     &:first-child>*{
-        border-top: 1px solid #aaaaaa;
+        border-top: 1px solid g.$color_grey;
     }
 }
 
 .table__body-row{
 
     &:first-child>*{
-        border-top: 1px solid #aaaaaa;
+        border-top: 1px solid g.$color_grey;
     }
 }
 
 .table__header{
     padding: 5px 10px;
     border: none;
-    border-right: 1px solid #aaaaaa;
-    border-bottom: 1px solid #aaaaaa;
+    border-right: 1px solid g.$color_grey;
+    border-bottom: 1px solid g.$color_grey;
     background-color: g.$color_light;
 
     &:first-child{
-        border-left: 1px solid #aaaaaa;
+        border-left: 1px solid g.$color_grey;
     }
     
     &--md-sticky{
@@ -95,10 +95,10 @@
 .table__text{
     padding: 5px 10px;
     border: none;
-    border-right: 1px solid #aaaaaa;
-    border-bottom: 1px solid #aaaaaa;
+    border-right: 1px solid g.$color_grey;
+    border-bottom: 1px solid g.$color_grey;
 
     &:first-child{
-        border-left: 1px solid #aaaaaa;
+        border-left: 1px solid g.$color_grey;
     }
 }

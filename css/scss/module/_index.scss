@@ -13,8 +13,14 @@
 // ドロワー
 @forward 'drawer';
 
+// ページトップ
+@forward 'pagetop';
+
 // サイドバー
 @forward 'sidebar';
+
+// ローディング
+@forward 'loading';
 
 // ページビジュアル
 @forward 'page-visual';
@@ -63,6 +69,3 @@
 
 // リスト
 @forward 'list';
-
-// ページトップ
-@forward 'pagetop';
