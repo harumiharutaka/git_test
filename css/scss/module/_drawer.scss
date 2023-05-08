@@ -11,7 +11,7 @@
     top: 0;
     right: 0;
     max-width: 60%;
-    max-height: calc(100vh - (g.$header_height + 20px + 65px));
+    max-height: calc(100vh - (g.$header_height + 20px + 20px));
     margin-top: calc(g.$header_height + 20px);
     background-color: g.$color_white;
     border-radius: 4px 0 0 4px;

@@ -700,7 +700,7 @@ img {
   top: 0;
   right: 0;
   max-width: 60%;
-  max-height: calc(100vh - (3rem + 20px + 65px));
+  max-height: calc(100vh - (3rem + 20px + 20px));
   margin-top: calc(3rem + 20px);
   background-color: #ffffff;
   border-radius: 4px 0 0 4px;
@@ -1509,10 +1509,14 @@ img {
   margin-bottom: 5px;
 }
 
-.tab__body {
+.tab__item {
+  display: none;
   padding: 20px;
   font-size: 0.875rem;
   line-height: 1.6;
+}
+.tab__item--active {
+  display: block;
 }
 
 /* タブナビゲーション */
@@ -1556,6 +1560,7 @@ img {
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
+  cursor: pointer;
 }
 .tab-navigation__link:hover, .tab-navigation__link:focus {
   border-bottom-color: #666666;

@@ -103,7 +103,7 @@ const loading = document.querySelector('.loading');
 const progressBar = document.querySelector('.loading__bar');
 
 // ローディングを表示する関数
-function loadingTime(duration = 2000, transition = 200) {
+function loadingTime(duration = 1000, transition = 200) {
     loading.classList.add('loading--active');
     document.body.style.position = 'fixed';
     document.body.style.width = '100%';
@@ -202,6 +202,28 @@ accordions.forEach(function(accordion, index) {
                 slideDown(content);
                 accordionBtn.classList.add('accordion__button--active');
             }
+        }
+    });
+});
+
+/*********************************
+    タブ
+*********************************/
+
+// タブ切り替えの処理
+const tabs = document.querySelectorAll('.js_tab');
+tabs.forEach(function(tab, index) {
+
+    const tabBtns = tab.querySelectorAll('.js_tab-navigation_link');
+    tabBtns.forEach(function(tabBtn, index) {
+
+        tabBtn.onclick = function() {
+
+            tab.querySelector('.tab-navigation__link--active').classList.remove('tab-navigation__link--active');
+            this.classList.add('tab-navigation__link--active');
+            tab.querySelector('.tab__item--active').classList.remove('tab__item--active');
+            tab.querySelectorAll('.tab__item')[index].classList.add('tab__item--active');
+
         }
     });
 });
