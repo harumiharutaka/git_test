@@ -42,7 +42,7 @@ function bodyScrollStart(){
         document.body.style.removeProperty('top');
         document.body.style.removeProperty('width');
         window.scrollTo(0, parseInt(bodyTop) * -1);
-        document.querySelector('html').style.removeProperty('overflowY');
+        document.querySelector('html').style.removeProperty('overflow-y');
     } else {
         document.body.style.removeProperty('overflow');
     }
