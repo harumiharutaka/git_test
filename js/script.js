@@ -22,7 +22,7 @@ function bodyScrollStop(){
         document.body.style.position = 'fixed';
         document.body.style.top = `-${windowScroll}px`;
         document.body.style.width = '100%';
-        document.querySelector('html').style.overflow = 'scroll';
+        document.querySelector('html').style.overflowY = 'scroll';
     } else {
         document.body.style.overflow = 'hidden';
     }
@@ -42,7 +42,7 @@ function bodyScrollStart(){
         document.body.style.removeProperty('top');
         document.body.style.removeProperty('width');
         window.scrollTo(0, parseInt(bodyTop) * -1);
-        document.querySelector('html').style.removeProperty('overflow');
+        document.querySelector('html').style.removeProperty('overflowY');
     } else {
         document.body.style.removeProperty('overflow');
     }
