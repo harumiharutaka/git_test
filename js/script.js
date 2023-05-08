@@ -3,29 +3,48 @@
 /*********************************
     bodyのスクロールを止める
 *********************************/
+//iOSか判定
+const ua = window.navigator.userAgent;
+const iOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
+
 //スクロールバーがあるか判定
 const scrollBarJudg = (window.innerWidth - document.body.clientWidth) > 0;
 
 //bodyのスクロールを止める関数
 function bodyScrollStop(){
-    const windowScroll = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${windowScroll}px`;
-    document.body.style.width = '100%';
-    if(scrollBarJudg){
+    if (iOS) {
+        const windowScroll = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${windowScroll}px`;
+        document.body.style.width = '100%';
+    } else if(scrollBarJudg) {
+        const windowScroll = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${windowScroll}px`;
+        document.body.style.width = '100%';
         document.querySelector('html').style.overflow = 'scroll';
+    } else {
+        document.body.style.overflow = 'hidden';
     }
 }
 
 //bodyのスクロールを始める関数
 function bodyScrollStart(){
-    const bodyTop = document.body.style.top;
-    document.body.style.removeProperty('position');
-    document.body.style.removeProperty('top');
-    document.body.style.removeProperty('width');
-    window.scrollTo(0, parseInt(bodyTop) * -1);
-    if(scrollBarJudg){
+    if (iOS) {
+        const bodyTop = document.body.style.top;
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        window.scrollTo(0, parseInt(bodyTop) * -1);
+    } else if(scrollBarJudg) {
+        const bodyTop = document.body.style.top;
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        window.scrollTo(0, parseInt(bodyTop) * -1);
         document.querySelector('html').style.removeProperty('overflow');
+    } else {
+        document.body.style.removeProperty('overflow');
     }
 }
 
