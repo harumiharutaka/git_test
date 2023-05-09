@@ -51,7 +51,7 @@
           <span class="header__hamburger-line"></span>
         </button>
       </div>
-      <nav class="drawer">
+      <nav class="drawer js_drawer">
         <ul class="drawer__inner">
           <li class="drawer__link-wrapper">
             <a class="drawer__link" href="index.html">top</a>
@@ -336,32 +336,30 @@
 
   <button class="pagetop js_pagetop"></button>
 
-  <div class="drawer-overlay"></div>
+  <div class="drawer-overlay js_drawer-overlay"></div>
 
-  <div class="loading loading--active">
+  <div class="loading loading--active js_loading">
     <div class="loading__inner">
       <div class="loading__icon"></div>
       <div class="loading__progress-bar">
-        <span class="loading__bar"></span>
+        <span class="loading__bar js_loading__bar"></span>
       </div>
     </div>
   </div><!-- /.loading -->
 
+  <div class="modal-overlay js_modal-overlay"></div>
   <div class="modal" id="js_modal_1">
-    <div class="modal__overlay"></div>
-    <div class="modal__window">
-      <button class="modal__close js_modal_close"></button>
-      <div class="modal__body">
-        <div class="modal__title">
-          <h5>
-            テスト
-          </h5>
-        </div>
-        <div class="modal__text">
-          <p>
-            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-          </p>
-        </div>
+    <button class="modal__close js_modal_close"></button>
+    <div class="modal__body">
+      <div class="modal__title">
+        <h5>
+          テスト
+        </h5>
+      </div>
+      <div class="modal__text">
+        <p>
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        </p>
       </div>
     </div>
   </div><!-- /.modal -->

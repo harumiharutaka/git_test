@@ -52,8 +52,8 @@ function bodyScrollStart(){
     ハンバーガー＆ドロワー
 *********************************/
 const hamburger = document.querySelector('.js_header_hamburger-button');
-const drawer = document.querySelector('.drawer');
-const overlay = document.querySelector('.drawer-overlay');
+const drawer = document.querySelector('.js_drawer');
+const overlay = document.querySelector('.js_drawer-overlay');
 
 //ドロワーを開く関数
 function drawerOpen(duration = 500){
@@ -85,11 +85,21 @@ function drawerClose(duration = 500){
 
 //ハンバーガークリックの処理
 hamburger.onclick = function() {
-    const active = hamburger.classList.contains('header__hamburger-button--active');
+    const active = this.classList.contains('header__hamburger-button--active');
 
     if(!active){
         drawerOpen();
     } else {
+        drawerClose();
+    }
+
+}
+
+//オーバーレイークリックの処理
+overlay.onclick = function() {
+    const active = this.classList.contains('drawer-overlay--active');
+
+    if(active){
         drawerClose();
     }
 
@@ -144,8 +154,8 @@ window.addEventListener('scroll', function() {
 /*********************************
     ローディング
 *********************************/
-const loading = document.querySelector('.loading');
-const progressBar = document.querySelector('.loading__bar');
+const loading = document.querySelector('.js_loading');
+const progressBar = document.querySelector('.js_loading__bar');
 
 // ローディングを表示する関数
 function loadingTime(duration = 1000, transition = 200) {
@@ -283,6 +293,7 @@ tabs.forEach(function(tab, index) {
 /*********************************
     モーダル
 *********************************/
+
 // モーダルを開ける処理
 const modalOpens = document.querySelectorAll('.js_modal_open');
 modalOpens.forEach(function(modalBtn, index) {
@@ -290,7 +301,8 @@ modalOpens.forEach(function(modalBtn, index) {
     modalBtn.onclick = function() {
 
         const modalBtnId = this.dataset.modal;
-        document.querySelector('#' + modalBtnId).classList.add('modal--active')
+        document.querySelector('#' + modalBtnId).classList.add('modal--active');
+        document.querySelector('#' + modalBtnId).previousElementSibling.classList.add('modal-overlay--active');
         bodyScrollStop();
 
     }
@@ -303,8 +315,29 @@ modalCloses.forEach(function(modalClose, index) {
 
     modalClose.onclick = function() {
 
-        this.parentNode.parentNode.classList.remove('modal--active')
-        bodyScrollStart();
+        const active = this.parentNode.classList.contains('modal--active');
+        if(active){
+            this.parentNode.classList.remove('modal--active');
+            this.parentNode.previousElementSibling.classList.remove('modal-overlay--active');
+            bodyScrollStart();
+        }
+
+    }
+
+});
+
+// オーバーレイでモーダルを閉じる処理
+const modalOverlays = document.querySelectorAll('.js_modal-overlay');
+modalOverlays.forEach(function(modalOverlay, index) {
+
+    modalOverlay.onclick = function() {
+
+        const active = this.classList.contains('modal-overlay--active');
+        if(active){
+            this.classList.remove('modal-overlay--active');
+            this.nextElementSibling.classList.remove('modal--active');
+            bodyScrollStart();
+        }
 
     }
 

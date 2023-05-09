@@ -4,39 +4,12 @@
     モーダル
 *********************************/
 
+/* モーダル */
 .modal{
     position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    z-index: g.$z-index_modal;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s,;
-
-    &--active{
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.modal__overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: g.$color_pure-black;
-    opacity: 0.6;
-}
-
-.modal__window{
-    position: relative;
-    min-width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     max-width: 80%;
     max-height: 80%;
     padding: 20px;
@@ -44,10 +17,18 @@
     border: 1px solid g.$color_grey_light;
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 rgba(g.$color_pure-black,0.1);
-    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s,;
+    z-index: g.$z-index_modal;
 
     @include g.media(pc){
         max-width: 40%;
+    }
+
+    &--active{
+        opacity: 1;
+        visibility: visible;
     }
 
     &--overflow{
@@ -105,4 +86,24 @@
 }
 
 .modal__text{
+}
+
+
+/* モーダルオーバーレイ */
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: g.$color_pure-black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s,;
+    z-index: g.$z-index_modal;
+
+    &--active{
+        opacity: 0.6;
+        visibility: visible;
+    }
 }

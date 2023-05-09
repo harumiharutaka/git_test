@@ -1982,38 +1982,13 @@ img {
 /*********************************
     モーダル
 *********************************/
+/* モーダル */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  z-index: 40;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s, visibility 0.5s;
-}
-.modal--active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.6;
-}
-
-.modal__window {
-  position: relative;
-  min-width: 40%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
   max-width: 80%;
   max-height: 80%;
   padding: 20px;
@@ -2021,17 +1996,24 @@ img {
   border: 1px solid #eeeeee;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  z-index: 40;
 }
 @media screen and (min-width: 901px) {
-  .modal__window {
+  .modal {
     max-width: 40%;
   }
 }
-.modal__window--overflow {
+.modal--active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal--overflow {
   height: 60%;
 }
-.modal__window--overflow .modal__body {
+.modal--overflow .modal__body {
   height: 100%;
   overflow-y: auto;
 }
@@ -2074,6 +2056,24 @@ img {
   margin-bottom: 10px;
   font-size: 1.125rem;
   font-weight: bold;
+}
+
+/* モーダルオーバーレイ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  z-index: 40;
+}
+.modal-overlay--active {
+  opacity: 0.6;
+  visibility: visible;
 }
 
 /*********************************
