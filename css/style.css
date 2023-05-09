@@ -2053,6 +2053,10 @@ img {
   font-weight: bold;
 }
 
+.modal__text {
+  line-height: 1.6;
+}
+
 /* モーダルオーバーレイ */
 .modal-overlay {
   position: fixed;
