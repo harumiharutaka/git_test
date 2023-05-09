@@ -1989,7 +1989,7 @@ img {
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
           transform: translateY(-50%) translateX(-50%);
-  max-width: 80%;
+  width: min(400px, 80%);
   max-height: 80%;
   padding: 20px;
   background-color: #ffffff;
@@ -2000,11 +2000,6 @@ img {
   visibility: hidden;
   transition: opacity 0.5s, visibility 0.5s;
   z-index: 40;
-}
-@media screen and (min-width: 901px) {
-  .modal {
-    max-width: 40%;
-  }
 }
 .modal--active {
   opacity: 1;
