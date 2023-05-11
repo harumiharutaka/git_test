@@ -420,7 +420,7 @@ slideshows.forEach(function(slideshow, index) {
     imgWrapperItems.forEach(function(imgWrapperItem, index) {});
 
     const imgLength = imgWrapperItems.length
-    const imgWidth = slideshow.clientWidth;
+    let imgWidth = slideshow.clientWidth;
     const imgWrapper = slideshow.querySelector('.slideshow__img-wrapper');
     const prev = slideshow.querySelector('.js_slideshow_prev');
     const next = slideshow.querySelector('.js_slideshow_next');
@@ -482,5 +482,13 @@ slideshows.forEach(function(slideshow, index) {
         }
 
     });
+
+    //ウィンドウリサイズの処理
+    window.onresize = function() {
+        imgWrapper.style.transition = 'none';
+        imgWidth = slideshow.clientWidth;
+        imgWrapper.style.left = imgWidth * current * -1 + 'px';
+        imgWrapper.style.removeProperty('transition');
+    }
 
 });
