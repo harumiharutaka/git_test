@@ -366,7 +366,7 @@ dropdowns.forEach(function(dropdown, index) {
 
                 const childWrapperActivs = dropdown.querySelectorAll('.dropdown__child-wrapper--active');
                 childWrapperActivs.forEach(function(childWrapperActiv, index) {
-                    childWrapperActiv.classList.remove('dropdown__child-wrapper--active')
+                    childWrapperActiv.classList.remove('dropdown__child-wrapper--active');
                 });
 
                 this.nextElementSibling.classList.add('dropdown__child-wrapper--active');
@@ -403,8 +403,84 @@ document.addEventListener('click', (e) => {
 
         const childWrapperActivs = document.querySelectorAll('.dropdown__child-wrapper--active');
         childWrapperActivs.forEach(function(childWrapperActiv, index) {
-            childWrapperActiv.classList.remove('dropdown__child-wrapper--active')
+            childWrapperActiv.classList.remove('dropdown__child-wrapper--active');
         });
 
     }
 })
+
+/*********************************
+    スライドショー
+*********************************/
+
+const slideshows = document.querySelectorAll('.js_slideshow');
+slideshows.forEach(function(slideshow, index) {
+
+    const imgWrapperItems = slideshow.querySelectorAll('.slideshow__img-wrapper-item');
+    imgWrapperItems.forEach(function(imgWrapperItem, index) {});
+
+    const imgLength = imgWrapperItems.length
+    const imgWidth = slideshow.clientWidth;
+    const imgWrapper = slideshow.querySelector('.slideshow__img-wrapper');
+    const prev = slideshow.querySelector('.js_slideshow_prev');
+    const next = slideshow.querySelector('.js_slideshow_next');
+    let current = 0;
+
+    // 画像の表示を切り替える関数
+    function changeImg(num) {
+
+        current += num;
+
+        if(current === imgLength){
+            current = 0;
+            imgWrapper.style.left = 0;
+        } else if(current === -1) {
+            current = imgLength - 1;
+            imgWrapper.style.left = imgWidth * current * -1 + 'px';
+        } else {
+            imgWrapper.style.left = imgWidth * current * -1 + 'px';
+        }
+
+    }
+
+    // ドットの表示を切り替える関数
+    function changeDot() {
+        const dots = slideshow.querySelectorAll('.js_slideshow_dot');
+        dots.forEach(function(dot, index) {
+            dot.classList.remove('slideshow__dot--active');
+            dots[current].classList.add('slideshow__dot--active');
+        });
+    }
+    
+    // 左右の矢印をクリックした時の処理
+    prev.onclick = function() {
+        changeImg(-1);
+        changeDot();
+    }
+
+    next.onclick = function() {
+        changeImg(1);
+        changeDot();
+    }
+
+    // ドットをクリックした時の処理
+    const dots = slideshow.querySelectorAll('.js_slideshow_dot');
+    dots.forEach(function(dot, index) {
+
+        dot.onclick = function() {
+
+            current = index;
+
+            const dotActives = slideshow.querySelectorAll('.slideshow__dot--active');
+            dotActives.forEach(function(dotActive, index) {
+                dotActive.classList.remove('slideshow__dot--active');
+            });
+
+            dots[index].classList.add('slideshow__dot--active');
+            imgWrapper.style.left = imgWidth * index * -1 + 'px';
+            
+        }
+
+    });
+
+});

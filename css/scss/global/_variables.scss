@@ -43,8 +43,9 @@ $sidebar_width: 200px;
 $header_height: 3rem;
 
 /* z-index */
-$z-index_pagetop: 10;
-$z-index_drawer-overlay: 20;
-$z-index_header: 30;
-$z-index_modal: 40;
-$z-index_loading: 50;
+$z-index_dropdown: 10;
+$z-index_pagetop: 20;
+$z-index_drawer-overlay: 30;
+$z-index_header: 40;
+$z-index_modal: 50;
+$z-index_loading: 60;
