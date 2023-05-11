@@ -19,7 +19,7 @@
     box-shadow: 0 2px 8px 0 rgba(g.$color_pure-black,0.1);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s,;
+    transition: opacity 0.5s, visibility 0.5s;
     z-index: g.$z-index_modal;
 
     &--active{
@@ -96,7 +96,7 @@
     background-color: g.$color_pure-black;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s,;
+    transition: opacity 0.5s, visibility 0.5s;
     z-index: g.$z-index_modal;
 
     &--active{

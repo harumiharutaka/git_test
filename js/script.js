@@ -3,6 +3,7 @@
 /*********************************
     bodyのスクロールを止める
 *********************************/
+
 //iOSか判定
 const ua = window.navigator.userAgent;
 const iOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
@@ -51,6 +52,7 @@ function bodyScrollStart(){
 /*********************************
     ハンバーガー＆ドロワー
 *********************************/
+
 const hamburger = document.querySelector('.js_header_hamburger-button');
 const drawer = document.querySelector('.js_drawer');
 const overlay = document.querySelector('.js_drawer-overlay');
@@ -122,6 +124,7 @@ window.onresize = function() {
 /*********************************
     ページトップ
 *********************************/
+
 const pagetopBtn = document.querySelector('.js_pagetop');
 
 // スムーズにトップへ戻る処理
@@ -154,6 +157,7 @@ window.addEventListener('scroll', function() {
 /*********************************
     ローディング
 *********************************/
+
 const loading = document.querySelector('.js_loading');
 const progressBar = document.querySelector('.js_loading__bar');
 
@@ -197,6 +201,7 @@ if(document.URL.match(/archive_js-library.html/)){
 /*********************************
     アコーディオン
 *********************************/
+
 // アコーディオンを開く関数
 function slideDown(el, duration = 500) {
     el.classList.add('accordion__body--active');
@@ -342,3 +347,64 @@ modalOverlays.forEach(function(modalOverlay, index) {
     }
 
 });
+
+/*********************************
+    ドロップダウン
+*********************************/
+
+const dropdowns = document.querySelectorAll('.js_dropdown');
+dropdowns.forEach(function(dropdown, index) {
+
+    // 子メニューの開閉
+    const dropdownParentBtns = dropdown.querySelectorAll('.dropdown__link--parent');
+    dropdownParentBtns.forEach(function(dropdownParentBtn, index) {
+
+        dropdownParentBtn.onclick = function(e) {
+
+            const childWrapperActiv = dropdownParentBtn.nextElementSibling.classList.contains('dropdown__child-wrapper--active');
+            if(!childWrapperActiv){
+
+                const childWrapperActivs = dropdown.querySelectorAll('.dropdown__child-wrapper--active');
+                childWrapperActivs.forEach(function(childWrapperActiv, index) {
+                    childWrapperActiv.classList.remove('dropdown__child-wrapper--active')
+                });
+
+                this.nextElementSibling.classList.add('dropdown__child-wrapper--active');
+
+            } else {
+
+                this.nextElementSibling.classList.remove('dropdown__child-wrapper--active');
+
+            }
+
+        }
+
+        // 孫メニューの開閉
+        const dropdownChildParentBtns = dropdown.querySelectorAll('.dropdown__child-link--parent');
+        dropdownChildParentBtns.forEach(function(dropdownChildParentBtn, index) {
+
+            dropdownChildParentBtn.parentNode.addEventListener("mouseover", function (event) {
+                dropdownChildParentBtn.nextElementSibling.classList.add('dropdown__grandchild-wrapper--active');
+            }, false);
+
+            dropdownChildParentBtn.parentNode.addEventListener("mouseleave", function (event) {
+                dropdownChildParentBtn.nextElementSibling.classList.remove('dropdown__grandchild-wrapper--active');
+            }, false);
+
+        });
+
+    });
+
+});
+
+// ドロップダウン範囲外をクリックで子メニューを閉じる
+document.addEventListener('click', (e) => {
+    if(!e.target.closest('.js_dropdown')) {
+
+        const childWrapperActivs = document.querySelectorAll('.dropdown__child-wrapper--active');
+        childWrapperActivs.forEach(function(childWrapperActiv, index) {
+            childWrapperActiv.classList.remove('dropdown__child-wrapper--active')
+        });
+
+    }
+})
