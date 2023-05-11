@@ -97,7 +97,7 @@ hamburger.onclick = function() {
 
 }
 
-//オーバーレイークリックの処理
+//オーバーレイクリックの処理
 overlay.onclick = function() {
     const active = this.classList.contains('drawer-overlay--active');
 
@@ -356,12 +356,12 @@ const dropdowns = document.querySelectorAll('.js_dropdown');
 dropdowns.forEach(function(dropdown, index) {
 
     // 子メニューの開閉
-    const dropdownParentBtns = dropdown.querySelectorAll('.dropdown__link--parent');
-    dropdownParentBtns.forEach(function(dropdownParentBtn, index) {
+    const ParentBtns = dropdown.querySelectorAll('.dropdown__link--parent');
+    ParentBtns.forEach(function(ParentBtn, index) {
 
-        dropdownParentBtn.onclick = function(e) {
+        ParentBtn.onclick = function(e) {
 
-            const childWrapperActiv = dropdownParentBtn.nextElementSibling.classList.contains('dropdown__child-wrapper--active');
+            const childWrapperActiv = this.nextElementSibling.classList.contains('dropdown__child-wrapper--active');
             if(!childWrapperActiv){
 
                 const childWrapperActivs = dropdown.querySelectorAll('.dropdown__child-wrapper--active');
@@ -380,15 +380,15 @@ dropdowns.forEach(function(dropdown, index) {
         }
 
         // 孫メニューの開閉
-        const dropdownChildParentBtns = dropdown.querySelectorAll('.dropdown__child-link--parent');
-        dropdownChildParentBtns.forEach(function(dropdownChildParentBtn, index) {
+        const ChildParentBtns = dropdown.querySelectorAll('.dropdown__child-link--parent');
+        ChildParentBtns.forEach(function(ChildParentBtn, index) {
 
-            dropdownChildParentBtn.parentNode.addEventListener('mouseover', function (event) {
-                dropdownChildParentBtn.nextElementSibling.classList.add('dropdown__grandchild-wrapper--active');
+            ChildParentBtn.parentNode.addEventListener('mouseover', function (event) {
+                ChildParentBtn.nextElementSibling.classList.add('dropdown__grandchild-wrapper--active');
             }, false);
 
-            dropdownChildParentBtn.parentNode.addEventListener('mouseleave', function (event) {
-                dropdownChildParentBtn.nextElementSibling.classList.remove('dropdown__grandchild-wrapper--active');
+            ChildParentBtn.parentNode.addEventListener('mouseleave', function (event) {
+                ChildParentBtn.nextElementSibling.classList.remove('dropdown__grandchild-wrapper--active');
             }, false);
 
         });
@@ -401,9 +401,9 @@ dropdowns.forEach(function(dropdown, index) {
 document.addEventListener('click', (e) => {
     if(!e.target.closest('.js_dropdown')) {
 
-        const childWrapperActivs = document.querySelectorAll('.dropdown__child-wrapper--active');
-        childWrapperActivs.forEach(function(childWrapperActiv, index) {
-            childWrapperActiv.classList.remove('dropdown__child-wrapper--active');
+        const childWrapperActives = document.querySelectorAll('.dropdown__child-wrapper--active');
+        childWrapperActives.forEach(function(childWrapperActive, index) {
+            childWrapperActive.classList.remove('dropdown__child-wrapper--active');
         });
 
     }
@@ -417,8 +417,6 @@ const slideshows = document.querySelectorAll('.js_slideshow');
 slideshows.forEach(function(slideshow, index) {
 
     const imgWrapperItems = slideshow.querySelectorAll('.slideshow__img-wrapper-item');
-    imgWrapperItems.forEach(function(imgWrapperItem, index) {});
-
     const imgLength = imgWrapperItems.length
     let imgWidth = slideshow.clientWidth;
     const imgWrapper = slideshow.querySelector('.slideshow__img-wrapper');
@@ -462,6 +460,12 @@ slideshows.forEach(function(slideshow, index) {
         changeImg(1);
         changeDot();
     }
+
+    // 一定時間毎に処理
+    window.setInterval(function() {
+        changeImg(1);
+        changeDot();
+    }, 3000);
 
     // ドットをクリックした時の処理
     const dots = slideshow.querySelectorAll('.js_slideshow_dot');
