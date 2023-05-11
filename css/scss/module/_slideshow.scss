@@ -85,22 +85,40 @@
 }
 
 .slideshow__dot{
+    position: relative;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 100px;
-    outline: 1px solid rgba(g.$color_white,0.5);
-    outline-offset: 2px;
+    border: 1px solid rgba(g.$color_white,0.5);
     transition: 0.5s;
     cursor: pointer;
 
+    &::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%); 
+        width: 12px;
+        height: 12px;
+        border-radius: 100px;
+        transition: 0.5s;
+    }
+
     &:hover{
-        background-color: g.$color_white;
-        outline-color: g.$color_white;
+        border-color: g.$color_white;
+        
+        &::after{
+            background-color: g.$color_white;
+        }
     }
 
     &--active{
-        background-color: rgba(g.$color_white,0.5);
         pointer-events: none;
+
+        &::after{
+            background-color: rgba(g.$color_white,0.5);
+        }
     }
 }

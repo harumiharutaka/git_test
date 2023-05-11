@@ -383,11 +383,11 @@ dropdowns.forEach(function(dropdown, index) {
         const dropdownChildParentBtns = dropdown.querySelectorAll('.dropdown__child-link--parent');
         dropdownChildParentBtns.forEach(function(dropdownChildParentBtn, index) {
 
-            dropdownChildParentBtn.parentNode.addEventListener("mouseover", function (event) {
+            dropdownChildParentBtn.parentNode.addEventListener('mouseover', function (event) {
                 dropdownChildParentBtn.nextElementSibling.classList.add('dropdown__grandchild-wrapper--active');
             }, false);
 
-            dropdownChildParentBtn.parentNode.addEventListener("mouseleave", function (event) {
+            dropdownChildParentBtn.parentNode.addEventListener('mouseleave', function (event) {
                 dropdownChildParentBtn.nextElementSibling.classList.remove('dropdown__grandchild-wrapper--active');
             }, false);
 
