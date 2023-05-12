@@ -42,7 +42,7 @@ const compileSass = () =>
         }
       })
     )
-    // cssフォルダー以下にstyle.css.mapとstyle.min.cssを保存
+    // cssフォルダー以下にstyle.min.cssを保存
     .pipe(dest('css'));
 
 /**
