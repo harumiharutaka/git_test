@@ -1,107 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>git_test</title>
-  <meta name="description" content="">
-
-  <!-- ファビコン -->
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="favicon/favicon.ico">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="favicon/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- OGP -->
-  <meta property="og:url" content="https://comic-school.jp/test/git_test/index.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="git_test">
-  <meta property="og:description" content="harumiharutakaのtestページ">
-  <meta property="og:site_name" content="comic-school">
-  <meta property="og:image" content="https://comic-school.jp/test/git_test/img/no-image.jpg">
-  
-  <!-- リセットCSS -->
-  <link rel="stylesheet" href="https://unpkg.com/destyle.css@4.0.0/destyle.min.css">
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.min.css">
-
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/22eeb3d0d6.js" crossorigin="anonymous"></script>
-
-  <!-- 検索エンジンにインデックスさせない -->
-  <meta name="robots" content="noindex">
-</head>
+<%- include('_head') %>
 
 <body class="archive">
 
-  <header class="header">
-  <div class="header__inner">
-    <h1 class="header__title">
-      <a class="header__title-link" href="index.html">git_test</a>
-    </h1>
-    <div class="header__hamburger">
-      <button class="header__hamburger-button js_header_hamburger-button">
-        <span class="header__hamburger-line"></span>
-        <span class="header__hamburger-line"></span>
-        <span class="header__hamburger-line"></span>
-      </button>
-    </div>
-    <nav class="drawer js_drawer">
-      <ul class="drawer__inner">
-        <li class="drawer__link-wrapper">
-          <a class="drawer__link" href="index.html">top</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--heading">
-          <a class="drawer__link" href="note.html">note</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_html-css_1.html">書籍 html-css 1</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_html-css_2.html">書籍 html-css 2</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_css-design.html">書籍 css設計</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_javascript_1.html">書籍 javascript 1</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_wordpress_1.html">書籍 wordpress 1</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_book_wordpress_2.html">書籍 wordpress 2</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_progate_php1.html">progate phpⅠ</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_gulp-memo.html">gulpメモ</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="note_git-memo.html">Gitメモ</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--heading">
-          <a class="drawer__link" href="archive.html">archive</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="archive_bem-template.html">bem-template</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="archive_js-library.html">js-library</a>
-        </li>
-        <li class="drawer__link-wrapper drawer__link-wrapper--pc-hidden">
-          <a class="drawer__link" href="archive_js-weather.html">js-weather</a>
-        </li>
-      </ul>
-    </nav><!-- /.drawer -->
-  </div>
-</header><!-- /.header -->
+  <%- include('_header') %>
 
   <div class="wrapper">
 
@@ -1140,66 +1043,13 @@
 
     </main>
 
-    <aside class="sidebar">
-  <ul class="sidebar__inner">
-    <li class="sidebar__link-wrapper sidebar__link-wrapper--heading">
-      <a class="sidebar__link" href="note.html">note</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_html-css_1.html">書籍 html-css 1</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_html-css_2.html">書籍 html-css 2</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_css-design.html">書籍 css設計</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_javascript_1.html">書籍 javascript 1</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_wordpress_1.html">書籍 wordpress 1</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_book_wordpress_2.html">書籍 wordpress 2</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_progate_php1.html">progate phpⅠ</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_gulp-memo.html">gulpメモ</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="note_git-memo.html">Gitメモ</a>
-    </li>
-    <li class="sidebar__link-wrapper sidebar__link-wrapper--heading">
-      <a class="sidebar__link" href="archive.html">archive</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="archive_bem-template.html">bem-template</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="archive_js-library.html">js-library</a>
-    </li>
-    <li class="sidebar__link-wrapper">
-      <a class="sidebar__link" href="archive_js-weather.html">js-weather</a>
-    </li>
-  </ul>
-</aside><!-- /.sidebar -->
+    <%- include('_sidebar') %>
 
   </div><!-- /.wrapper -->
 
-  <footer class="footer">
-  <div class="footer__inner">
-    <p class="footer__text">comic-school.jp</p>
-  </div>
-</footer><!-- /.footer -->
+  <%- include('_footer') %>
 
-  <button class="pagetop js_pagetop"></button>
-
-<div class="drawer-overlay js_drawer-overlay"></div>
-
-<script src="js/script.min.js"></script>
+  <%- include('_body-bottom') %>
 
 </body>
 
