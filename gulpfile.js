@@ -20,7 +20,7 @@ const ejs = require("gulp-ejs");
  */
 const compileSass = () =>
   // style.scssファイルを取得
-  src("css/scss/style.scss")
+  src("scss/style.scss")
     // ソースマップの作成を実行　スタート
     .pipe(sourcemaps.init())
     // Sassのコンパイルを実行
@@ -82,7 +82,7 @@ const compileEjs = () =>
 /**
  * 各ファイルを監視し、変更があったら各ファイルを変換します
  */
-const watchSassFiles = () => watch("css/scss/**/*.scss", compileSass);
+const watchSassFiles = () => watch("scss/**/*.scss", compileSass);
 const watchJsFiles = () => watch(['js/*.js', '!js/*.min.js'], compileJs);
 const watchEjsFiles = () => watch(["ejs/*.ejs", "!ejs/_*.ejs"], compileEjs);
 
