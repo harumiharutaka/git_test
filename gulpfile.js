@@ -66,7 +66,7 @@ const compileJs = () =>
  * EJSをコンパイルするタスクです
  */
 const compileEjs = () =>
-  // *.jsファイルを取得
+  // *.ejsファイルを取得
   src(['ejs/*.ejs'])
     // EJSのコンパイルを実行
     .pipe(ejs({}, {}, { ext: '.html' }))
@@ -86,5 +86,5 @@ const watchSassFiles = () => watch('scss/**/*.scss', compileSass);
 const watchJsFiles = () => watch(['js/*.js', '!js/*.min.js'], compileJs);
 const watchEjsFiles = () => watch(['ejs/**/*.ejs'], compileEjs);
 
-// npx gulpというコマンドを実行した時、各スクリプトが実行されるようにします
+// npx gulpというコマンドを実行した時、各タスクが実行されるようにします
 exports.default = parallel(watchSassFiles, watchJsFiles, watchEjsFiles);
