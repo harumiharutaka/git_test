@@ -701,7 +701,7 @@ img {
   top: 0;
   right: 0;
   max-width: 60%;
-  max-height: calc(100vh - (3rem + 20px + 20px));
+  max-height: calc(100vh - (3rem + 20px + 80px));
   margin-top: calc(3rem + 20px);
   background-color: #ffffff;
   border: 1px solid #eeeeee;
@@ -856,10 +856,12 @@ img {
   top: calc(3rem + 40px);
   right: max(20px, (100% - 1200px) / 2 + 20px);
   width: 200px;
+  max-height: calc(100vh - (3rem + 40px + 80px));
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   border-radius: 4px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  overflow: auto;
 }
 @media screen and (min-width: 901px) {
   .sidebar {

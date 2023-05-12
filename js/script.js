@@ -5,8 +5,8 @@
 *********************************/
 
 //iOSか判定
-const ua = window.navigator.userAgent;
-const iOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1;
+const ua = window.navigator.userAgent.toLowerCase();
+const iOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 
 //スクロールバーがあるか判定
 const scrollBarJudg = (window.innerWidth - document.body.clientWidth) > 0;
