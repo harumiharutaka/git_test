@@ -108,9 +108,10 @@ overlay.onclick = function() {
 }
 
 //ウィンドウリサイズの処理
-window.onresize = function() {
+window.addEventListener('resize',function(){
 
     if (window.matchMedia('(min-width:901px)').matches) {
+
         const active = hamburger.classList.contains('header__hamburger-button--active');
 
         if(active){
@@ -119,7 +120,7 @@ window.onresize = function() {
 
     }
 
-}
+});
 
 /*********************************
     ページトップ
@@ -488,11 +489,11 @@ slideshows.forEach(function(slideshow, index) {
     });
 
     //ウィンドウリサイズの処理
-    window.onresize = function() {
+    window.addEventListener('resize',function(){
         imgWrapper.style.transition = 'none';
         imgWidth = slideshow.clientWidth;
         imgWrapper.style.left = imgWidth * current * -1 + 'px';
         imgWrapper.style.removeProperty('transition');
-    }
+    });
 
 });
