@@ -1,7 +1,7 @@
 // gulpプラグインの読み込み
-const { src, dest, watch, parallel } = require("gulp");
+const { src, dest, watch, parallel } = require('gulp');
 // Sassをコンパイルするプラグインの読み込み
-const sass = require("gulp-sass")(require("sass"));
+const sass = require('gulp-sass')(require('sass'));
 // ベンダープレフィックスを自動付与するプラグインの読み込み
 const autoprefixer = require('gulp-autoprefixer');
 // CSSをミニファイ化するプラグインの読み込み
@@ -11,16 +11,16 @@ const rename = require('gulp-rename');
 // ソースマップを作成するプラグインの読み込み
 const sourcemaps = require('gulp-sourcemaps');
 // JSをミニファイ化するプラグインの読み込み
-const uglify = require("gulp-uglify");
+const uglify = require('gulp-uglify');
 // EJSをコンパイルするプラグインの読み込み
-const ejs = require("gulp-ejs");
+const ejs = require('gulp-ejs');
 
 /**
  * Sassをコンパイルするタスクです
  */
 const compileSass = () =>
   // style.scssファイルを取得
-  src("scss/style.scss")
+  src('scss/style.scss')
     // ソースマップの作成を実行　スタート
     .pipe(sourcemaps.init())
     // Sassのコンパイルを実行
@@ -28,7 +28,7 @@ const compileSass = () =>
     // ベンダープレフィックスの自動付与を実行
     .pipe(autoprefixer()) 
     // cssフォルダー以下にstyle.cssを保存
-    .pipe(dest("css"))
+    .pipe(dest('css'))
     // CSSのミニファイ化を実行
     .pipe(cssnano())
     // ソースマップの作成を実行　エンド
@@ -43,7 +43,7 @@ const compileSass = () =>
       })
     )
     // cssフォルダー以下にstyle.css.mapとstyle.min.cssを保存
-    .pipe(dest("css"));
+    .pipe(dest('css'));
 
 /**
  * JSをコンパイルするタスクです
@@ -60,14 +60,14 @@ const compileJs = () =>
       })
     )
     // jsフォルダー以下に保存
-    .pipe(dest("js"));
+    .pipe(dest('js'));
 
 /**
  * EJSをコンパイルするタスクです
  */
 const compileEjs = () =>
   // *.jsファイルを取得
-  src(['ejs/*.ejs', '!ejs/_*.ejs'])
+  src(['ejs/*.ejs'])
     // EJSのコンパイルを実行
     .pipe(ejs({}, {}, { ext: '.html' }))
     // リネームを実行
@@ -77,14 +77,14 @@ const compileEjs = () =>
       })
     )
     // ルートフォルダー以下に保存
-    .pipe(dest("./"));
+    .pipe(dest('./'));
 
 /**
  * 各ファイルを監視し、変更があったら各ファイルを変換します
  */
-const watchSassFiles = () => watch("scss/**/*.scss", compileSass);
+const watchSassFiles = () => watch('scss/**/*.scss', compileSass);
 const watchJsFiles = () => watch(['js/*.js', '!js/*.min.js'], compileJs);
-const watchEjsFiles = () => watch(["ejs/*.ejs", "!ejs/_*.ejs"], compileEjs);
+const watchEjsFiles = () => watch(['ejs/**/*.ejs'], compileEjs);
 
 // npx gulpというコマンドを実行した時、各スクリプトが実行されるようにします
 exports.default = parallel(watchSassFiles, watchJsFiles, watchEjsFiles);
