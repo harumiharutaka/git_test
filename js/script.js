@@ -185,9 +185,9 @@ if(document.URL.match(/archive_js-library.html/)){
     // アクセスした時1回だけ表示する処理
     if (!sessionStorage.getItem('visited')) {
         sessionStorage.setItem('visited', 'first');
-        window.onload = function() {
+        window.addEventListener('load', function() {
             loadingTime();
-        }
+        })
     } else {
         loading.classList.remove('loading--active');
     }
@@ -455,18 +455,29 @@ slideshows.forEach(function(slideshow, index) {
     prev.onclick = function() {
         changeImg(-1);
         changeDot();
+        startInterval();
     }
 
     next.onclick = function() {
         changeImg(1);
         changeDot();
+        startInterval();
     }
 
     // 一定時間毎に処理
-    window.setInterval(function() {
-        changeImg(1);
-        changeDot();
-    }, 3000);
+	let interval;
+
+    function startInterval() {
+		clearInterval(interval);
+		interval = setInterval(function() {
+            changeImg(1);
+            changeDot();
+		}, 3000);
+	}
+
+    window.addEventListener('load', function() {
+        startInterval();
+    })
 
     // ドットをクリックした時の処理
     const dots = slideshow.querySelectorAll('.js_slideshow_dot');
@@ -483,6 +494,8 @@ slideshows.forEach(function(slideshow, index) {
 
             dots[index].classList.add('slideshow__dot--active');
             imgWrapper.style.left = imgWidth * index * -1 + 'px';
+            
+            startInterval();
             
         }
 
