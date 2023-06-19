@@ -127,20 +127,83 @@
                 <p class="index index--second">STEP 1-1 作成するサイトの構造とWordPressの仕組み</p>
                 <p class="index index--second">STEP 1-2 制作作業に使用するブラウザ</p>
                 <p class="index index--second">STEP 1-3 WordPressのインストール</p>
+                <div class="comment comment--second">
+                  <p>
+                    データベースの情報を用意する<br>
+                    ・データベース名<br>
+                    ・データベースのユーザー名<br>
+                    ・データベースのパスワード<br>
+                    ・データベースのホスト名（サーバー名）<br>
+                </div>
+                <div class="comment comment--second">
+                    テーブル接頭語は標準では「wp_」だが、一つのデータベースに複数のWordPressをインストールする場合には変更する
+                  </p>
+                </div>
                 <p class="index index--second">STEP 1-4 基本設定</p>
+                <div class="comment comment--second">
+                  <p>
+                    「設定」から下記を設定する<br>
+                    ・サイトのタイトル<br>
+                    ・キャッチフレーズ<br>
+                    ・パーマリンク設定を「投稿名」に<br>
+                    ・プラグイン「WP Multibyte Patch」を有効化する
+                  </p>
+                </div>
                 <p class="index index--third">COLUMN プラグインの管理</p>
                 <p class="index index--second">STEP 1-5 オリジナルのテーマの準備</p>
+                <div class="comment comment--second">
+                  <p>
+                    下記ファイルを「web/wp-content/themes/mytheme」に作成する<br>
+                  ・index.php<br>
+                  ・style.css<br>
+                  ・editor-style.css<br>
+                  ・functions.php<br>
+                  ・screenshot.jpg<br>
+                </div>
+                <div class="comment comment--second">
+                  「style.css」にテーマに関する情報を記述する<br>
+                    <code class="comment__code">
+                      /*<br>
+                      Theme Name: MY THEME<br>
+                      Author: CATWALK<br>
+                      Description: オリジナルテーマです<br>
+                      Version: 1.0<br>
+                      */
+                    </code>
+                  </p>
+                </div>
                 <p class="index index--third">COLUMN リカバリーモード</p>
                 <p class="index index--first">2 POST 記事の投稿と表示</p>
                 <p class="index index--second">STEP 2-1 グーテンベルクとは</p>
                 <p class="index index--second">STEP 2-2 記事を投稿する</p>
                 <p class="index index--second">STEP 2-3 記事ページにタイトルと本文を表示する</p>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php if(have_posts()): //データベースにデータがあれば表示<br>
+                    while(have_posts()):  //ループ（記事ページでは1回だけ処理）<br>
+                    the_post(); ?&gt; //処理回数をカウント、データをテンプレートタグで扱えるようにする<br>
+                    &lt;?php the_title(); ?&gt; //記事のタイトルを出力<br>
+                    &lt;?php the_content(); ?&gt; //記事の本文を出力<br>
+                    &lt;?php endwhile; endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN WordPressのテンプレートタグ</p>
                 <p class="index index--third">COLUMN 記事のタイトルを出力する &lt;?php the_title(); ?&gt;</p>
                 <p class="index index--third">COLUMN 記事の本文(ブロック) を出力する &lt;?php the_content(); ?&gt;</p>
                 <p class="index index--third">COLUMN ループ</p>
                 <p class="index index--second">STEP 2-4 ブロックのデザインをアレンジする</p>
                 <p class="index index--second">STEP 2-5 WordPressで必須の設定を追加する</p>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php wp_head(); ?&gt; //WordPressのhead設定<br>
+                    &lt;body &lt;?php body_class(); ?&gt;&gt; //ページを区別するクラスを出力<br>
+                    &lt;?php wp_body_open(); ?&gt; // //WordPressのbody設定<br>
+                    &lt;article &lt;?php post_class(); ?&gt;&gt;  //記事を区別するクラスを出力<br>
+                    &lt;?php wp_footer(); ?&gt; //WordPressのfooter設定
+                  </code>
+                </div>
                 <p class="index index--second">STEP 2-6 記事の本文に画像を追加する</p>
                 <p class="index index--third">COLUMN メディアライブラリで画像を管理する</p>
                 <p class="index index--second">STEP 2-7 画像の配置をアレンジする</p>
@@ -148,36 +211,232 @@
                 <p class="index index--third">COLUMN 空の段落ブロックが入るケース</p>
                 <p class="index index--first">3 GUTENBERG グーテンベルクを機能させる</p>
                 <p class="index index--second">STEP 3-1 グーテンベルクを機能させる</p>
+                <div class="comment comment--second">
+                  <p>
+                    グーテンベルグを機能させるCSS<br>
+                    ・（Ａ）load-styles.php&インラインスタイル //WordPressのエディタに適用されるCSS<br>
+                    ・（Ｂ）style.min.css //WordPressのフロントに適用されるCSS<br>
+                    ・（Ｃ）theme.min.css //WordPressのテーマ側で有効化することでフロントに適用されるCSS<br>
+                    ・（Ｄ）style.css //テーマ制作者側で用意するフロント用CSS<br>
+                    ・（Ｅ）editor-style.css //テーマ制作者側で用意するエディタ用CSS
+                  </p>
+                </div>
                 <p class="index index--second">STEP 3-2 フロントに適用するCSSをテーマ側で有効化する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」に下記を記述</p>
+                  <code class="comment__code">
+                    function mytheme_setup() {<br>
+                      <br>
+                      　// （Ｃ）のCSSを有効化<br>
+                      　add_theme_support( 'wp-block-styles' );<br>
+                      <br>
+                      }<br>
+                      add_action( 'after_setup_theme', 'mytheme_setup' );
+                  </code>
+                </div>
                 <p class="index index--second">STEP 3-3 テーマ側で用意したCSSをフロントに読み込む</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」に下記を記述</p>
+                  <code class="comment__code">
+                    function mytheme_enqueue() {<br>
+                      <br>
+                      　// （Ｄ）テーマのCSSを読み込み<br>
+                      　wp_enqueue_style( <br>
+                      　　'mytheme-style', <br>
+                      　　get_stylesheet_uri(),<br>
+                      　　//CSSのURLに付加する文字列を更新日時に変更する<br>
+                      　　array(),<br>
+                      　　filemtime( get_theme_file_path( 'style.css' ) )<br>
+                      　);<br>
+                      <br>
+                      }<br>
+                      add_action( 'wp_enqueue_scripts', 'mytheme_enqueue' );
+                  </code>
+                </div>
                 <p class="index index--second">STEP 3-4 テーマ側で用意したCSSに設定を追加する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // 縦横比を維持したレスポンシブを有効化<br>
+                    add_theme_support( 'responsive-embeds' );
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN グーテンベルクを機能させる設定が1つになっていない理由</p>
                 <p class="index index--second">STEP 3-5 フォントの設定を行う</p>
                 <p class="index index--third">COLUMN 追加CSSの機能を利用する</p>
                 <p class="index index--second">STEP 3-6 フォントの設定をエディタに反映させる</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // （Ｅ）のCSSを有効化＆エディタに読み込み<br>
+                    add_theme_support( 'editor-styles' );<br>
+                    add_editor_style( 'editor-style.css' );
+                  </code>
+                </div>
                 <p class="index index--second">STEP 3-7 記事の横幅を指定する</p>
+                <div class="comment comment--second">
+                  <p>「post_class」の値に「'mycontainer'」を加えるとそのクラスを追加できる</p>
+                  <code class="comment__code">
+                    &lt;article &lt;?php post_class( 'mycontainer' ); ?&gt;&gt;
+                  </code>
+                </div>
                 <p class="index index--first">4 POST PAGE 記事ページを仕上げる</p>
                 <p class="index index--second">STEP 4-1 記事ページを仕上げるための準備</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // ページのタイトルを有効化<br>
+                    add_theme_support( 'title-tag' );<br>
+                    <br>
+                    // link、style、scriptのHTML5対応を有効化<br>
+                    add_theme_support( 'html5', array( <br>
+                    　'style', <br>
+                    　'script' <br>
+                    ) );
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN 記事をインポートする</p>
                 <p class="index index--second">STEP 4-2 記事の投稿日とカテゴリーを表示する</p>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;time datetime="&lt;?php echo esc_attr( get_the_date( DATE_W3C ) ); ?&gt;"&gt; //日付の情報としてマークアップする<br>
+                    　&lt;?php echo esc_html( get_the_date() ); ?&gt; //記事の投稿日を表示する<br>
+                    &lt;/time&gt;<br>
+                    &lt;?php the_category(); ?&gt; //記事が属するカテゴリーを表示する
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN エスケープ処理について</p>
                 <p class="index index--third">COLUMN 記事が属するカテゴリーを出力する &lt;?php the_category(); ?&gt;</p>
                 <p class="index index--third">COLUMN 記事の投稿日を出力する get_the_date()</p>
                 <p class="index index--second">STEP 4-3 前後の記事へのリンクを表示する</p>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php the_post_navigation(); ?&gt; //前後の記事へのリンクを表示する
+                  </code>
+                </div>
                 <p class="index index--second">STEP 4-4 アイコンを付けたデザインにする</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_enqueue()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // Dashicons(アイコンフォントのCSS)を読み込み<br>
+                    wp_enqueue_style( <br>
+                    　'dashicons' <br>
+                    );
+                  </code>
+                </div>
                 <p class="index index--second">STEP 4-5 ヘッダーとフッターを表示する</p>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;a href="&lt;?php echo esc_url( home_url( '/' ) ); ?&gt;"&gt; //トップページへのリンクを設定する<br>
+                    　&lt;?php bloginfo( 'name' ); ?&gt; //サイト名を表示する<br>
+                    &lt;/a&gt;<br>
+                    &lt;p&gt;&lt;?php bloginfo( 'description' ); ?&gt;&lt;/p&gt; //サイトの説明を表示する
+                  </code>
+                </div>
                 <p class="index index--second">STEP 4-6 Webフォントを利用する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_enqueue()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // Google Fontsを読み込み<br>
+                    wp_enqueue_style( <br>
+                    　'myfonts', <br>
+                    　'https://fonts.googleapis.com/css?family=Josefin+Sans:300,700&display=swap', <br>
+                    　array(), <br>
+                    　null <br>
+                    );
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN 疑似要素とフレキシブルボックス</p>
                 <p class="index index--first">5 TOP PAGE トップページを作成する</p>
                 <p class="index index--second">STEP 5-1 ヘッダーとフッターをテンプレートパーツにする</p>
                 <p class="index index--third">COLUMN テンプレートパーツ</p>
+                <div class="comment comment--third">
+                  <p>
+                    テンプレートパーツ<br>
+                    ・ヘッダー / header.php / &lt;?php get_header(); ?&gt;<br>
+                    ・フッター / footer.php / &lt;?php get_footer(); ?&gt;<br>
+                    ・サイドバーなどのメニュー / sidebar.php / &lt;?php get_sidebar(); ?&gt;<br>
+                    ・コメント / comments.php / &lt;?php comments_template(); ?&gt;<br>
+                    ・検索フォーム / searchform.php / &lt;?php get_search_form(); ?&gt;<br>
+                    ・カスタム / *.php / &lt;?php get_template_part( '*' ); ?&gt;
+                  </p>
+                </div>
+                <div class="comment comment--third">
+                  <p>
+                    カスタムテンプレートパーツ<br>
+                    「parts-list.php」の場合は下記のどちらかの記述で読み込める
+                  </p>
+                  <code class="comment__code">
+                    &lt;?php get_template_part( 'parts-list' ); ?&gt;<br>
+                    &lt;?php get_template_part( 'parts' , 'list' ); ?&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP 5-2 トップページに記事のタイトルをリストアップする</p>
                 <p class="index index--third">COLUMN テンプレートヒエラルキー (テンプレート階層)</p>
+                <div class="comment comment--third">
+                  <p>
+                    テンプレートヒエラルキー（テンプレート階層）<br>
+                  ・記事ページ / single.php / singular.php / index.php<br>
+                  ・固定ページ / page.php / 〃 / 〃<br>
+                  ・トップページ / front-page.php / home.php / 〃<br>
+                  ・カテゴリーぺージ / category.php / archive.php / 〃<br>
+                  ・月別ページ / date.php / 〃 / 〃<br>
+                  参考：<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/" target="_blank">https://developer.wordpress.org/themes/basics/template-hierarchy/</a>
+                  </p>
+                </div>
                 <p class="index index--second">STEP 5-3 記事のサムネイル画像を表示する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // アイキャッチ画像を有効化<br>
+                    add_theme_support( 'post-thumbnails' );
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>「home.php」に記述するPHP</p>
+                  <code class="comment__code">&lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;figure&gt;<br>
+                    　&lt;?php the_post_thumbnail(); ?&gt;　//アイキャッチ画像を表示する<br>
+                    &lt;/figure&gt;<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP 5-4 記事ページへのリンクを設定して2列に並べる</p>
+                <div class="comment comment--second">
+                  <p>「home.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;/a&gt; //記事ページへのリンクを設定する
+                  </code>
+                </div>
                 <p class="index index--second">STEP 5-5 ページネーションを表示する</p>
+                <div class="comment comment--second">
+                  <p>「home.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php the_posts_pagination( array(<br>
+                    　'prev_text' =&gt; '&lt;span class="dashicons dashicons-arrow-left-alt2"&gt;&lt;/span&gt;&lt;span class="screen-reader-text"&gt;前へ&lt;/span&gt;',<br>
+                    　'next_text' =&gt; '&lt;span class="screen-reader-text"&gt;次へ&lt;/span&gt;&lt;span class="dashicons dashicons-arrow-right-alt2"&gt;&lt;/span&gt;'<br>
+                    ) ); ?&gt; //ページネーションを表示する(両端のリンクを矢印アイコンにする)
+                  </code>
+                </div>
                 <p class="index index--first">6 FULL AND WIDE 全幅・幅広の設定</p>
                 <p class="index index--second">STEP 6-1 全幅・幅広の機能を有効化する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // 全幅・幅広を有効化<br>
+                    add_theme_support( 'align-wide' );
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>
+                    エディタ側だと、全幅で「data-align="full"」、幅広で「data-align="wide"」、<br>
+                    フロント側では、全幅で「class="alignfull"」、幅広で「class="alignwide"」<br>
+                    が追加されるのでそれに合わせてCSSを修正する
+                  </p>
+                </div>
                 <p class="index index--second">STEP 6-2 フロントで全幅を機能させる</p>
                 <p class="index index--third">COLUMN Windows環境のブラウザのスクロールバー</p>
                 <p class="index index--second">STEP 6-3 フロントで幅広を機能させる</p>
@@ -185,25 +444,211 @@
                 <p class="index index--second">STEP 6-4 ヘッダーと記事一覧を幅広にする</p>
                 <p class="index index--first">7 MENU メニュー</p>
                 <p class="index index--second">STEP 7-1 メニューを表示する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」に下記を記述</p>
+                  <code class="comment__code">
+                    function mytheme_widgets() {<br>
+                    <br>
+                    　// ウィジェットエリアを登録<br>
+                    　register_sidebar( array(<br>
+                    　　'id' =&gt; 'sidebar-1',<br>
+                    　　'name' =&gt; 'フッターメニュー',<br>
+                    　　// ウィジットを&lt;section&gt;でマークアップする<br>
+                    　　'before_widget' =&gt; '&lt;section id="%1$s" class="widget %2$s"&gt;',<br>
+                    　　'after_widget' =&gt; '&lt;/section&gt;'<br>
+                    　) );<br>
+                    <br>
+                    }<br>
+                    add_action( 'widgets_init', 'mytheme_widgets' );
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>「sidebar.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php if ( is_active_sidebar( 'sidebar-1' ) ): ?&gt;<br>
+                    &lt;?php dynamic_sidebar( 'sidebar-1' ); ?&gt; //ウィジットエリアを出力する<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>「index.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php get_sidebar(); ?&gt; //サイドバーを表示する
+                  </code>
+                </div>
                 <p class="index index--second">STEP 7-2 プロフィールを表示する</p>
+                <div class="comment comment--second">
+                  <p>「sidebar.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php echo esc_url( get_theme_file_uri( 'profile.jpg' ) ); ?&gt; //画像を表示する<br>
+                    &lt;?php the_author_meta( 'display_name' ); ?&gt; //「ブログ上の表示名」を表示する<br>
+                    &lt;?php the_author_meta( 'description' ); ?&gt; //「プロフィール情報」を表示する
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN Gravatarを利用して画像を管理する</p>
                 <p class="index index--second">STEP 7-3 メニューのデザインを指定する</p>
                 <p class="index index--second">STEP 7-4 カテゴリーページと月別ページを作成する</p>
+                <div class="comment comment--second">
+                  <p>「archive.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php the_archive_title(); ?&gt; //アーカイブのタイトルを表示する<br>
+                    &lt;?php if( is_category() ): ?&gt; //アーカイブごとにサブタイトルを表示する<br>
+                    　&lt;p&gt;CATEGORY ARCHIVE&lt;/p&gt;<br>
+                    &lt;?php elseif( is_month() ): ?&gt;<br>
+                    　&lt;p&gt;MONTHLY ARCHIVE&lt;/p&gt;<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN 条件分岐タグ</p>
+                <div class="comment comment--third">
+                  <p>
+                    条件分岐タグ<br>
+                    ・is_single() / 記事ページ<br>
+                    ・is_page() / 固定ページ<br>
+                    ・is_category() / カテゴリーページ<br>
+                    ・is_month() / 月別ページ<br>
+                    ・is_home() または is_front_page() / トップページ <br>
+                    「is_single( '美味しいお茶を楽しめる読書空間' ) 」のように絞り込むこともできる
+                  </p>
+                </div>
                 <p class="index index--third">COLUMN ページレイアウトにおける横幅の設定</p>
                 <p class="index index--first">8 PAGES 固定ページの作成</p>
                 <p class="index index--second">STEP 8-1 アバウトページを作る</p>
+                <div class="comment comment--second">
+                  <p>「page.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php echo esc_html( strtoupper( get_post_field( 'post_name' ) ) ); ?&gt; //サブタイトルとしてスラッグを表示する
+                  </code>
+                </div>
                 <p class="index index--second">STEP 8-2「高度な設定」でブロックの上下に余白を入れる</p>
                 <p class="index index--second">STEP 8-3「お問い合わせ」ページを作る</p>
                 <p class="index index--third">COLUMN お問い合わせを送信してみる</p>
                 <p class="index index--second">STEP 8-4 ナビゲーションメニューを作成する</p>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // メニューのロケーションを登録<br>
+                    register_nav_menus( array(<br>
+                    　'primary' =&gt; 'ナビゲーション'<br>
+                    ) );
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>「header.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php if( has_nav_menu( 'primary' ) ): ?&gt;<br>
+                    &lt;nav class="mynav"&gt;<br>
+                    &lt;?php wp_nav_menu( array(<br>
+                    　'theme_location' =&gt; 'primary',<br>
+                    ) ); ?&gt; //メニューを表示する<br>
+                    &lt;/nav&gt;<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--first">9 POWER UP ARRANGE パワーアップアレンジ</p>
                 <p class="index index--second">STEP 9-1 関連記事を表示する</p>
+                <div class="comment comment--second">
+                  <p>「single.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;aside class="myrelated"&gt;<br>
+                    &lt;h2&gt;RELATED&lt;/h2&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;?php <br>
+                    $myposts = get_posts( array( //記事に関するデータを取得する<br>
+                    　'posts_per_page' =&gt; '4', //4件の記事を表示する<br>
+                    　'post__not_in' =&gt; array( get_the_ID() ),  //表示中のページの記事を除外する<br>
+                    　'category__in' =&gt; wp_get_post_categories( get_the_ID() ),  //同じカテゴリーに属する記事を表示する<br>
+                    　'orderby' =&gt; 'rand' //ランダムに表示する<br>
+                    ) );<br>
+                    ?&gt;<br>
+                    &lt;?php if( $myposts ): //データベースにデータがあれば表示<br>
+                    foreach($myposts as $post): //ループ（記事の数だけ処理）<br>
+                    setup_postdata($post); ?&gt; //データをテンプレートタグで扱えるようにする<br>
+                    <br>
+                    &lt;article&gt;<br>
+                    &lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;<br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;figure&gt;<br>
+                    &lt;?php the_post_thumbnail(); ?&gt; //各記事の画像を出力する<br>
+                    &lt;/figure&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;h3&gt;&lt;?php the_title(); ?&gt;&lt;/h3&gt; //各記事のタイトルを出力する<br>
+                    &lt;/a&gt;<br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endforeach;<br>
+                    wp_reset_postdata();<br>
+                    endif; ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/aside&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP 9-2 OGP を設定してSNSに対応する</p>
+                <div class="comment comment--second">
+                  <p>「header.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php if( is_single() ): ?&gt;<br>
+                    &lt;meta property="og:site_name" content="&lt;?php bloginfo( 'name' ); ?&gt;"&gt; //サイト名を出力する<br>
+                    &lt;meta property="og:locale" content="ja_JP"&gt;<br>
+                    &lt;meta property="og:type" content="article"&gt;<br>
+                    &lt;meta property="og:title" content="&lt;?php the_title(); ?&gt;"&gt; //ページのタイトルを出力する<br>
+                    &lt;meta property="og:url" content="&lt;?php the_permalink(); ?&gt;"&gt; //ページのURLを出力する<br>
+                    &lt;meta property="og:description" content="&lt;?php echo esc_attr( wp_strip_all_tags( get_the_excerpt() ) ); ?&gt;"&gt; //ページの概要を出力する<br>
+                    <br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;?php $myimg = get_post_thumbnail_id(); ?&gt;<br>
+                    &lt;meta property="og:image" content="&lt;?php echo esc_url( wp_get_attachment_url( $myimg ) ); ?&gt;"&gt; //画像のURL<br>
+                    &lt;meta property="og:image:width" content="&lt;?php echo esc_attr( wp_get_attachment_metadata( $myimg )['width'] ); ?&gt;"&gt; //画像の横幅<br>
+                    &lt;meta property="og:image:height" content="&lt;?php echo esc_attr( wp_get_attachment_metadata( $myimg )['height'] ); ?&gt;"&gt; //画像の高さ<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;meta name="twitter:card" content="summary_large_image"&gt; //Twitterの設定<br>
+                    &lt;meta property="fb:app_id" content="XXXXXXXXXXXXXX"&gt; //Facebookの設定<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN FacebookのアプリIDを取得する</p>
                 <p class="index index--second">STEP 9-3 SNSのシェアボタンを用意する</p>
+                <div class="comment comment--second">
+                  <p>「single.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;aside class="myshare"&gt;<br>
+                    &lt;h2&gt;&lt;span class="dashicons dashicons-share"&gt;&lt;/span&gt; SHARE&lt;/h2&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;a href="https://twitter.com/share?url=&lt;?php echo urlencode( get_permalink() ); ?&gt;&text=&lt;?php echo urlencode( get_the_title() ); ?&gt;" class="mytwitter"<br>
+                    onclick="window.open(this.href, 'new', 'width=500,height=400'); return false;"&gt; //Twitterのシェアボタン<br>
+                    　&lt;span class="dashicons dashicons-twitter"&gt;&lt;/span&gt;<br>
+                    　&lt;span class="screen-reader-text"&gt;Twitter&lt;/span&gt;<br>
+                    &lt;/a&gt;<br>
+                    <br>
+                    &lt;a href="https://www.facebook.com/share.php?u=&lt;?php echo urlencode( get_permalink() ); ?&gt;" class="myfacebook"<br>
+                    onclick="window.open(this.href, 'new', 'width=500,height=400'); return false;"&gt; //Facebookのシェアボタン<br>
+                    　&lt;span class="dashicons dashicons-facebook-alt"&gt;&lt;/span&gt;<br>
+                    　&lt;span class="screen-reader-text"&gt;Facebook&lt;/span&gt;<br>
+                    &lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/aside&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP 9-4 トップページを固定ページで作成する</p>
                 <p class="index index--second">STEP 9-5 2段組みのレイアウトに切り替える</p>
+                <div class="comment comment--second">
+                  <p>「header.php」に記述するPHP</p>
+                  <code class="comment__code">
+                    &lt;?php if( current_theme_supports( 'mycols' ) && !is_front_page() ): ?&gt;<br>
+                    class="mycols"<br>
+                    &lt;?php endif; ?&gt; //トップページは1段組み、それ以外は2段組みにする<br>
+                  </code>
+                </div>
+                <div class="comment comment--second">
+                  <p>「functions.php」の「function mytheme_setup()」内に下記を記述</p>
+                  <code class="comment__code">
+                    // ２段組みを有効化<br>
+                    add_theme_support( 'mycols' );
+                  </code>
+                </div>
                 <p class="index index--third">COLUMN カラムブロックのレスポンシブをアレンジする</p>
                 <p class="index index--third">COLUMN インナーブロックの横幅</p>
                 <p class="index index--first">APPENDIX</p>
@@ -216,6 +661,446 @@
                 <p class="index index--second">C 再利用ブロックの活用</p>
                 <p class="index index--second">D リッチテキストによる文字の色の指定</p>
                 <p class="index index--third">COLUMN グーテンベルクが目指す先は?</p>                       
+              </div>
+            </div>
+          </artcile><!-- /.content -->
+          
+          <artcile class="container__content content">
+            <div class="content__inner content__inner--column-left">
+              <div class="content__box">
+                <p class="index index--title">サンプルデータ</p>
+                <p class="index index--link">
+                  <a href="https://www.socym.co.jp/book/1240/" target="_blank">ダウンロードページ<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </p>
+              </div>
+            </div>
+          </artcile><!-- /.content -->
+
+          <artcile class="container__content content">
+            <div class="content__inner content__inner--column-left">
+              <div class="content__box">
+                <p class="index index--title">コード</p>
+                <div class="comment">
+                  <p>
+                    インストールしたプラグイン<br>
+                    ・WP Multibyte Patch<br>
+                    ・WordPress インポートツール<br>
+                    ・Contact Form 7
+                  </p>
+                </div>
+                <div class="comment">
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    <br>
+                    function mytheme_setup() {<br>
+                    <br>
+                    　// （Ｃ）のCSSを有効化<br>
+                    　add_theme_support( 'wp-block-styles' );<br>
+                    <br>
+                    　// 縦横比を維持したレスポンシブを有効化<br>
+                    　add_theme_support( 'responsive-embeds' );<br>
+                    　<br>
+                    　// （Ｅ）のCSSを有効化＆エディタに読み込み<br>
+                    　add_theme_support( 'editor-styles' );<br>
+                    　add_editor_style( 'editor-style.css' );<br>
+                    <br>
+                    　// ページのタイトルを有効化<br>
+                    　add_theme_support( 'title-tag' );<br>
+                    <br>
+                    　// link、style、scriptのHTML5対応を有効化<br>
+                    　add_theme_support( 'html5', array( <br>
+                    　　'style', <br>
+                    　　'script' <br>
+                    　) );<br>
+                    <br>
+                    　// アイキャッチ画像を有効化<br>
+                    　add_theme_support( 'post-thumbnails' );<br>
+                    <br>
+                    　// 全幅・幅広を有効化<br>
+                    　add_theme_support( 'align-wide' );<br>
+                    <br>
+                    　// メニューのロケーションを登録<br>
+                    　register_nav_menus( array(<br>
+                    　　'primary' =&gt; 'ナビゲーション'<br>
+                    　) );<br>
+                    <br>
+                    　// ２段組みを有効化<br>
+                    　add_theme_support( 'mycols' );<br>
+                    <br>
+                    }<br>
+                    add_action( 'after_setup_theme', 'mytheme_setup' );<br>
+                    <br>
+                    function mytheme_enqueue() {<br>
+                    <br>
+                    　// Google Fontsを読み込み<br>
+                    　wp_enqueue_style( <br>
+                    　　'myfonts', <br>
+                    　　'https://fonts.googleapis.com/css?family=Josefin+Sans:300,700&display=swap', <br>
+                    　　array(), <br>
+                    　　null <br>
+                    　);<br>
+                    <br>
+                    　// Dashiconsを読み込み<br>
+                    　wp_enqueue_style( <br>
+                    　　'dashicons' <br>
+                    　);<br>
+                    <br>
+                    　// （Ｄ）テーマのCSSを読み込み<br>
+                    　wp_enqueue_style( <br>
+                    　　'mytheme-style', <br>
+                    　　get_stylesheet_uri(),<br>
+                    　　array(),<br>
+                    　　filemtime( get_theme_file_path( 'style.css' ) )<br>
+                    　);<br>
+                    <br>
+                    }<br>
+                    add_action( 'wp_enqueue_scripts', 'mytheme_enqueue' );<br>
+                    <br>
+                    function mytheme_widgets() {<br>
+                    <br>
+                    　// ウィジェットエリアを登録<br>
+                    　register_sidebar( array(<br>
+                    　　'id' =&gt; 'sidebar-1',<br>
+                    　　'name' =&gt; 'フッターメニュー',<br>
+                    　　'before_widget' =&gt; '&lt;section id="%1$s" class="widget %2$s"&gt;',<br>
+                    　　'after_widget'  =&gt; '&lt;/section&gt;'<br>
+                    　) );<br>
+                    <br>
+                    }<br>
+                    add_action( 'widgets_init', 'mytheme_widgets' );
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html lang="ja"&gt;<br>
+                    &lt;head&gt;<br>
+                    &lt;meta charset="UTF-8"&gt;<br>
+                    &lt;meta name="viewport" content="width=device-width"&gt;<br>
+                    <br>
+                    &lt;?php if( is_single() ): ?&gt;<br>
+                    &lt;meta property="og:site_name" content="&lt;?php bloginfo( 'name' ); ?&gt;"&gt;<br>
+                    &lt;meta property="og:locale" content="ja_JP"&gt;<br>
+                    &lt;meta property="og:type" content="article"&gt;<br>
+                    &lt;meta property="og:title" content="&lt;?php the_title(); ?&gt;"&gt;<br>
+                    &lt;meta property="og:url" content="&lt;?php the_permalink(); ?&gt;"&gt;<br>
+                    &lt;meta property="og:description" content="&lt;?php echo esc_attr( wp_strip_all_tags( get_the_excerpt() ) ); ?&gt;"&gt;<br>
+                    <br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;?php $myimg = get_post_thumbnail_id(); ?&gt;<br>
+                    &lt;meta property="og:image" content="&lt;?php echo esc_url( wp_get_attachment_url( $myimg ) ); ?&gt;"&gt;<br>
+                    &lt;meta property="og:image:width" content="&lt;?php echo esc_attr( wp_get_attachment_metadata( $myimg )['width'] ); ?&gt;"&gt;<br>
+                    &lt;meta property="og:image:height" content="&lt;?php echo esc_attr( wp_get_attachment_metadata( $myimg )['height'] ); ?&gt;"&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;meta name="twitter:card" content="summary_large_image"&gt;<br>
+                    &lt;meta property="fb:app_id" content="XXXXXXXXXXXXXX"&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;?php wp_head(); ?&gt;<br>
+                    &lt;/head&gt;<br>
+                    &lt;body &lt;?php body_class(); ?&gt;&gt;<br>
+                    &lt;?php wp_body_open(); ?&gt;<br>
+                    <br>
+                    &lt;header class="myhead mycontainer"&gt;<br>
+                    &lt;div class="alignwide"&gt;<br>
+                    &lt;a href="&lt;?php echo esc_url( home_url( '/' ) ); ?&gt;"&gt;<br>
+                    &lt;?php bloginfo( 'name' ); ?&gt;<br>
+                    &lt;/a&gt;<br>
+                    <br>
+                    &lt;p&gt;&lt;?php bloginfo( 'description' ); ?&gt;&lt;/p&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/header&gt;<br>
+                    <br>
+                    &lt;?php if( has_nav_menu( 'primary' ) ): ?&gt;<br>
+                    &lt;nav class="mynav"&gt;<br>
+                    &lt;div class="mycontainer"&gt;<br>
+                    &lt;div class="alignwide"&gt;<br>
+                    &lt;?php wp_nav_menu( array(<br>
+                    　'theme_location' =&gt; 'primary',<br>
+                    ) ); ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/nav&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;div <br>
+                    &lt;?php if( current_theme_supports( 'mycols' ) && !is_front_page() ): ?&gt;<br>
+                    class="mycols"<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &gt;<br>
+                    &lt;div class="mycontent"&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>footer.php</p>
+                  <code class="comment__code">
+                    &lt;footer class="myfoot"&gt;<br>
+                    &lt;?php bloginfo( 'name' ); ?&gt;<br>
+                    &lt;/footer&gt;<br>
+                    <br>
+                    &lt;?php wp_footer(); ?&gt;<br>
+                    &lt;/body&gt;<br>
+                    &lt;/html&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>sidebar.php</p>
+                  <code class="comment__code">
+                    &lt;/div&gt; &lt;!-- mycontents ここまで --&gt;<br>
+                    <br>
+                    &lt;aside class="mymenu"&gt;<br>
+                    &lt;div class="mycontainer"&gt;<br>
+                    &lt;div class="alignwide mymenu-columns"&gt;<br>
+                    <br>
+                    &lt;section class="myprofile"&gt;<br>
+                    &lt;h2&gt;PROFILE&lt;/h2&gt;<br>
+                    &lt;figure&gt;<br>
+                    &lt;img src="&lt;?php echo esc_url( get_theme_file_uri( 'profile.jpg' ) ); ?&gt;" alt=""&gt;<br>
+                    &lt;/figure&gt;<br>
+                    &lt;strong&gt;&lt;?php the_author_meta( 'display_name' ); ?&gt;&lt;/strong&gt;<br>
+                    &lt;p&gt;&lt;?php the_author_meta( 'description' ); ?&gt;&lt;/p&gt;<br>
+                    &lt;/section&gt;<br>
+                    <br>
+                    &lt;?php if ( is_active_sidebar( 'sidebar-1' ) ): ?&gt;<br>
+                    &lt;?php dynamic_sidebar( 'sidebar-1' ); ?&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;/div&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/aside&gt;<br>
+                    <br>
+                    &lt;/div&gt; &lt;!-- mycols ここまで --&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>front-page.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt;<br>
+                    <br>
+                    &lt;?php if(have_posts()): while(have_posts()): <br>
+                    the_post(); ?&gt;<br>
+                    <br>
+                    &lt;main &lt;?php post_class( 'mycontainer' ); ?&gt;&gt;<br>
+                    &lt;?php the_content(); ?&gt;<br>
+                    &lt;/main&gt;<br>
+                    <br>
+                    &lt;?php endwhile; endif; ?&gt;<br>
+                    <br>
+                    &lt;?php get_sidebar(); ?&gt;<br>
+                    <br>
+                    &lt;?php get_footer(); ?&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>home.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt;<br>
+                    <br>
+                    &lt;main class="mycontainer"&gt;<br>
+                    &lt;div class="alignwide"&gt;<br>
+                    <br>
+                    &lt;div class="myposthead"&gt;<br>
+                    &lt;h1&gt;最新情報&lt;/h1&gt;<br>
+                    &lt;p&gt;RECENT&lt;/p&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;?php if(have_posts()): while(have_posts()): <br>
+                    the_post(); ?&gt;<br>
+                    <br>
+                    &lt;article &lt;?php post_class(); ?&gt;&gt;<br>
+                    &lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;<br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;figure&gt;<br>
+                    &lt;?php the_post_thumbnail(); ?&gt;<br>
+                    &lt;/figure&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;h2&gt;&lt;?php the_title(); ?&gt;&lt;/h2&gt;<br>
+                    &lt;/a&gt;<br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endwhile; endif; ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;?php the_posts_pagination( array(<br>
+                    　'prev_text' =&gt; '&lt;span class="dashicons dashicons-arrow-left-alt2"&gt;&lt;/span&gt;&lt;span class="screen-reader-text"&gt;前へ&lt;/span&gt;',<br>
+                    　'next_text' =&gt; '&lt;span class="screen-reader-text"&gt;次へ&lt;/span&gt;&lt;span class="dashicons dashicons-arrow-right-alt2"&gt;&lt;/span&gt;'<br>
+                    ) ); ?&gt;<br>
+                    <br>
+                    &lt;/div&gt;<br>
+                    &lt;/main&gt;<br>
+                    <br>
+                    &lt;?php get_sidebar(); ?&gt;<br>
+                    <br>
+                    &lt;?php get_footer(); ?&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>single.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt;<br>
+                    <br>
+                    &lt;?php if(have_posts()): while(have_posts()): <br>
+                    the_post(); ?&gt;<br>
+                    <br>
+                    &lt;article &lt;?php post_class( 'mycontainer' ); ?&gt;&gt;<br>
+                    <br>
+                    &lt;div class="myposthead"&gt;<br>
+                    &lt;?php the_category(); ?&gt;<br>
+                    <br>
+                    &lt;h1&gt;&lt;?php the_title(); ?&gt;&lt;/h1&gt;<br>
+                    <br>
+                    &lt;time datetime="&lt;?php echo esc_attr( get_the_date( DATE_W3C ) ); ?&gt;"&gt;<br>
+                    &lt;?php echo esc_html( get_the_date() ); ?&gt;<br>
+                    &lt;/time&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;?php the_content(); ?&gt;<br>
+                    <br>
+                    &lt;aside class="myshare"&gt;<br>
+                    &lt;h2&gt;&lt;span class="dashicons dashicons-share"&gt;&lt;/span&gt; SHARE&lt;/h2&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;a href="https://twitter.com/share?url=&lt;?php echo urlencode( get_permalink() ); ?&gt;&text=&lt;?php echo urlencode( get_the_title() ); ?&gt;" class="mytwitter"<br>
+                    onclick="window.open(this.href, 'new', 'width=500,height=400'); return false;"&gt;<br>
+                    　&lt;span class="dashicons dashicons-twitter"&gt;&lt;/span&gt;<br>
+                    　&lt;span class="screen-reader-text"&gt;Twitter&lt;/span&gt;<br>
+                    &lt;/a&gt;<br>
+                    <br>
+                    &lt;a href="https://www.facebook.com/share.php?u=&lt;?php echo urlencode( get_permalink() ); ?&gt;" class="myfacebook"<br>
+                    onclick="window.open(this.href, 'new', 'width=500,height=400'); return false;"&gt;<br>
+                    　&lt;span class="dashicons dashicons-facebook-alt"&gt;&lt;/span&gt;<br>
+                    　&lt;span class="screen-reader-text"&gt;Facebook&lt;/span&gt;<br>
+                    &lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/aside&gt;<br>
+                    <br>
+                    &lt;?php the_post_navigation(); ?&gt;<br>
+                    <br>
+                    &lt;aside class="myrelated"&gt;<br>
+                    &lt;h2&gt;RELATED&lt;/h2&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;?php <br>
+                    $myposts = get_posts( array(<br>
+                    　'posts_per_page' =&gt; '4',<br>
+                    　'post__not_in' =&gt; array( get_the_ID() ),<br>
+                    　'category__in' =&gt; wp_get_post_categories( get_the_ID() ),<br>
+                    　'orderby' =&gt; 'rand'<br>
+                    ) );<br>
+                    ?&gt;<br>
+                    &lt;?php if( $myposts ):<br>
+                    foreach($myposts as $post):<br>
+                    setup_postdata($post); ?&gt;<br>
+                    <br>
+                    &lt;article&gt;<br>
+                    &lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;<br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;figure&gt;<br>
+                    &lt;?php the_post_thumbnail(); ?&gt;<br>
+                    &lt;/figure&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;h3&gt;&lt;?php the_title(); ?&gt;&lt;/h3&gt;<br>
+                    &lt;/a&gt;<br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endforeach;<br>
+                    wp_reset_postdata();<br>
+                    endif; ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;/aside&gt;<br>
+                    <br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endwhile; endif; ?&gt;<br>
+                    <br>
+                    &lt;?php get_sidebar(); ?&gt;<br>
+                    <br>
+                    &lt;?php get_footer(); ?&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>archive.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt;<br>
+                    <br>
+                    &lt;main class="mycontainer"&gt;<br>
+                    &lt;div class="alignwide"&gt;<br>
+                    <br>
+                    &lt;div class="myposthead"&gt;<br>
+                    &lt;h1&gt;&lt;?php the_archive_title(); ?&gt;&lt;/h1&gt;<br>
+                    <br>
+                    &lt;?php if( is_category() ): ?&gt;<br>
+                    　&lt;p&gt;CATEGORY ARCHIVE&lt;/p&gt;<br>
+                    &lt;?php elseif( is_month() ): ?&gt;<br>
+                    　&lt;p&gt;MONTHLY ARCHIVE&lt;/p&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="mypostlist"&gt;<br>
+                    &lt;?php if(have_posts()): while(have_posts()): <br>
+                    the_post(); ?&gt;<br>
+                    <br>
+                    &lt;article &lt;?php post_class(); ?&gt;&gt;<br>
+                    &lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;<br>
+                    &lt;?php if( has_post_thumbnail() ): ?&gt;<br>
+                    &lt;figure&gt;<br>
+                    &lt;?php the_post_thumbnail(); ?&gt;<br>
+                    &lt;/figure&gt;<br>
+                    &lt;?php endif; ?&gt;<br>
+                    <br>
+                    &lt;h2&gt;&lt;?php the_title(); ?&gt;&lt;/h2&gt;<br>
+                    &lt;/a&gt;<br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endwhile; endif; ?&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;?php the_posts_pagination( array(<br>
+                    　'prev_text' =&gt; '&lt;span class="dashicons dashicons-arrow-left-alt2"&gt;&lt;/span&gt;&lt;span class="screen-reader-text"&gt;前へ&lt;/span&gt;',<br>
+                    　'next_text' =&gt; '&lt;span class="screen-reader-text"&gt;次へ&lt;/span&gt;&lt;span class="dashicons dashicons-arrow-right-alt2"&gt;&lt;/span&gt;'<br>
+                    ) ); ?&gt;<br>
+                    <br>
+                    &lt;/div&gt;<br>
+                    &lt;/main&gt;<br>
+                    <br>
+                    &lt;?php get_sidebar(); ?&gt;<br>
+                    <br>
+                    &lt;?php get_footer(); ?&gt;
+                  </code>
+                </div>
+                <div class="comment">
+                  <p>page.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt;<br>
+                    <br>
+                    &lt;?php if(have_posts()): while(have_posts()): <br>
+                    the_post(); ?&gt;<br>
+                    <br>
+                    &lt;article &lt;?php post_class( 'mycontainer' ); ?&gt;&gt;<br>
+                    <br>
+                    &lt;div class="myposthead"&gt;<br>
+                    &lt;h1&gt;&lt;?php the_title(); ?&gt;&lt;/h1&gt;<br>
+                    &lt;p&gt;<br>
+                    &lt;?php echo esc_html( strtoupper( get_post_field( 'post_name' ) ) ); ?&gt;<br>
+                    &lt;/p&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;?php the_content(); ?&gt;<br>
+                    <br>
+                    &lt;/article&gt;<br>
+                    <br>
+                    &lt;?php endwhile; endif; ?&gt;<br>
+                    <br>
+                    &lt;?php get_sidebar(); ?&gt;<br>
+                    <br>
+                    &lt;?php get_footer(); ?&gt;
+                  </code>
+                </div>               
               </div>
             </div>
           </artcile><!-- /.content -->
