@@ -33,7 +33,52 @@
                 <p class="index-description">本書では、1つのビジネスサイトを作り込んでいきます。まずダウンロードデータを確認し、次にHTMLファイルを修正、テーマを登録し、ヘッダーやフッターといった各ページ共通の部分をパーツテンプレートとして分割するところまで進めます。</p>
                 <p class="index index--second">STEP2-1 素材を準備し表示確認しよう</p>
                 <p class="index index--second">STEP2-2 WordPressテーマを作ろう</p>
+                <div class="comment comment--second">
+                  <p>index.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo esc_url( get_template_directory_uri() ); ?&gt; //テーマディレクトリのURLを返す（cssやimgのパスに使用）
+                  </code>
+                  <p>style.css</p>
+                  <code class="comment__code">
+                    /*<br>
+                    Theme Name: Pacific Mall Development<br>
+                    Author: Pacific Mall Development Technology Group<br>
+                    Description: This is our original theme.<br>
+                    Version: 1.0<br>
+                    */
+                  </code>
+                  <p>screenshot.jpgを作成</p>
+                </div>
                 <p class="index index--second">STEP2-3 テンプレートファイルを分割しよう</p>
+                <div class="comment comment--second">
+                  <p>index.php</p>
+                  <code class="comment__code">
+                    &lt;?php get_header(); ?&gt; //header.phpを読み込む<br>
+                    &lt;?php get_footer(); ?&gt; //footer.phpを読み込む
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo esc_html( wp_get_document_title() ); ?&gt; //サイト名称を出力<br>
+                    &lt;?php echo bloginfo( 'description' ); ?&gt; //キャッチフレーズを出力<br>
+                    &lt;?php echo esc_url( home_url() ); ?&gt; //ホームURLを取得<br>
+                    &lt;?php wp_head(); ?&gt; //WordPressのhead設定
+                  </code>
+                  <p>footer.php</p>
+                  <code class="comment__code">
+                    &lt;?php wp_footer(); ?&gt; //WordPressのfooter設定
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // 独自リソースを一元管理する<br>
+                    function my_enqueue_scripts() {<br>
+                    　$uri = esc_url( get_template_directory_uri() );<br>
+                    　wp_enqueue_script( 'jquery' );<br>
+                    　wp_enqueue_script( 'bandle_js' , $uri . '/assets/js/bundle.js' , array() );<br>
+                    　wp_enqueue_style( 'my_style' , $uri . '/assets/css/styles.css' , [] );<br>
+                    }<br>
+                    add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
+                  </code>
+                </div>
                 <p class="index index--first">CHAPTER3 WordPress 6.xにおけるGutenberg</p>
                 <p class="index-description">WordPress 5.0から刷新されたエディターの 「Gutenberg」は進化を重ね、より便利になりました。WordPress 6.xでのGutenbergエディターについて詳しく解説します。</p>
                 <p class="index index--second">STEP3-1 エディター画面の説明</p>
@@ -43,23 +88,433 @@
                 <p class="index index--first">CHAPTER4 基本サイトの構築</p>
                 <p class="index-description">Webサイトとして機能させるための基本的な構築を行います。本CHAPTER終了時には、サイトを構成する各ページの最低限の表示、サイト全体での一通りのページ遷移が可能になります。アイキャッチ画像やお問い合わせフォームなども扱います。</p>
                 <p class="index index--second">STEP4-1 基本設定とプラグインのインストール</p>
+                <div class="comment comment--second">
+                  <p>
+                    プラグインをインストール<br>
+                    ・Advanced Custom Fields //アドバスカスタムフィールド<br>
+                    ・Breadcrumb NavXT //パンくずリスト<br>
+                    ・Custom Post Type UI //カスタム投稿タイプ<br>
+                    ・All in One SEO //SEO<br>
+                    ・Contact Form 7 //フォーム<br>
+                    ・WordPress Popular Posts //人気記事ランキング<br>
+                    ・Show Current Template //テンプレートを表示<br>
+                    ・WP Multibyte Patch //日本語修正
+                  </p>
+                </div>
                 <p class="index index--second">STEP4-2 「投稿」と「固定ページ」の記事を入力する</p>
                 <p class="index index--second">STEP4-3 テンプレートを作り、固定ページを表示させる</p>
+                <div class="comment comment--second">
+                  <p>page.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    if( have_posts() ): //WordPressループ<br>
+                    　while( have_posts() ):the_post();<br>
+                    　　the_content(); //記事を出力<br>
+                    　endwhile;<br>
+                    endif;<br>
+                    ?&gt;
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php body_class(); ?&gt; //ページを区別するクラスを出力<br>
+                    &lt;?php if( is_front_page() ): ?&gt; //front-pageか否かを判定<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;?php echo get_main_title(); ?&gt; //WordPressループ外で該当ページのタイトルを取得
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-4 カスタムメニュー機能で、グローバルナビとフッターナビを表示</p>
+                <div class="comment comment--second">
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    wp_nav_menu([ //カスタムメニューを表示<br>
+                    　'theme_location' =&gt; 'place_global', //「グローバル」を指定<br>
+                    　'container' =&gt; false, //出力されるulタグをdivタグで囲ませないための指定<br>
+                    ]);<br>
+                    ?&gt;
+                  </code>
+                  <p>footer.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    wp_nav_menu( array( //カスタムメニューを表示<br>
+                    　'theme_location' =&gt; 'place_footer', 'place_global', //「グローバル」を指定<br>
+                    　'container' =&gt; false, //出力されるulタグをdivタグで囲ませないための指定<br>
+                    ) );<br>
+                    ?&gt;
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // ヘッダー、フッターのカスタムメニュー化<br>
+                    register_nav_menus( array(<br>
+                    　'place_global' =&gt; ' グローバル',<br>
+                    　'place_footer' =&gt; ' フッターナビ',<br>
+                    ) );
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-5 投稿・投稿一覧を表示させる</p>
+                <div class="comment comment--second">
+                  <p>single.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_time( 'Y.m.d' ); ?&gt; //投稿の公開時刻を表示<br>
+                    &lt;?php the_title(); ?&gt; //タイトルを出力<br>
+                    &lt;?php the_content(); ?&gt; //記事を出力<br>
+                    get_template_part( 'content-single' ); // 「content-single」を呼び出す
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_main_title(); ?&gt; //「get_main_title()」を出力
+                  </code>
+                  <p>archive.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_permalink(); ?&gt; //ループ内で処理されている投稿のURLを出力<br>
+                    get_template_part( 'content-archive' ); // 「content-archive」を呼び出す
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // メイン画像上にテンプレートごとの文字列を表示<br>
+                    function get_main_title() {<br>
+                    　if ( is_singular( 'post' ) ): //個別の投稿の場合に表示<br>
+                    　　$category_obj = get_the_category();<br>
+                    　　return $category_obj[0]-&gt;name; //投稿のカテゴリー名を出力<br>
+                    　elseif ( is_page() ): //固定ページの場合に表示<br>
+                    　　return get_the_title();<br>
+                    　elseif ( is_category() ): //カテゴリーページの場合に表示<br>
+                    　　return single_cat_title(); //現在のカテゴリー名を出力<br>
+                    　endif;<br>
+                    <br>
+                    　return '';<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-6 サブクエリを活用して各一覧情報を表示させる</p>
+                <div class="comment comment--second">
+                  <p>page-company.php（page-contribution.phpも同様）</p>
+                  <code class="comment__code">
+                    &lt;?php the_post_thumbnail(); ?&gt; //記事に紐づいた画像を表示<br>
+                    &lt;?php echo get_the_excerpt(); ?&gt; //該当ページの抜粋データを取得（抜粋データが存在しない場合は本文のデータを取得）<br>
+                    &lt;?php<br>
+                    $common_pages = get_child_pages();<br>
+                    if( $common_pages-&gt;have_posts() ): //サブクエリをもとにしたWordPressループ<br>
+                    　while( $common_pages-&gt;have_posts() ): $common_pages-&gt;the_post();<br>
+                    　　get_template_part( 'content-common' ); // 「content-common」を呼び出す<br>
+                    　endwhile;<br>
+                    　wp_reset_postdata(); //サブクエリを実行した後、メインクエリに戻す<br>
+                    endif;<br>
+                    ?&gt;
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // 子ページを取得する関数<br>
+                    function get_child_pages( $number = -1 ) {<br>
+                    　$parent_id = get_the_ID();<br>
+                    　$args = array(<br>
+                    　　'posts_per_page' =&gt; $number, //取得したい記事数を指定<br>
+                    　　'post_type' =&gt; 'page', //取得したい投稿タイプを指定<br>
+                    　　'orderby' =&gt; 'menu_order', //並び替えの基準を指定<br>
+                    　　'order' =&gt; 'ASC', //昇順降順を指定<br>
+                    　　'post_parent' =&gt; $parent_id, //IDの親ページに紐づく子ページの情報を取得<br>
+                    　);<br>
+                    　$child_pages = new WP_Query( $args );<br>
+                    　return $child_pages;<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-7 アイキャッチ画像を利用し、記事ごとの画像を表示させる</p>
+                <div class="comment comment--second">
+                  <p>page-company.php（page-contribution.phpも同様）</p>
+                  <code class="comment__code">
+                    &lt;?php the_post_thumbnail( 'common' ); ?&gt; //画像を「common」にリサイズ<br>
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_main_image(); ?&gt; //「get_main_image()」を出力
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // アイキャッチ画像を利用できるようにする<br>
+                    add_theme_support( 'post-thumbnails' );<br>
+                    <br>
+                    // トップページのメイン画像用のサイズ設定<br>
+                    add_image_size( 'top', 1077, 622, true );<br>
+                    // 地域貢献活動一覧画像用のサイズ設定<br>
+                    add_image_size( 'contribution', 557, 280, true );<br>
+                    // トップページの地域貢献活動にて使用している画像用のサイズ設定<br>
+                    add_image_size( 'front-contribution', 255, 189, true );<br>
+                    // 企業情報・店舗情報一覧画像用のサイズ設定<br>
+                    add_image_size( 'common', 465, 252, true );<br>
+                    // 各ページのメイン画像用のサイズ設定<br>
+                    add_image_size( 'detail', 1100, 330, true );<br>
+                    // 検索一覧画像用のサイズ設定<br>
+                    add_image_size( 'search', 168, 168, true );<br>
+                    <br>
+                    // 各テンプレートごとのメイン画像を表示<br>
+                    function get_main_image() {<br>
+                    　if ( is_page() ): //固定ページの場合、サムネイルを表示<br>
+                    　　return get_the_post_thumbnail( get_queried_object()-&gt;ID, 'detail' );<br>
+                    　elseif ( is_category( 'news' ) || is_singular( 'post' ) ): //「ニュース一覧」または「ニュース詳細」で表示<br>
+                    　　return '&lt;img src="'. get_template_directory_uri(). '/assets/images/bg-page-news.jpg" /&gt;';<br>
+                    　else: //該当がない場合、ダミーを表示<br>
+                    　　return '&lt;img src="'. get_template_directory_uri(). '/assets/images/bg-page-dummy.png" /&gt;';<br>
+                    　endif;<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-8 トップページの表示を完成させる</p>
+                <div class="comment comment--second">
+                  <p>front-page.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $shop_obj = get_page_by_path( 'shop' ); //「shop」ページのオブジェクトを取得し「$shop_obj」に格納<br>
+                    $post = $shop_obj; //「$shop_obj」を「$post」に格納<br>
+                    setup_postdata( $post ); //「wp_reset_postdata()」までのテンプレートタグは、指定した登録情報をもとに実行されるようになる<br>
+                    $shop_title = get_the_title(); //「get_the_title()」を「$shop_title」に格納<br>
+                    ?&gt;<br>
+                    &lt;?php wp_reset_postdata(); ?&gt; //「setup_postdata()」をメインクエリに戻す<br>
+                    <br>
+                    &lt;?php<br>
+                    $shop_pages = get_child_pages( 4, $shop_obj-&gt;ID ); //「get_child_pages()」の引数を指定<br>
+                    if ( $shop_pages-&gt;have_posts() ) : //サブクエリをもとにしたWordPressループ<br>
+                    　while ( $shop_pages-&gt;have_posts() ) : $shop_pages-&gt;the_post();<br>
+                    ?&gt;<br>
+                    <br>
+                    &lt;?php echo esc_url( home_url( 'shop' ) ); ?&gt; //ホームからの相対パスのURLを返す<br>
+                    <br>
+                    &lt;?php $term_obj = get_term_by( 'slug', 'news', 'category' ); ?&gt;指定のタームのオブジェクトを取得し「$term_obj」に格納<br>
+                    <br>
+                    &lt;?php<br>
+                    $news_posts = get_specific_posts( 'post', 'category', 'news', 3 ); //「get_specific_posts」の引数を指定<br>
+                    if( $news_posts-&gt;have_posts() ): //サブクエリをもとにしたWordPressループ<br>
+                    　while( $news_posts-&gt;have_posts() ): $news_posts-&gt;the_post();<br>
+                    ?&gt;
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // 子ページを取得する関数（※トップページ用に関数を修正）<br>
+                    function get_child_pages( $number = -1, $specified_id = null ) {<br>
+                    　if ( isset( $specified_id ) ): //「$specified_id」が指定されている場合に表示<br>
+                    　　$parent_id = $specified_id;<br>
+                    　else:<br>
+                    　　$parent_id = get_the_ID();<br>
+                    　endif;<br>
+                    　$args = array(<br>
+                    　　'posts_per_page' =&gt; $number,<br>
+                    　　'post_type' =&gt; 'page',<br>
+                    　　'orderby' =&gt; 'menu_order',<br>
+                    　　'order' =&gt; 'ASC',<br>
+                    　　'post_parent' =&gt; $parent_id,<br>
+                    　);<br>
+                    　$child_pages = new WP_Query( $args );<br>
+                    　return $child_pages;<br>
+                    }<br>
+                    <br>
+                    // 特定の記事を抽出する関数<br>
+                    function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number = -1 ) {<br>
+                    　$args = array(<br>
+                    　　'post_type' =&gt; $post_type,<br>
+                    　　'tax_query' =&gt; array(<br>
+                    　　　array(<br>
+                    　　　　'taxonomy' =&gt; $taxonomy,<br>
+                    　　　　'field' =&gt; 'slug',<br>
+                    　　　　'terms' =&gt; $term,<br>
+                    　　　),<br>
+                    　　),<br>
+                    　　'posts_per_page' =&gt; $number,<br>
+                    　);<br>
+                    　$specific_posts = new WP_Query( $args );<br>
+                    　return $specific_posts;<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--second">STEP4-9 「お問い合わせ」ページにフォームを設置</p>
+                <div class="comment comment--second">
+                  <p>
+                    「Contact Form 7」を使用<br>
+                    wp-config.php
+                  </p>
+                  <code class="comment__code">
+                    // Contact Form 7の自動pタグ無効<br>
+                    define ('WPCF7_AUTOP', false);
+                  </code>
+                </div>
                 <p class="index index--first">CHAPTER5 ユーザビリティの向上</p>
                 <p class="index-description">CHAPTER4まででWebサイトとしてのごく基本的な動作を実現しました｡ページ遷移と、一通りの表示が完成したところです。各種ナビゲーションの設置・調整や視認性の強化などを中心に行い、ユーザビリティを向上させ、基本サイトとしての完成度を高めます。</p>
                 <p class="index index--second">STEP5-1 「パンくずナビ」で、ページ階層をユーザーにわかりやすく表示</p>
+                <div class="comment comment--second">
+                  <p>
+                    「Breadcrumb NavXT」を使用<br>
+                    header.php
+                  </p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    if ( function_exists('bcn_display') ){ //「bcn_display()」が定義されているかチェック<br>
+                    　bcn_display(); //パンくずを表示<br>
+                    }<br>
+                    ?&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-2 ページャーを設置し、一覧ページを使いやすくする</p>
+                <div class="comment comment--second">
+                  <p>archive.php</p>
+                  <code class="comment__code">
+                    &lt;?php page_navi(); ?&gt; //「page_navi()」を呼び出し
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    //ページャーを表示<br>
+                    function page_navi() {<br>
+                    　the_posts_pagination( array( //ページャーを表示<br>
+                    　　'mid_size' =&gt; 2,<br>
+                    　　'prev_text' =&gt; '&lt;',<br>
+                    　　'next_text' =&gt; '&gt;',<br>
+                    　) );<br>
+                    }
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-3 サイト内検索を動作させる</p>
+                <div class="comment comment--second">
+                  <p>search.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_search_query(); ?&gt; //検索ワードを出力<br>
+                    &lt;?php if ( get_search_query() ): ?&gt; //検索された文字列を取得して判定<br>
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;?php echo $wp_query-&gt;found_posts; ?&gt; //検索で取得できた記事数を表示<br>
+                    &lt;?php<br>
+                    if ( have_posts() && get_search_query() ) : //検索結果と検索キーワードがともに存在するかチェック<br>
+                    　while ( have_posts() ) : the_post();<br>
+                    ?&gt;<br>
+                    &lt;?php<br>
+                    $image = get_the_post_thumbnail( get_queried_object()-&gt;ID, 'search' ); //<br>
+                    if ( $image ):<br>
+                    　echo $image;<br>
+                    else: //ニュースリリースの場合に表示<br>
+                    　echo '&lt;img src="'. get_template_directory_uri(). '/assets/images/img-noImage.png"&gt;';<br>
+                    endif;<br>
+                    ?&gt;
+                  </code>
+                  <p>search.php,header.php</p>
+                  <code class="comment__code">
+                    &lt;input name="s" /&gt; //name属性値に「s」を指定するとWordPressの検索機能を有効にできる
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // メイン画像上にテンプレートごとの文字列を表示（下記を追加）<br>
+                    　elseif ( is_search() ): //検索結果ページの場合表示<br>
+                    　　return ' サイト内検索結果';<br>
+                    <br>
+                    // 各テンプレートごとのメイン画像を表示（下記を追加）<br>
+                    　elseif ( is_search() ): //検索結果ページの場合表示<br>
+                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';<br>
+                    　else:
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-4 「404 Not Foundページ」をオリジナルデザインで表示</p>
+                <div class="comment comment--second">
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // メイン画像上にテンプレートごとの文字列を表示（下記を追加）<br>
+                    　elseif ( is_404() ):<br>
+                    　　return ' ページが見つかりません';<br>
+                    <br>
+                    // 各テンプレートごとのメイン画像を表示（下記を追加）<br>
+                    　elseif ( is_search() || is_404() ):<br>
+                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';<br>
+                    　else:
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-5 投稿ページ間のナビゲーションを設置し、移動を容易にする</p>
+                <div class="comment comment--second">
+                  <p>content-single.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $next_post = get_next_post(); //一つ後の記事を取得<br>
+                    $prev_post = get_previous_post(); //一つ前の記事を取得<br>
+                    if ( $next_post ): //一つ後の記事がるとき表示<br>
+                    ?&gt;<br>
+                    &lt;?php echo get_permalink( $next_post-&gt;ID ); ?&gt; //一つ後の記事のURLを出力<br>
+                    &lt;?php<br>
+                    endif;<br>
+                    if ( $prev_post ): //一つ前の記事がるとき表示<br>
+                    ?&gt;<br>
+                    &lt;?php echo get_permalink( $prev_post-&gt;ID ); ?&gt; //一つ前の記事のURLを出力<br>
+                    &lt;?php endif; ?&gt;
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-6 抜粋文の文字数を調整し、 簡潔に見通しをよくする</p>
+                <div class="comment comment--second">
+                  <p>content-common.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_flexible_excerpt( 40 ); ?&gt; //抜粋文を40文字にする
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    //抜粋文の最後につく文字を変更<br>
+                    function cms_excerpt_more() {<br>
+                    　return '...';<br>
+                    }<br>
+                    add_filter( 'excerpt_more', 'cms_excerpt_more' );<br>
+                    <br>
+                    //抜粋文の文字数をWP Multibyte Patch標準の110文字から80文字に変更<br>
+                    function cms_excerpt_length() {<br>
+                    　return 80;<br>
+                    }<br>
+                    add_filter( 'excerpt_mblength', 'cms_excerpt_length' );<br>
+                    <br>
+                    // 抜粋機能を固定ページに使えるよう設定<br>
+                    add_post_type_support( 'page', 'excerpt' );<br>
+                    <br>
+                    //各抜粋文を適度な長さに調整する<br>
+                    function get_flexible_excerpt( $number ) {<br>
+                    　$value = get_the_excerpt();<br>
+                    　$value = wp_trim_words( $value, $number, '...' );<br>
+                    　return $value;<br>
+                    }<br>
+                    <br>
+                    //get_the_excerpt() で取得する文字列に改行タグを挿入<br>
+                    function apply_excerpt_br( $value ) {<br>
+                    　return nl2br( $value );<br>
+                    }<br>
+                    add_filter( 'get_the_excerpt', 'apply_excerpt_br' );
+                  </code>
+                </div>
                 <p class="index index--second">STEP5-7 カスタムページテンプレートを作成する</p>
+                <div class="comment comment--second">
+                  <p>page-shop-detail.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    /*<br>
+                    Template Name: 店舗詳細 //カスタムページテンプレートを定義する<br>
+                    */<br>
+                    ?&gt;
+                  </code>
+                  <p>
+                    「WordPress Popular Posts」を使用<br>
+                    page-sidebar.php
+                  </p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    /*<br>
+                    Template Name: サイドバーあり //カスタムページテンプレートを定義する<br>
+                    */<br>
+                    ?&gt;<br>
+                    &lt;?php dynamic_sidebar( 'primary-widget-area' ); ?&gt; //サイドバーに登録した情報を表示
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // ウィジェット機能を有効化<br>
+                    function theme_widgets_init() {<br>
+                    　register_sidebar( array(<br>
+                    　　'name' =&gt; ' サイドバーウィジェットエリア',<br>
+                    　　'id' =&gt; 'primary-widget-area',<br>
+                    　　'description' =&gt; ' 固定ページのサイドバー',<br>
+                    　　'before_widget' =&gt; '&lt;aside class="side-inner"&gt;',<br>
+                    　　'after_widget' =&gt; '&lt;/aside&gt;',<br>
+                    　　'before_title' =&gt; '&lt;h4 class="title"&gt;',<br>
+                    　　'after_title' =&gt; '&lt;/h4&gt;',<br>
+                        ) );<br>
+                    }<br>
+                    add_action( 'widgets_init', 'theme_widgets_init' );
+                  </code>
+                </div>
                 <p class="index index--first">CHAPTER6 SEO対策</p>
                 <p class="index-description">本CHAPTER以降では、運用時に欠かせない発展的な機能などを実現していきます。クラウドサーバーやレンタルサーバーなどの公開サーバーで実際にサイトを公開した際の対策について説明します。CHAPTER6ではWebサイトにとって必要なSEO対策を取り上げます。</p>
                 <p class="index index--second">STEP6-1 検索エンジンによるインデックスを許可し、アクセス数をアップさせる</p>
