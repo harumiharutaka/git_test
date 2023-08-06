@@ -329,7 +329,7 @@
                 <div class="comment comment--second">
                   <p>
                     「Contact Form 7」を使用<br>
-                    wp-config.php
+                    wp-config.php（wp-contentと同じフォルダにある）
                   </p>
                   <code class="comment__code">
                     // Contact Form 7の自動pタグ無効<br>
@@ -532,8 +532,182 @@
                 <p class="index index--first">CHAPTER9 発展的な機能を使う</p>
                 <p class="index-description">主要ページの1つであり今後も頻繁にページ追加されると考えられる「地域貢献活動」を、投稿しやすいようにカスタマイズします。また、プラグインを作成したり、「Advanced Custom Fields」を使って、特定の記事やタームにメタデータを登録して表示させます。</p>
                 <p class="index index--second">STEP9-1 プラグインを作成して、検索時に検索ワードをハイライトする</p>
+                <div class="comment comment--second">
+                  <p>search-highlighter.php（wp-content/pluginsに作成）</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    /*<br>
+                    Plugin Name: Search Highlighter<br>
+                    Description: Highlight searched words when you<br>
+                    search<br>
+                    Version: 1.0<br>
+                    Author: PACIFIC MALL DEVELOPMENT<br>
+                    Author URI: https://pacificmall.local<br>
+                    */<br>
+                    <br>
+                    class SearchHighlighter {<br>
+                    　public function __construct() {<br>
+                    　　add_filter( 'the_title', array( $this, 'highlight_keywords' ) );<br>
+                    　　add_filter( 'get_the_excerpt', array( $this,'highlight_keywords' ) );<br>
+                    　}<br>
+                    　public function highlight_keywords( $text ) {<br>
+                    　　if ( is_search() ) {<br>
+                    　　　$keys = explode( ' ', get_search_query() );<br>
+                    　　　foreach ( $keys as $key ) {<br>
+                    　　　　$text = str_replace( $key, '&lt;span style="background:#ffff00"&gt;'.$key.'&lt;/span&gt;', $text );<br>
+                    　　　}<br>
+                    　　}<br>
+                    　　return $text;<br>
+                    　}<br>
+                    }<br>
+                    $SearchHighlighter = new SearchHighlighter();<br>
+                  </code>
+                </div>
                 <p class="index index--second">STEP9-2 カスタム投稿タイプ「地域貢献活動」とカスタム分類「イベントの種類」を登録・表示</p>
+                <div class="comment comment--second">
+                  <p>page-contribution.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $terms = get_terms( 'event' );<br>
+                    foreach ( $terms as $term ) :<br>
+                    　include 'content-contribution.php';<br>
+                    endforeach;<br>
+                    ?&gt;
+                  </code>
+                  <p>content-contribution.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_term_link( $term ); ?&gt;<br>
+                    &lt;?php echo get_template_directory_uri(); ?&gt;<br>
+                    &lt;?php echo $term-&gt;name; ?&gt;<br>
+                    &lt;?php echo $term-&gt;description; ?&gt;
+                  </code>
+                  <p>taxonomy.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $term = get_specific_posts( 'daily_contribution', 'event', $term, -1 );<br>
+                    if ( $term-&gt;have_posts() ):<br>
+                    　while ( $term-&gt;have_posts() ): $term-&gt;the_post();<br>
+                    　　get_template_part( 'content-tax' );<br>
+                    　endwhile;<br>
+                    　wp_reset_postdata();<br>
+                    endif;<br>
+                    ?&gt;
+                  </code>
+                  <p>content-tax.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_permalink(); ?&gt;<br>
+                    &lt;?php the_post_thumbnail(); ?&gt;<br>
+                    &lt;?php the_title(); ?&gt;<br>
+                    &lt;?php echo get_the_excerpt(); ?&gt;
+                  </code>
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // メイン画像上にテンプレートごとの文字列を表示<br>
+                    　elseif ( is_category() || is_tax() ):<br>
+                    　　return single_cat_title();<br>
+                    　elseif ( is_singular( 'daily_contribution' ) ):<br>
+                    　　$term_obj = get_the_terms( get_queried_object()-&gt;ID, 'event' );<br>
+                    　　return $term_obj[0]-&gt;name;<br>
+                    <br>
+                    // 特定の記事を抽出する関数<br>
+                    　if ( ! $term ):<br>
+                    　　$terms_obj = get_terms( 'event' );<br>
+                    　　$term = wp_list_pluck( $terms_obj, 'slug' );<br>
+                    　endif;
+                  </code>
+                  <p>single-sidebar.php</p>
+                  <code class="comment__code">
+                    Template Post Type: daily_contribution<br>
+                    <br>
+                    get_template_part( 'content-single' );
+                  </code>
+                  <p>front-page.php</p>
+                  <code class="comment__code">
+                    $contribution_pages = get_specific_posts( 'daily_contribution', 'event', '', 3 );
+                  </code>
+                </div>
                 <p class="index index--second">STEP9-3 Advanced Custom Fieldsでメタデータを登録・表示</p>
+                <div class="comment comment--second">
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // 各テンプレートごとのメイン画像を表示<br>
+                    　if ( is_page() || is_singular( 'daily_contribution' ) ):<br>
+                    　　$attachment_id = get_field( 'main_image' );<br>
+                    　　if ( is_front_page() ):<br>
+                    　　　return wp_get_attachment_image( $attachment_id, 'top' );<br>
+                    　　else:<br>
+                    　　　return wp_get_attachment_image( $attachment_id, 'detail' );<br>
+                    　　endif;<br>
+                    　elseif ( is_tax( 'event' ) ):<br>
+                    　　$term_obj = get_queried_object();<br>
+                    　　$image_id = get_field( 'event_image', $term_obj-&gt;taxonomy. '_'. $term_obj-&gt;term_id );<br>
+                    　　return wp_get_attachment_image( $image_id, 'detail' );<br>
+                    <br>
+                    // メイン画像上にテンプレートごとの英語タイトルを表示<br>
+                    function get_main_en_title() {<br>
+                    　if ( is_category() ):<br>
+                    　　$term_obj = get_queried_object();<br>
+                    　　$english_title = get_field( 'english_title', $term_obj-&gt;taxonomy. '_'. $term_obj-&gt;term_id );<br>
+                    　　return $english_title;<br>
+                    　elseif ( is_singular( 'post' ) ):<br>
+                    　　$term_obj = get_the_category();<br>
+                    　　$english_title = get_field( 'english_title', $term_obj[0]-&gt;taxonomy. '_'. $term_obj[0]-&gt;term_id );<br>
+                    　　return $english_title;<br>
+                    　elseif ( is_page() || is_singular( 'daily_contribution' ) ):<br>
+                    　　return get_field( 'english_title' );<br>
+                    　elseif ( is_search() ):<br>
+                    　　return 'Search Result';<br>
+                    　elseif ( is_404() ):<br>
+                    　　return '404 Not Found';<br>
+                    　elseif ( is_tax() ):<br>
+                    　　$term_obj = get_queried_object();<br>
+                    　　$english_title = get_field( 'english_title', $term_obj-&gt;taxonomy. '_'. $term_obj-&gt;term_id );<br>
+                    　　return $english_title;<br>
+                    　endif;<br>
+                    }
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_main_image(); ?&gt;<br>
+                    &lt;?php echo get_main_en_title(); ?&gt;
+                  </code>
+                  <p>content-contribution.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $image_id = get_field( 'event_image', $term-&gt;taxonomy. '_'. $term-&gt;term_id );<br>
+                    echo wp_get_attachment_image( $image_id, 'contribution' );<br>
+                    ?&gt;
+                  </code>
+                  <p>page-shop-detail.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $shops = array( 'first_shop_detail', 'second_shop_detail' );<br>
+                    foreach ( $shops as $shop ):<br>
+                    　if ( have_rows( $shop ) ):<br>
+                    　　while ( have_rows( $shop ) ): the_row();<br>
+                    　　　get_template_part( 'content-shop-detail' );<br>
+                    　　endwhile;<br>
+                    　endif;<br>
+                    endforeach;<br>
+                    ?&gt;
+                  </code>
+                  <p>content-shop-detail.php</p>
+                  <code class="comment__code">
+                    &lt;?php<br>
+                    $image_id = get_sub_field( 'shop_img' );<br>
+                    echo wp_get_attachment_image( $image_id, 'shop-detail' );<br>
+                    ?&gt;<br>
+                    &lt;?php the_sub_field( 'shop_name' ); ?&gt;<br>
+                    &lt;?php the_sub_field( 'shop_strength' ); ?&gt;<br>
+                    &lt;?php the_sub_field( 'shop_hours' ); ?&gt;<br>
+                    &lt;?php the_sub_field( 'floor_info' ); ?&gt;
+                  </code>
+                  <p>front-page.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_field( 'location' ); ?&gt;<br>
+                    &lt;?php the_field( 'english_title' ); ?&gt;<br>
+                  </code>
+                </div>
                 <p class="index index--first">CHAPTER10 Webサイトを公開しよう</p>
                 <p class="index-description">ローカル開発環境で構築してきた Web サイトを、誰でも閲覧できるように一般公開する手順を紹介します。本書では、広く使われているレンタルサーバーを使った公開方法を取り上げます。</p>
                 <p class="index index--second">STEP10-1 公開サーバーを準備する</p>
