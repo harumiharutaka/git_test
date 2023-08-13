@@ -400,7 +400,7 @@
                     　while ( have_posts() ) : the_post();<br>
                     ?&gt;<br>
                     &lt;?php endwhile ?&gt;<br>
-                    &lt;?php elseif( !get_search_query() ) ?&gt;<br>
+                    &lt;?php elseif( ! get_search_query() ) ?&gt;<br>
                     &lt;?php else ?&gt;<br>
                     &lt;?php endif ?&gt;<br>
                     <br>
@@ -425,8 +425,7 @@
                     <br>
                     // 各テンプレートごとのメイン画像を表示（下記を追加）<br>
                     　elseif ( is_search() ): //検索結果ページの場合表示<br>
-                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';<br>
-                    　else:
+                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';
                   </code>
                 </div>
                 <p class="index index--second">STEP5-4 「404 Not Foundページ」をオリジナルデザインで表示</p>
@@ -439,8 +438,7 @@
                     <br>
                     // 各テンプレートごとのメイン画像を表示（下記を追加）<br>
                     　elseif ( is_search() || is_404() ):<br>
-                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';<br>
-                    　else:
+                    　　return '&lt;img src="'. get_template_directory_uri() .'/assets/images/bg-page-search.jpg"&gt;';
                   </code>
                 </div>
                 <p class="index index--second">STEP5-5 投稿ページ間のナビゲーションを設置し、移動を容易にする</p>
@@ -452,13 +450,13 @@
                     $prev_post = get_previous_post(); //一つ前の記事を取得<br>
                     if ( $next_post ): //一つ後の記事がるとき表示<br>
                     ?&gt;<br>
-                    &lt;?php echo get_permalink( $next_post-&gt;ID ); ?&gt; //一つ後の記事のURLを出力<br>
                     &lt;?php<br>
                     endif;<br>
                     if ( $prev_post ): //一つ前の記事がるとき表示<br>
                     ?&gt;<br>
-                    &lt;?php echo get_permalink( $prev_post-&gt;ID ); ?&gt; //一つ前の記事のURLを出力<br>
-                    &lt;?php endif; ?&gt;
+                    &lt;?php endif; ?&gt;<br>
+                    &lt;?php echo get_permalink( $next_post-&gt;ID ); ?&gt; //一つ後の記事のURLを出力<br>
+                    &lt;?php echo get_permalink( $prev_post-&gt;ID ); ?&gt; //一つ前の記事のURLを出力
                   </code>
                 </div>
                 <p class="index index--second">STEP5-6 抜粋文の文字数を調整し、 簡潔に見通しをよくする</p>
@@ -630,7 +628,7 @@
                     <br>
                     // 特定の記事を抽出する関数<br>
                     　if ( ! $term ):<br>
-                    　　$terms_obj = get_terms( 'event' );<br>
+                    　　$terms_obj = get_terms( '$taxonomy' );<br>
                     　　$term = wp_list_pluck( $terms_obj, 'slug' );<br>
                     　endif;
                   </code>
@@ -725,6 +723,7 @@
                   <code class="comment__code">
                     &lt;?php the_field( 'location' ); ?&gt;<br>
                     &lt;?php the_field( 'english_title' ); ?&gt;<br>
+                    &lt;?php the_field( 'english_title', $term_obj-&gt;taxonomy. '_'. $term_obj-&gt;tarm_id ); ?&gt;<br>
                   </code>
                 </div>
                 <p class="index index--first">CHAPTER10 Webサイトを公開しよう</p>
