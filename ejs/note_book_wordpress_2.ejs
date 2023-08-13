@@ -93,12 +93,12 @@
                     プラグインをインストール<br>
                     ・Advanced Custom Fields //アドバスカスタムフィールド<br>
                     ・Breadcrumb NavXT //パンくずリスト<br>
-                    ・Custom Post Type UI //カスタム投稿タイプ<br>
+                    ・Custom Post Type UI //カスタム投稿タイプ＆カスタム分類<br>
                     ・All in One SEO //SEO<br>
                     ・Contact Form 7 //フォーム<br>
                     ・WordPress Popular Posts //人気記事ランキング<br>
                     ・Show Current Template //テンプレートを表示<br>
-                    ・WP Multibyte Patch //日本語修正
+                    ・WP Multibyte Patch //日本語環境対応
                   </p>
                 </div>
                 <p class="index index--second">STEP4-2 「投稿」と「固定ページ」の記事を入力する</p>
@@ -119,11 +119,19 @@
                     &lt;?php body_class(); ?&gt; //ページを区別するクラスを出力<br>
                     &lt;?php if( is_front_page() ): ?&gt; //front-pageか否かを判定<br>
                     &lt;?php endif; ?&gt;<br>
-                    &lt;?php echo get_main_title(); ?&gt; //WordPressループ外で該当ページのタイトルを取得
+                    &lt;?php echo get_the_title(); ?&gt; //WordPressループ外で該当ページのタイトルを取得
                   </code>
                 </div>
                 <p class="index index--second">STEP4-4 カスタムメニュー機能で、グローバルナビとフッターナビを表示</p>
                 <div class="comment comment--second">
+                  <p>functions.php</p>
+                  <code class="comment__code">
+                    // ヘッダー、フッターのカスタムメニュー化<br>
+                    register_nav_menus( array(<br>
+                    　'place_global' =&gt; ' グローバル',<br>
+                    　'place_footer' =&gt; ' フッターナビ',<br>
+                    ) );
+                  </code>
                   <p>header.php</p>
                   <code class="comment__code">
                     &lt;?php<br>
@@ -142,14 +150,6 @@
                     ) );<br>
                     ?&gt;
                   </code>
-                  <p>functions.php</p>
-                  <code class="comment__code">
-                    // ヘッダー、フッターのカスタムメニュー化<br>
-                    register_nav_menus( array(<br>
-                    　'place_global' =&gt; ' グローバル',<br>
-                    　'place_footer' =&gt; ' フッターナビ',<br>
-                    ) );
-                  </code>
                 </div>
                 <p class="index index--second">STEP4-5 投稿・投稿一覧を表示させる</p>
                 <div class="comment comment--second">
@@ -159,15 +159,6 @@
                     &lt;?php the_title(); ?&gt; //タイトルを出力<br>
                     &lt;?php the_content(); ?&gt; //記事を出力<br>
                     get_template_part( 'content-single' ); // 「content-single」を呼び出す
-                  </code>
-                  <p>header.php</p>
-                  <code class="comment__code">
-                    &lt;?php echo get_main_title(); ?&gt; //「get_main_title()」を出力
-                  </code>
-                  <p>archive.php</p>
-                  <code class="comment__code">
-                    &lt;?php the_permalink(); ?&gt; //ループ内で処理されている投稿のURLを出力<br>
-                    get_template_part( 'content-archive' ); // 「content-archive」を呼び出す
                   </code>
                   <p>functions.php</p>
                   <code class="comment__code">
@@ -185,22 +176,33 @@
                     　return '';<br>
                     }
                   </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_main_title(); ?&gt; //「get_main_title()」を出力
+                  </code>
+                  <p>archive.php</p>
+                  <code class="comment__code">
+                    &lt;?php the_permalink(); ?&gt; //ループ内で処理されている投稿のURLを出力
+                  </code>
                 </div>
                 <p class="index index--second">STEP4-6 サブクエリを活用して各一覧情報を表示させる</p>
                 <div class="comment comment--second">
-                  <p>page-company.php（page-contribution.phpも同様）</p>
+                  <p>page-company.php（page-contribution.php）</p>
                   <code class="comment__code">
-                    &lt;?php the_post_thumbnail(); ?&gt; //記事に紐づいた画像を表示<br>
-                    &lt;?php echo get_the_excerpt(); ?&gt; //該当ページの抜粋データを取得（抜粋データが存在しない場合は本文のデータを取得）<br>
                     &lt;?php<br>
                     $common_pages = get_child_pages();<br>
                     if( $common_pages-&gt;have_posts() ): //サブクエリをもとにしたWordPressループ<br>
                     　while( $common_pages-&gt;have_posts() ): $common_pages-&gt;the_post();<br>
-                    　　get_template_part( 'content-common' ); // 「content-common」を呼び出す<br>
+                    　　get_template_part( 'content-common' ); //「page-contribution.php」では「content-contribution」<br>
                     　endwhile;<br>
                     　wp_reset_postdata(); //サブクエリを実行した後、メインクエリに戻す<br>
                     endif;<br>
                     ?&gt;
+                  </code>
+                  <p>content-common.php（content-contribution.php）</p>
+                  <code class="comment__code">
+                    &lt;?php the_post_thumbnail(); ?&gt; //記事に紐づいた画像を表示<br>
+                    &lt;?php echo get_the_excerpt(); ?&gt; //該当ページの抜粋データを取得（抜粋データが存在しない場合は本文のデータを取得）<br>
                   </code>
                   <p>functions.php</p>
                   <code class="comment__code">
@@ -211,8 +213,8 @@
                     　　'posts_per_page' =&gt; $number, //取得したい記事数を指定<br>
                     　　'post_type' =&gt; 'page', //取得したい投稿タイプを指定<br>
                     　　'orderby' =&gt; 'menu_order', //並び替えの基準を指定<br>
-                    　　'order' =&gt; 'ASC', //昇順降順を指定<br>
-                    　　'post_parent' =&gt; $parent_id, //IDの親ページに紐づく子ページの情報を取得<br>
+                    　　'order' =&gt; 'ASC', //並び替えの昇順降順を指定<br>
+                    　　'post_parent' =&gt; $parent_id, //指定IDの親ページに紐づく子ページの情報を取得<br>
                     　);<br>
                     　$child_pages = new WP_Query( $args );<br>
                     　return $child_pages;<br>
@@ -221,14 +223,6 @@
                 </div>
                 <p class="index index--second">STEP4-7 アイキャッチ画像を利用し、記事ごとの画像を表示させる</p>
                 <div class="comment comment--second">
-                  <p>page-company.php（page-contribution.phpも同様）</p>
-                  <code class="comment__code">
-                    &lt;?php the_post_thumbnail( 'common' ); ?&gt; //画像を「common」にリサイズ<br>
-                  </code>
-                  <p>header.php</p>
-                  <code class="comment__code">
-                    &lt;?php echo get_main_image(); ?&gt; //「get_main_image()」を出力
-                  </code>
                   <p>functions.php</p>
                   <code class="comment__code">
                     // アイキャッチ画像を利用できるようにする<br>
@@ -258,34 +252,56 @@
                     　endif;<br>
                     }
                   </code>
+                  <p>page-company.php（page-contribution.phpも同様）</p>
+                  <code class="comment__code">
+                    &lt;?php the_post_thumbnail( 'common' ); ?&gt; //引数に「common」を指定することで画像をリサイズ<br>
+                  </code>
+                  <p>header.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_main_image(); ?&gt; //「get_main_image()」を出力
+                  </code>
                 </div>
                 <p class="index index--second">STEP4-8 トップページの表示を完成させる</p>
                 <div class="comment comment--second">
                   <p>front-page.php</p>
                   <code class="comment__code">
                     &lt;?php<br>
-                    $shop_obj = get_page_by_path( 'shop' ); //「shop」ページのオブジェクトを取得し「$shop_obj」に格納<br>
-                    $post = $shop_obj; //「$shop_obj」を「$post」に格納<br>
-                    setup_postdata( $post ); //「wp_reset_postdata()」までのテンプレートタグは、指定した登録情報をもとに実行されるようになる<br>
+                    $post = get_page_by_path( 'shop' ); //「shop」ページのオブジェクトを取得し「$post」に格納<br>
+                    setup_postdata( $post ); //「setup_postdata()」から「wp_reset_postdata()」までのテンプレートタグは「$post」の投稿情報をもとに実行されるようになる<br>
                     $shop_title = get_the_title(); //「get_the_title()」を「$shop_title」に格納<br>
                     ?&gt;<br>
-                    &lt;?php wp_reset_postdata(); ?&gt; //「setup_postdata()」をメインクエリに戻す<br>
+                    &lt;?php wp_reset_postdata(); ?&gt;<br>
                     <br>
                     &lt;?php<br>
-                    $shop_pages = get_child_pages( 4, $shop_obj-&gt;ID ); //「get_child_pages()」の引数を指定<br>
+                    $shop_pages = get_child_pages( 4, $shop_obj-&gt;ID ); //「get_child_pages()」の引数を指定して「$shop_pages」に格納<br>
                     if ( $shop_pages-&gt;have_posts() ) : //サブクエリをもとにしたWordPressループ<br>
                     　while ( $shop_pages-&gt;have_posts() ) : $shop_pages-&gt;the_post();<br>
                     ?&gt;<br>
+                    &lt;?php<br>
+                    　endwhile;<br>
+                    　wp_reset_postdata();<br>
+                    endif;<br>
+                    ?&gt;<br>
                     <br>
-                    &lt;?php echo esc_url( home_url( 'shop' ) ); ?&gt; //ホームからの相対パスのURLを返す<br>
+                    &lt;?php echo esc_url( home_url( 'shop' ) ); ?&gt; //「shop」までの相対パスのURLを返す<br>
+                    &lt;?php echo $shop_title; ?&gt; //「$shop_title」を出力<br>
                     <br>
                     &lt;?php $term_obj = get_term_by( 'slug', 'news', 'category' ); ?&gt;指定のタームのオブジェクトを取得し「$term_obj」に格納<br>
+                    &lt;?php echo $term_obj->name; ?&gt;「$term_obj」のnameを出力<br>
+                    &lt;?php echo $term_obj->description; ?&gt;「$term_obj」のdescriptionを出力<br>
                     <br>
                     &lt;?php<br>
-                    $news_posts = get_specific_posts( 'post', 'category', 'news', 3 ); //「get_specific_posts」の引数を指定<br>
+                    $news_posts = get_specific_posts( 'post', 'category', 'news', 3 ); //「get_specific_posts」の引数を指定して「$news_posts」に格納<br>
                     if( $news_posts-&gt;have_posts() ): //サブクエリをもとにしたWordPressループ<br>
                     　while( $news_posts-&gt;have_posts() ): $news_posts-&gt;the_post();<br>
-                    ?&gt;
+                    ?&gt;<br>
+                    &lt;?php<br>
+                    　endwhile;<br>
+                    　wp_reset_postdata();<br>
+                    endif;<br>
+                    ?&gt;<br>
+                    <br>
+                    &lt;?php echo esc_url( get_term_link( '$term_obj' ) ); ?&gt; //「$term_obj」のURLを返す
                   </code>
                   <p>functions.php</p>
                   <code class="comment__code">
