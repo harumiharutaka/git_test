@@ -362,9 +362,9 @@
                   </p>
                   <code class="comment__code">
                     &lt;?php<br>
-                    if ( function_exists('bcn_display') ){ //「bcn_display()」が定義されているかチェック<br>
+                    if ( function_exists('bcn_display') ): //「bcn_display()」が定義されているかチェック<br>
                     　bcn_display(); //パンくずを表示<br>
-                    }<br>
+                    endif;<br>
                     ?&gt;
                   </code>
                 </div>
@@ -391,23 +391,29 @@
                   <p>search.php</p>
                   <code class="comment__code">
                     &lt;?php the_search_query(); ?&gt; //検索ワードを出力<br>
-                    &lt;?php if ( get_search_query() ): ?&gt; //検索された文字列を取得して判定<br>
+                    &lt;?php if ( get_search_query() ): ?&gt; //検索された文字列をがあるか判定<br>
                     &lt;?php endif; ?&gt;<br>
                     &lt;?php echo $wp_query-&gt;found_posts; ?&gt; //検索で取得できた記事数を表示<br>
+                    <br>
                     &lt;?php<br>
                     if ( have_posts() && get_search_query() ) : //検索結果と検索キーワードがともに存在するかチェック<br>
                     　while ( have_posts() ) : the_post();<br>
                     ?&gt;<br>
+                    &lt;?php endwhile ?&gt;<br>
+                    &lt;?php elseif( !get_search_query() ) ?&gt;<br>
+                    &lt;?php else ?&gt;<br>
+                    &lt;?php endif ?&gt;<br>
+                    <br>
                     &lt;?php<br>
-                    $image = get_the_post_thumbnail( get_queried_object()-&gt;ID, 'search' ); //<br>
-                    if ( $image ):<br>
+                    $image = get_the_post_thumbnail( $post-&gt;ID, 'search' ); //サムネイル画像を取得し「$image」に格納<br>
+                    if ( $image ): //該当画像がある場合に表示<br>
                     　echo $image;<br>
                     else: //ニュースリリースの場合に表示<br>
                     　echo '&lt;img src="'. get_template_directory_uri(). '/assets/images/img-noImage.png"&gt;';<br>
                     endif;<br>
                     ?&gt;
                   </code>
-                  <p>search.php,header.php</p>
+                  <p>search.php＆header.php</p>
                   <code class="comment__code">
                     &lt;input name="s" /&gt; //name属性値に「s」を指定するとWordPressの検索機能を有効にできる
                   </code>
@@ -457,10 +463,6 @@
                 </div>
                 <p class="index index--second">STEP5-6 抜粋文の文字数を調整し、 簡潔に見通しをよくする</p>
                 <div class="comment comment--second">
-                  <p>content-common.php</p>
-                  <code class="comment__code">
-                    &lt;?php echo get_flexible_excerpt( 40 ); ?&gt; //抜粋文を40文字にする
-                  </code>
                   <p>functions.php</p>
                   <code class="comment__code">
                     //抜粋文の最後につく文字を変更<br>
@@ -491,6 +493,10 @@
                     }<br>
                     add_filter( 'get_the_excerpt', 'apply_excerpt_br' );
                   </code>
+                  <p>content-common.php</p>
+                  <code class="comment__code">
+                    &lt;?php echo get_flexible_excerpt( 40 ); ?&gt; //抜粋文を40文字にする
+                  </code>
                 </div>
                 <p class="index index--second">STEP5-7 カスタムページテンプレートを作成する</p>
                 <div class="comment comment--second">
@@ -503,17 +509,8 @@
                     ?&gt;
                   </code>
                   <p>
-                    「WordPress Popular Posts」を使用<br>
-                    page-sidebar.php
+                    「WordPress Popular Posts」を使用
                   </p>
-                  <code class="comment__code">
-                    &lt;?php<br>
-                    /*<br>
-                    Template Name: サイドバーあり //カスタムページテンプレートを定義する<br>
-                    */<br>
-                    ?&gt;<br>
-                    &lt;?php dynamic_sidebar( 'primary-widget-area' ); ?&gt; //サイドバーに登録した情報を表示
-                  </code>
                   <p>functions.php</p>
                   <code class="comment__code">
                     // ウィジェット機能を有効化<br>
@@ -529,6 +526,12 @@
                         ) );<br>
                     }<br>
                     add_action( 'widgets_init', 'theme_widgets_init' );
+                  </code>
+                  <p>
+                    sidebar.php
+                  </p>
+                  <code class="comment__code">
+                    &lt;?php dynamic_sidebar( 'primary-widget-area' ); ?&gt; //ウィジェットに登録した情報を表示
                   </code>
                 </div>
                 <p class="index index--first">CHAPTER6 SEO対策</p>
