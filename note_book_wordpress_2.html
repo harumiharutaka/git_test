@@ -181,7 +181,7 @@
                 <div class="comment comment--second">
                   <p>
                     プラグインをインストール<br>
-                    ・Advanced Custom Fields //アドバスカスタムフィールド<br>
+                    ・Advanced Custom Fields //アドバンスドカスタムフィールド<br>
                     ・Breadcrumb NavXT //パンくずリスト<br>
                     ・Custom Post Type UI //カスタム投稿タイプ＆カスタム分類<br>
                     ・All in One SEO //SEO<br>
@@ -363,7 +363,7 @@
                     &lt;?php wp_reset_postdata(); ?&gt;<br>
                     <br>
                     &lt;?php<br>
-                    $shop_pages = get_child_pages( 4, $shop_obj-&gt;ID ); //「get_child_pages()」の引数を指定して「$shop_pages」に格納<br>
+                    $shop_pages = get_child_pages( 4, get_the_ID() ); //「get_child_pages()」の引数を指定して「$shop_pages」に格納<br>
                     if ( $shop_pages-&gt;have_posts() ) : //サブクエリをもとにしたWordPressループ<br>
                     　while ( $shop_pages-&gt;have_posts() ) : $shop_pages-&gt;the_post();<br>
                     ?&gt;<br>
