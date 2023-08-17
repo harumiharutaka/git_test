@@ -266,14 +266,15 @@
                   <p>front-page.php</p>
                   <code class="comment__code">
                     &lt;?php<br>
-                    $post = get_page_by_path( 'shop' ); //「shop」ページのオブジェクトを取得し「$post」に格納<br>
+                    $shop_obj = get_page_by_path( 'shop' ); //「shop」ページのオブジェクトを取得し「$shop_obj」に格納<br>
+                    $post = $shop_obj; //を「$post」に格納<br>
                     setup_postdata( $post ); //「setup_postdata()」から「wp_reset_postdata()」までのテンプレートタグは「$post」の投稿情報をもとに実行されるようになる<br>
                     $shop_title = get_the_title(); //「get_the_title()」を「$shop_title」に格納<br>
                     ?&gt;<br>
                     &lt;?php wp_reset_postdata(); ?&gt;<br>
                     <br>
                     &lt;?php<br>
-                    $shop_pages = get_child_pages( 4, get_the_ID() ); //「get_child_pages()」の引数を指定して「$shop_pages」に格納<br>
+                    $shop_pages = get_child_pages( 4, $shop_obj-&gt;ID ); //「get_child_pages()」の引数を指定して「$shop_pages」に格納<br>
                     if ( $shop_pages-&gt;have_posts() ) : //サブクエリをもとにしたWordPressループ<br>
                     　while ( $shop_pages-&gt;have_posts() ) : $shop_pages-&gt;the_post();<br>
                     ?&gt;<br>
