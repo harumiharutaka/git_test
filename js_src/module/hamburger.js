@@ -4,26 +4,6 @@
 
 export function hamburger() {
     
-    //bodyのスクロールを始める関数
-    function bodyScrollStart(){
-        if (iOS) {
-            const bodyTop = document.body.style.top;
-            document.body.style.removeProperty('position');
-            document.body.style.removeProperty('top');
-            document.body.style.removeProperty('width');
-            window.scrollTo(0, parseInt(bodyTop) * -1);
-        } else if(scrollBarJudg) {
-            const bodyTop = document.body.style.top;
-            document.body.style.removeProperty('position');
-            document.body.style.removeProperty('top');
-            document.body.style.removeProperty('width');
-            window.scrollTo(0, parseInt(bodyTop) * -1);
-            document.querySelector('html').style.removeProperty('overflow-y');
-        } else {
-            document.body.style.removeProperty('overflow');
-        }
-    }
-
     const hamburger = document.querySelector('.js_header_hamburger-button');
     const drawer = document.querySelector('.js_drawer');
     const overlay = document.querySelector('.js_drawer-overlay');
