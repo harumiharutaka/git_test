@@ -14,6 +14,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 // EJSをコンパイルするプラグインの読み込み
 const ejs = require('gulp-ejs');
+// webpackのJavaScript APIを使用するためのライブラリ
+const webpack = require('webpack'); 
+// webpackをgulpで使用するためのプラグイン
+const webpackStream = require('webpack-stream'); 
+// webpackの設定ファイルの読み込み（さきほど作成したwebpack.config.jsのコンフィグ情報を読み込む）
+const webpackConfig = require('./webpack.config'); 
+
 
 /**
  * Sassをコンパイルするタスクです
@@ -49,8 +56,10 @@ const compileSass = () =>
  * JSをコンパイルするタスクです
  */
 const compileJs = () =>
-  // *.jsファイルを取得
-  src(['js/*.js', '!js/*.min.js'])
+  // webpackStreamを使用して、webpackを実行します。webpackConfigは設定ファイル、webpackはwebpackの実行ファイルを指定します。
+  webpackStream(webpackConfig, webpack) 
+    // 出力先ディレクトリを指定して、バンドルしたJavaScriptファイルを出力
+    .pipe(dest("js"))
     // Jsのミニファイ化を実行
     .pipe(uglify())
     // リネームを実行
@@ -83,7 +92,7 @@ const compileEjs = () =>
  * 各ファイルを監視し、変更があったら各ファイルを変換します
  */
 const watchSassFiles = () => watch('scss/**/*.scss', compileSass);
-const watchJsFiles = () => watch(['js/*.js', '!js/*.min.js'], compileJs);
+const watchJsFiles = () => watch(['js_src/module/*.js', '!js/*.js', '!js/*.min.js'], compileJs);
 const watchEjsFiles = () => watch(['ejs/**/*.ejs'], compileEjs);
 
 // npx gulpというコマンドを実行した時、各タスクが実行されるようにします
