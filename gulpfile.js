@@ -26,7 +26,7 @@ const webpackConfig = require('./webpack.config');
  */
 const compileSass = () =>
   // style.scssファイルを取得
-  src('scss/style.scss')
+  src('src/scss/style.scss')
     // ソースマップの作成を実行　スタート
     .pipe(sourcemaps.init())
     // Sassのコンパイルを実行
@@ -75,7 +75,7 @@ const compileJs = () =>
  */
 const compileEjs = () =>
   // *.ejsファイルを取得
-  src(['ejs/*.ejs'])
+  src(['src/ejs/*.ejs'])
     // EJSのコンパイルを実行
     .pipe(ejs({}, {}, { ext: '.html' }))
     // リネームを実行
@@ -90,9 +90,9 @@ const compileEjs = () =>
 /**
  * 各ファイルを監視し、変更があったら各ファイルを変換します
  */
-const watchSassFiles = () => watch('scss/**/*.scss', compileSass);
-const watchJsFiles = () => watch(['js_src/**/*.js'], compileJs);
-const watchEjsFiles = () => watch(['ejs/**/*.ejs'], compileEjs);
+const watchSassFiles = () => watch('src/scss/**/*.scss', compileSass);
+const watchJsFiles = () => watch(['src/js/**/*.js'], compileJs);
+const watchEjsFiles = () => watch(['src/ejs/**/*.ejs'], compileEjs);
 
 // npx gulpというコマンドを実行した時、各タスクが実行されるようにします
 exports.default = parallel(watchSassFiles, watchJsFiles, watchEjsFiles);
