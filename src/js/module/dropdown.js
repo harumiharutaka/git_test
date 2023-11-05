@@ -30,6 +30,24 @@ export function dropdown() {
                 }
     
             }
+
+            ParentBtn.addEventListener('mouseover', function (e) {
+
+                const childWrapperActiv = this.nextElementSibling.classList.contains('dropdown__child-wrapper--active');
+                if(!childWrapperActiv){
+    
+                    const childWrapperActivs = dropdown.querySelectorAll('.dropdown__child-wrapper--active');
+                    childWrapperActivs.forEach(function(childWrapperActiv, index) {
+                        childWrapperActiv.classList.remove('dropdown__child-wrapper--active');
+                    });
+
+                    if(childWrapperActivs.length !== 0){
+                        this.nextElementSibling.classList.add('dropdown__child-wrapper--active');
+                    }
+
+                }
+
+            });
     
             // 孫メニューの開閉
             const ChildParentBtns = dropdown.querySelectorAll('.dropdown__child-link--parent');
